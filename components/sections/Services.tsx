@@ -86,7 +86,7 @@ const Services = () => {
         <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto p-5">
+      <div className="relative z-10 w-full max-w-6xl mx-auto p-5 mt-50">
         {/* Rotating Index */}
         <div className="absolute top-10 right-10 flex h-16 flex-col items-end overflow-hidden">
           <div

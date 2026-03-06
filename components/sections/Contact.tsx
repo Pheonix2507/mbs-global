@@ -1,34 +1,29 @@
+import Image from "next/image";
+
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 px-6 bg-zinc-50 dark:bg-zinc-900/40">
-      <div className="mx-auto max-w-4xl rounded-[40px] bg-black p-12 text-white dark:bg-white dark:text-black sm:p-20">
-        <div className="text-center">
-          <h2 className="font-zalando text-4xl font-bold tracking-tight sm:text-6xl mb-8">
-            Ready to start your next project?
-          </h2>
-          <p className="mx-auto mb-12 max-w-xl text-lg text-zinc-400 dark:text-zinc-500">
-            Let&apos;s build something incredible together. Reach out for a
-            consultation or just to say hello.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-6">
-            <a
-              href="mailto:hello@mbsfreelance.com"
-              className="text-3xl font-semibold underline decoration-zinc-700 underline-offset-8 transition-colors hover:decoration-white dark:decoration-zinc-300 dark:hover:decoration-black sm:text-5xl"
-            >
-              hello@mbsfreelance.com
-            </a>
-            <div className="mt-8 flex gap-8">
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                Instagram
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                Twitter
-              </a>
-              <a href="#" className="hover:opacity-70 transition-opacity">
-                LinkedIn
-              </a>
-            </div>
-          </div>
+    <section
+      id="contact"
+      className="relative flex flex-col min-h-[612px] items-center justify-center overflow-hidden bg-background px-6 py-24"
+    >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/join.jpg"
+          alt="Services Background"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
+        <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
+      </div>
+      <div className="relative z-10 mx-auto rounded-[40px] p-12 sm:p-20">
+        <div className="text-6xl font-normal font-zalando mb-6.5">
+          Engineering Better Tomorrow
+        </div>
+        <div className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center">
+          <span className="font-zalando font-normal text-white">
+            Build Your Team
+          </span>
         </div>
       </div>
     </section>

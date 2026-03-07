@@ -3,7 +3,7 @@ import Image from "next/image";
 const Offerings = () => {
   return (
     <section
-      id="contact"
+      id="offerings"
       className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-background px-6 py-24"
     >
       <div className="absolute inset-0 z-0">

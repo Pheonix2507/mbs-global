@@ -1,7 +1,9 @@
-import Image from "next/image";
+import { fetchStrapi, getStrapiMedia, blocksToText } from "@/lib/strapi";
+import { StrapiBlog, StrapiResponse } from "@/lib/strapi-types";
+import { BlogPost } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import BlogSideIndex from "@/components/ui/BlogSideIndex";
-import { BLOGS } from "@/lib/blog-data";
+import Image from "next/image";
 
 export default async function BlogDetailPage({
   params,
@@ -9,11 +11,40 @@ export default async function BlogDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const blog = BLOGS.find((b) => b.id === id);
 
-  if (!blog) {
+  const response = await fetchStrapi<StrapiResponse<StrapiBlog>>(
+    `/blogs/${id}`,
+    {
+      populate: "*",
+    },
+  );
+
+  if (!response.data) {
     notFound();
   }
+
+  const blogData = response.data;
+  const title = blogData.Title || blogData.attributes?.title || "Untitled";
+  const contentText =
+    blocksToText(blogData.Content) ||
+    (typeof blogData.attributes?.content === "string"
+      ? blogData.attributes.content
+      : "");
+  const media = blogData.Image || blogData.attributes?.image;
+
+  const blog: BlogPost = {
+    id: blogData.documentId || blogData.id.toString(),
+    title: title,
+    description: contentText.substring(0, 200) || "",
+    mainImage: getStrapiMedia(media) || "/mechanism.jpg",
+    sections: [
+      {
+        id: "main-content",
+        title: title,
+        content: contentText,
+      },
+    ],
+  };
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -57,13 +88,6 @@ export default async function BlogDetailPage({
                     </h2>
                     <div className="prose prose-zinc dark:prose-invert max-w-none text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
                       <p>{section.content}</p>
-                      <p className="mt-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
-                      </p>
                     </div>
                   </section>
                 ))}

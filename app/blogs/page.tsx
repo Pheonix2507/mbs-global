@@ -1,10 +1,43 @@
 import BlogHero from "@/components/sections/BlogHero";
 import BlogCard from "@/components/ui/BlogCard";
-import { BLOGS } from "@/lib/blog-data";
+import { fetchStrapi, getStrapiMedia, blocksToText } from "@/lib/strapi";
+import { StrapiBlog, StrapiResponse } from "@/lib/strapi-types";
+import { BlogPost } from "@/lib/blog-data";
 
-export default function BlogsPage() {
-  const featuredBlog = BLOGS[0];
-  const otherBlogs = BLOGS.slice(1);
+export default async function BlogsPage() {
+  const response = await fetchStrapi<StrapiResponse<StrapiBlog[]>>("/blogs", {
+    populate: "*",
+  });
+
+  const blogs: BlogPost[] = (response.data || []).map((blog) => {
+    // Strapi 5 uses direct properties (capitalized) or attributes (lowercase fallback)
+    const title = blog.Title || blog.attributes?.title || "Untitled";
+    const contentText =
+      blocksToText(blog.Content) ||
+      (typeof blog.attributes?.content === "string"
+        ? blog.attributes.content
+        : "");
+    const media = blog.Image || blog.attributes?.image;
+
+    return {
+      id: blog.documentId || blog.id.toString(), // Prefer documentId for Strapi 5 routing
+      title: title,
+      description: contentText.substring(0, 160) + "..." || "",
+      mainImage: getStrapiMedia(media) || "/mechanism.jpg",
+      sections: [],
+    };
+  });
+
+  const featuredBlog = blogs[0];
+  const otherBlogs = blogs.slice(1);
+
+  if (!featuredBlog) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <h1 className="text-2xl font-semibold">No blogs found.</h1>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen flex-col">

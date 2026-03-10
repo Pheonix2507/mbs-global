@@ -142,34 +142,22 @@ const Footer = () => {
             </h3>
             <div className="flex flex-col gap-3 text-sm text-zinc-600 dark:text-zinc-400">
               <Link
-                href="/services"
+                href="/services/platform-product-engineering"
                 className="hover:text-black dark:hover:text-white transition-colors"
               >
                 Platform & product engineering
               </Link>
               <Link
-                href="/services"
+                href="/services/digital-infra-ops"
                 className="hover:text-black dark:hover:text-white transition-colors"
               >
                 Digital infra & Ops
               </Link>
               <Link
-                href="/services"
+                href="/services/data-analytics-cloud-ai"
                 className="hover:text-black dark:hover:text-white transition-colors"
               >
-                Data
-              </Link>
-              <Link
-                href="/services"
-                className="hover:text-black dark:hover:text-white transition-colors"
-              >
-                Analytics
-              </Link>
-              <Link
-                href="/services"
-                className="hover:text-black dark:hover:text-white transition-colors"
-              >
-                Cloud & AI
+                Data, Analytics, Cloud & AI
               </Link>
             </div>
           </div>

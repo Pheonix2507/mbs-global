@@ -63,6 +63,87 @@ const OPERATIVE_DATA: FeaturePoint[] = [
   },
 ];
 
+const PLATFORM_DATA: FeaturePoint[] = [
+  {
+    title: "Scalable Architecture",
+    description:
+      "Design and implement fault-tolerant, highly available systems that grow seamlessly with your user base.",
+    image: "/mechanism.jpg",
+  },
+  {
+    title: "Agile Development",
+    description:
+      "Accelerate time-to-market with iterative delivery, continuous integration, and rapid deployment cycles.",
+    image: "/hero.jpg",
+  },
+  {
+    title: "User-Centric Design",
+    description:
+      "Create intuitive, frictionless experiences that drive deep engagement and long-term customer loyalty.",
+    image: "/about-values-side.jpg",
+  },
+  {
+    title: "Robust Security",
+    description:
+      "Embed enterprise-grade security protocols into every layer of your application from day one.",
+    image: "/join.jpg",
+  },
+];
+
+const INFRA_DATA: FeaturePoint[] = [
+  {
+    title: "Cloud Migration",
+    description:
+      "Transition legacy workloads to modern cloud environments securely and with zero downtime.",
+    image: "/mechanism.jpg",
+  },
+  {
+    title: "Automated Provisioning",
+    description:
+      "Deploy infrastructure as code to guarantee consistency, speed, and scalability across environments.",
+    image: "/hero.jpg",
+  },
+  {
+    title: "24/7 Monitoring",
+    description:
+      "Proactively identify and resolve system anomalies before they impact your end-user experience.",
+    image: "/about-values-side.jpg",
+  },
+  {
+    title: "Cost Optimization",
+    description:
+      "Analyze resource utilization to eliminate waste and dramatically reduce your operational footprint.",
+    image: "/join.jpg",
+  },
+];
+
+const DATA_AI_DATA: FeaturePoint[] = [
+  {
+    title: "Predictive Analytics",
+    description:
+      "Harness historical data to forecast trends, anticipate market shifts, and mitigate risks.",
+    image: "/mechanism.jpg",
+  },
+  {
+    title: "Machine Learning Solutions",
+    description:
+      "Deploy custom algorithms that automate complex tasks and uncover hidden business intelligence.",
+    image: "/hero.jpg",
+  },
+  {
+    title: "Data Lake Architecture",
+    description:
+      "Centralize structured and unstructured data into a scalable, accessible, and secure repository.",
+    image: "/about-values-side.jpg",
+  },
+  {
+    title: "Generative AI",
+    description:
+      "Leverage cutting-edge LLMs to generate content, personalize experiences, and boost productivity.",
+    image: "/join.jpg",
+  },
+];
+
 interface Props {
   slug: string;
 }
@@ -71,7 +152,16 @@ const SolutionAnimatedFeatures = ({ slug }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  const data = slug === "innovation" ? INNOVATION_DATA : OPERATIVE_DATA;
+  const data =
+    slug === "platform"
+      ? PLATFORM_DATA
+      : slug === "infra"
+        ? INFRA_DATA
+        : slug === "data"
+          ? DATA_AI_DATA
+          : slug === "innovation"
+            ? INNOVATION_DATA
+            : OPERATIVE_DATA;
   const DURATION = 6000; // 6 seconds per slide
 
   useEffect(() => {

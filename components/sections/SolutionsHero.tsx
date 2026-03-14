@@ -18,7 +18,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
     : data?.background_image?.mime?.startsWith("video/");
 
   return (
-    <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[60vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
       {isVideo ? (
         <video
           src={backgroundImage}

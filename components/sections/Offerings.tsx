@@ -101,14 +101,14 @@ const Offerings = ({ data }: OfferingsProps) => {
           <div className="flex gap-4 md:gap-4 w-full justify-end md:w-auto">
             <button
               onClick={prevSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
               aria-label="Previous slide"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
               aria-label="Next slide"
             >
               <ChevronRight className="h-6 w-6" />

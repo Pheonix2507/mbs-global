@@ -152,7 +152,7 @@ const WorldMap = () => {
       <div className="max-w-6xl mx-auto">
         {/* Map container */}
         <div
-          className="relative w-full overflow-hidden"
+          className="relative w-full"
           style={{ aspectRatio: "2/1" }}
         >
           {/* World map image */}
@@ -160,7 +160,7 @@ const WorldMap = () => {
             src="/world-map.png"
             alt="World map showing MBS Global office locations"
             fill
-            className="object-fit"
+            className="object-contain"
             priority
           />
           <div className="absolute inset-0 z-0"></div>

@@ -13,15 +13,16 @@ const Hero = ({ data }: HeroProps) => {
   if (!title && !subtitle) return null;
 
   const backgroundImage = getStrapiMedia(data?.background_image) || "/hero.jpg";
-  const isVideo = Array.isArray(data?.background_image) 
-    ? data?.background_image[0]?.mime?.startsWith('video/')
-    : data?.background_image?.mime?.startsWith('video/');
+  const isVideo = Array.isArray(data?.background_image)
+    ? data?.background_image[0]?.mime?.startsWith("video/")
+    : data?.background_image?.mime?.startsWith("video/");
 
   return (
     <section
       id="hero"
-      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-background px-6 py-24"
+      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-background px-6 py-16 sm:px-6 sm:py-20 md:py-24"
     >
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         {isVideo ? (
           <video
@@ -33,11 +34,16 @@ const Hero = ({ data }: HeroProps) => {
             className="h-full w-full object-cover"
           />
         ) : (
-          <Image src={backgroundImage} alt="Hero Background" fill className="object-cover" />
+          <Image
+            src={backgroundImage}
+            alt="Hero Background"
+            fill
+            className="object-cover"
+          />
         )}
         <div className="absolute inset-0 bg-background/50"></div>
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
-        <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
+        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] md:h-[500px] md:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
+        <div className="absolute right-0 top-0 h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
 
       <div className="relative z-10 px-39 ml-10 min-w-[1134px]">
@@ -52,12 +58,16 @@ const Hero = ({ data }: HeroProps) => {
           ))}
         </h1>
 
-        <p className="px-18 mb-10 font-sans font-normal text-center text-xl text-[#FFFFFF] dark:text-[#FFFFFF]">
+        <p className="mb-8 md:mb-10 font-sans font-normal text-[15px] sm:text-lg md:text-xl leading-[120%] tracking-normal text-center text-[#FFFFFF] dark:text-[#FFFFFF] max-w-2xl mx-auto">
           {subtitle}
         </p>
       </div>
-      <div className="relative z-10 border border-white rounded-sm py-3 px-6 cursor-pointer hover:bg-white hover:text-black transition-all duration-300">
-        <span className="font-zalando font-normal">Build Your Team</span>
+
+      {/* CTA Button */}
+      <div className="relative z-10 flex items-center justify-center w-[266.52px] h-[55.26px] md:w-auto md:h-auto gap-[11.36px] rounded-[4.54px] border-[1.14px] border-[#FFFFFF] py-[13.63px] md:py-4 px-[27.26px] md:px-10 opacity-100">
+        <span className="font-zalando font-normal text-white text-sm sm:text-base md:text-lg">
+          Build Your Team
+        </span>
       </div>
     </section>
   );

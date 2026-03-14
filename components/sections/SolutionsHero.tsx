@@ -13,9 +13,9 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
   if (!title && !subtitle) return null;
 
   const backgroundImage = getStrapiMedia(data?.background_image) || "/hero.jpg";
-  const isVideo = Array.isArray(data?.background_image) 
-    ? data?.background_image[0]?.mime?.startsWith('video/')
-    : data?.background_image?.mime?.startsWith('video/');
+  const isVideo = Array.isArray(data?.background_image)
+    ? data?.background_image[0]?.mime?.startsWith("video/")
+    : data?.background_image?.mime?.startsWith("video/");
 
   return (
     <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center overflow-hidden">

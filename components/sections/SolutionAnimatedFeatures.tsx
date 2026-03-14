@@ -66,27 +66,27 @@ const OPERATIVE_DATA: FeaturePoint[] = [
 
 const PLATFORM_DATA: FeaturePoint[] = [
   {
-    title: "Scalable Architecture",
+    title: "Agile Product Engineering",
     description:
-      "Design and implement fault-tolerant, highly available systems that grow seamlessly with your user base.",
+      "Accelerate from idea to implementation with end-to-end managed services and quality engineering.",
     image: "/mechanism.jpg",
   },
   {
-    title: "Agile Development",
+    title: "DevOps & SRE",
     description:
-      "Accelerate time-to-market with iterative delivery, continuous integration, and rapid deployment cycles.",
+      "Add resilience to your systems with AI-powered automation, continuous improvement, and seamless business continuity.",
     image: "/hero.jpg",
   },
   {
-    title: "User-Centric Design",
+    title: "Architecture Builder",
     description:
-      "Create intuitive, frictionless experiences that drive deep engagement and long-term customer loyalty.",
+      "Gain real-time visualization of your \"to-be\" state with our automated architecture blueprints and fix bottlenecks before they happen.",
     image: "/about-values-side.jpg",
   },
   {
-    title: "Robust Security",
+    title: "Platform Modernization",
     description:
-      "Embed enterprise-grade security protocols into every layer of your application from day one.",
+      "Transform into a tech-centric organization with high-performing CRM, MarTech, and cloud-native capabilities.",
     image: "/join.jpg",
   },
 ];
@@ -203,11 +203,11 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
   }, [data.length]);
 
   return (
-    <section className="py-24 bg-[#1F1F1F]">
+    <section className="py-16 md:py-24 bg-[#1F1F1F]">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left: Dynamic Image */}
-          <div className="relative aspect-square md:aspect-4/3 lg:aspect-square overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left: Dynamic Image Container */}
+          <div className="relative aspect-[4/3] lg:aspect-square w-full max-w-[400px] lg:max-w-none mx-auto lg:mx-0 rounded-[4px] overflow-hidden shadow-2xl bg-zinc-900 mb-2 lg:mb-0">
             {data.map((item, idx) => (
               <Image
                 key={idx}
@@ -219,54 +219,48 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
                 }`}
               />
             ))}
-            <div className="absolute inset-0 bg-black/10 dark:bg-black/20" />
+            <div className="absolute inset-0 bg-black/20" />
           </div>
 
-          {/* Right: 4 Points with Loaders */}
-          <div className="flex flex-col gap-8">
+          {/* Right: Points with Loaders */}
+          <div className="flex flex-col gap-10 md:gap-12">
             {data.map((item, idx) => {
               const isActive = activeIndex === idx;
 
               return (
                 <div
                   key={idx}
-                  className={`flex flex-col gap-4 cursor-pointer transition-opacity duration-500 ${
-                    isActive ? "opacity-100" : "opacity-40 hover:opacity-70"
-                  }`}
+                  className="flex flex-col gap-4 cursor-pointer"
                   onClick={() => {
                     setActiveIndex(idx);
-                    setProgress(0); // Optional: Clicking resets the progress for the new active index
+                    setProgress(0);
                   }}
                 >
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <h3
-                      className={`font-zalando text-2xl md:text-3xl font-semibold tracking-tight transition-colors duration-500 ${
-                        isActive
-                          ? "text-[#AF33FF]"
-                          : "text-zinc-900 dark:text-zinc-100"
+                      className={`font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-left text-white transition-colors duration-500 leading-[110%] ${
+                        isActive ? "text-[#AF33FF]" : ""
                       }`}
                     >
-                      {item.title}
+                      {item.title}:
                     </h3>
-                    <p className="font-sans text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
-                      {item.description}
-                    </p>
+                    
+                    {/* Description - always show or only active? Screenshot shows active one expanded */}
+                    <div className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0 lg:max-h-40 lg:opacity-100"}`}>
+                      <p className="font-sans text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
 
-                  {/* Horizontal Loader - Only visible if active */}
-                  {isActive && (
-                    <div className="w-full h-1 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden relative mt-2">
-                      {/* The Fill with Gradient (White to #AF33FF) */}
-                      <div
-                        className="absolute top-0 left-0 h-full rounded-full transition-all duration-75"
-                        style={{
-                          width: `${progress}%`,
-                          background:
-                            "linear-gradient(90deg, rgba(255,255,255,1) 0%, #AF33FF 100%)",
-                        }}
-                      />
-                    </div>
-                  )}
+                  {/* Progress Bar - Visible for active item on both desktop and mobile */}
+                  <div className={`relative w-full overflow-hidden transition-all duration-500 rounded-full ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}>
+                    <div className="absolute inset-0 bg-white/20 rounded-full" />
+                    <div
+                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-600 to-[#AF33FF] rounded-full transition-none"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
                 </div>
               );
             })}

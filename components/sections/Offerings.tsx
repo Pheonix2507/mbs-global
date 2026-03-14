@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -26,31 +26,23 @@ const Offerings = ({ data }: OfferingsProps) => {
   if (!offerings || offerings.length === 0) return null;
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev + itemsPerPage >= totalItems ? 0 : prev + itemsPerPage,
-    );
+    setCurrentIndex((prev) => (prev + 1 >= totalItems ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev - itemsPerPage < 0
-        ? Math.max(0, totalItems - itemsPerPage)
-        : prev - itemsPerPage,
-    );
+    setCurrentIndex((prev) => (prev - 1 < 0 ? totalItems - 1 : prev - 1));
   };
 
   return (
     <section
       id="offerings"
-      className="relative bg-white dark:bg-[#1F2123] py-24 overflow-hidden"
+      className="relative bg-[#1F1F1F] md:bg-white py-[60px] md:py-24 md:dark:bg-black overflow-hidden"
     >
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="mb-16 flex items-end justify-between">
-          <div className="space-y-4">
-            <h2 className="font-zalando text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
-              Core Offerings
-            </h2>
-          </div>
+        <div className="mb-12 md:mb-16">
+          <h2 className="font-zalando text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] md:text-zinc-900 md:dark:text-white max-w-[300px] md:max-w-none">
+            Core Offerings
+          </h2>
         </div>
 
         <div className="relative overflow-hidden">
@@ -63,7 +55,8 @@ const Offerings = ({ data }: OfferingsProps) => {
             {offerings.map((item) => (
               <div
                 key={item.id}
-                className="w-full shrink-0 px-4 sm:w-1/2 lg:w-1/3"
+                className="shrink-0 px-4"
+                style={{ width: `${100 / itemsPerPage}%` }}
               >
                 <div className="group relative flex flex-col space-y-6">
                   <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
@@ -75,11 +68,11 @@ const Offerings = ({ data }: OfferingsProps) => {
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
-                  <div className="space-y-2">
-                    <h3 className="font-zalando text-2xl font-semibold text-zinc-900 dark:text-white">
+                  <div className="space-y-4">
+                    <h3 className="font-zalando text-3xl font-normal text-white md:text-zinc-900 md:dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="font-sans text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="font-sans text-lg text-[#E0E0E0] md:text-zinc-600 md:dark:text-zinc-400 leading-relaxed">
                       {item.subtitle}
                     </p>
                   </div>
@@ -89,8 +82,8 @@ const Offerings = ({ data }: OfferingsProps) => {
           </div>
         </div>
 
-        <div className="mt-12 flex items-center justify-between">
-          <div className="flex gap-2">
+        <div className="mt-16 flex items-center justify-center md:justify-between">
+          <div className="hidden md:flex gap-2">
             {Array.from({ length: Math.ceil(totalItems / itemsPerPage) }).map(
               (_, i) => (
                 <button
@@ -105,20 +98,20 @@ const Offerings = ({ data }: OfferingsProps) => {
               ),
             )}
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:gap-4 w-full justify-end md:w-auto">
             <button
               onClick={prevSlide}
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white transition-all hover:bg-zinc-900 hover:text-white dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-white dark:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:hover:bg-white dark:md:hover:text-zinc-900"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="group flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white transition-all hover:bg-zinc-900 hover:text-white dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-white dark:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:hover:bg-white dark:md:hover:text-zinc-900"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-6 w-6" />
             </button>
           </div>
         </div>

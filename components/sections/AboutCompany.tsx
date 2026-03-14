@@ -31,18 +31,18 @@ const AboutCompany = ({ data }: AboutCompanyProps) => {
       </div>
 
       <div className="relative mx-auto max-w-5xl z-10">
-        <div className="text-[#AF33FF] text-6xl font-normal font-zalando mb-28">
+        <div className="text-[#D699FF] md:text-[#AF33FF] text-6xl font-normal font-zalando mb-28">
           {title}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col gap-2">
               <div className="flex items-baseline gap-1">
-                <span className="font-zalando text-6xl font-normal tracking-tighter text-[#020203] dark:text-white">
+                <span className="font-zalando text-6xl font-normal tracking-tighter text-white md:text-[#020203] dark:text-white">
                   {stat.number}
                 </span>
               </div>
-              <p className="text-lg max-w-[200px] leading-tight text-[#020203] dark:text-white">
+              <p className="text-lg max-w-[200px] leading-tight text-white md:text-[#020203] dark:text-white">
                 {stat.text}
               </p>
             </div>

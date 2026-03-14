@@ -39,6 +39,7 @@ export default async function SolutionDetail({
     "operative-managements",
     "strategic-consulting",
     "innovation",
+    "total-talent-solutions",
   ].includes(slug);
 
   // Render the carousel for the specific slug
@@ -49,9 +50,12 @@ export default async function SolutionDetail({
     slug,
   );
 
-  const heroData = Array.isArray(strapiData?.hero_section) 
-    ? strapiData?.hero_section[0] 
-    : (strapiData?.hero_section || strapiData?.hero);
+  // Show WhyTalentWins only for total talent solutions
+  const showWhyTalentWins = slug === "total-talent-solutions";
+
+  const heroData = Array.isArray(strapiData?.hero_section)
+    ? strapiData?.hero_section[0]
+    : strapiData?.hero_section || strapiData?.hero;
 
   // Map Pillar/Grid data based on slug
   let gridRawData: any = null;
@@ -73,9 +77,12 @@ export default async function SolutionDetail({
     case "innovation":
       // Flattening Concept_to_Reality title_subtile_image items
       gridRawData = Array.isArray(strapiData?.Concept_to_Reality)
-        ? strapiData.Concept_to_Reality.flatMap((item: any) => item.title_subtile_image)
+        ? strapiData.Concept_to_Reality.flatMap(
+            (item: any) => item.title_subtile_image,
+          )
         : strapiData?.Concept_to_Reality?.title_subtile_image;
-      gridTitle = strapiData?.Concept_to_Reality?.[0]?.title || "Concept to Reality";
+      gridTitle =
+        strapiData?.Concept_to_Reality?.[0]?.title || "Concept to Reality";
       break;
     case "total-talent-solution":
       gridRawData = strapiData?.MBS_Lifecycle?.pillar_element;
@@ -88,8 +95,9 @@ export default async function SolutionDetail({
     ? gridRawData.map((item: any) => {
         // Handle different structures (Workspaces_pillar vs innovation others)
         const itemTitle = item.title || item.title_subtile?.title || "";
-        const itemImage = item.image || item.background_image || item.icon || item.side_image;
-        
+        const itemImage =
+          item.image || item.background_image || item.icon || item.side_image;
+
         let points = [];
         if (Array.isArray(item.points)) {
           points = item.points;
@@ -101,7 +109,7 @@ export default async function SolutionDetail({
             },
           ];
         } else if (item.subtitle || item.description) {
-           points = [
+          points = [
             {
               title: "",
               description: item.subtitle || item.description || "",
@@ -121,23 +129,29 @@ export default async function SolutionDetail({
     <main className="min-h-screen pt-20">
       <SolutionsHero data={heroData} />
       {showGlassmorphism && (
-        <SolutionGlassmorphism 
-          slug={slug} 
-          data={slug === "innovation" ? { 
-            title: strapiData?.Toolkit?.title, 
-            description: strapiData?.Toolkit?.pillar_element?.[0]?.title 
-          } : undefined} 
+        <SolutionGlassmorphism
+          slug={slug}
+          data={
+            slug === "innovation"
+              ? {
+                  title: strapiData?.Toolkit?.title,
+                  description: strapiData?.Toolkit?.pillar_element?.[0]?.title,
+                }
+              : undefined
+          }
         />
       )}
       {showAnimatedFeatures && (
-        <SolutionAnimatedFeatures 
-          slug={slug} 
-          data={slug === "innovation" ? strapiData?.innovation : undefined} 
+        <SolutionAnimatedFeatures
+          slug={slug}
+          data={slug === "innovation" ? strapiData?.innovation : undefined}
         />
       )}
       <SolutionsGrid title={gridTitle} data={mappedGridData} />
       {showCarousel && <SolutionCarousel />}
-      <SolutionsSplit data={slug === "innovation" ? strapiData?.banner?.[0] : undefined} />
+      <SolutionsSplit
+        data={slug === "innovation" ? strapiData?.banner?.[0] : undefined}
+      />
     </main>
   );
 }

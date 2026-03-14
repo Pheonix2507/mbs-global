@@ -32,9 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
       <body
-        className={`${workSans.variable} ${zalandoSans.variable} antialiased transition-colors duration-300`}
+        className={`${workSans.variable} ${zalandoSans.variable} antialiased transition-colors duration-300 overflow-x-hidden`}
       >
         <ThemeProvider
           attribute="class"

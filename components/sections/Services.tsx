@@ -111,7 +111,11 @@ const Services = ({ data }: ServicesProps) => {
               <h3 className="mb-6 font-zalando text-5xl font-semibold">
                 {service.title.startsWith("Co-") ? (
                   <>
-                    Co-<span className="text-purple-600">{service.title.replace("Co-", "")}</span>:
+                    Co-
+                    <span className="text-purple-600">
+                      {service.title.replace("Co-", "")}
+                    </span>
+                    :
                   </>
                 ) : (
                   <>
@@ -126,20 +130,36 @@ const Services = ({ data }: ServicesProps) => {
           ))}
         </div>
 
-        <div className="mt-8 flex justify-end gap-4">
+        {/* Arrows outside card — desktop only */}
+        <div className="mt-8 hidden md:flex justify-end gap-[11.8px]">
           <button
             onClick={() => scroll("left")}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white/50 backdrop-blur-sm transition-all hover:bg-white hover:scale-110 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:bg-zinc-800"
+            className="flex h-[59px] w-[59px] items-center justify-center"
             aria-label="Previous service"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <div
+              className="flex h-[44.25px] w-[44.25px] items-center justify-center rounded-full transition-all hover:scale-110"
+              style={{ border: "2.95px solid #FFFFFF" }}
+            >
+              <ChevronLeft className="h-5 w-5 text-white" />
+            </div>
           </button>
           <button
             onClick={() => scroll("right")}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-zinc-200 bg-white/50 backdrop-blur-sm transition-all hover:bg-white hover:scale-110 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:bg-zinc-800"
+            className="flex h-[59px] w-[59px] items-center justify-center"
             aria-label="Next service"
           >
-            <ChevronRight className="h-6 w-6" />
+            <div
+              className="relative flex h-[44.25px] w-[44.25px] items-center justify-center rounded-full transition-all hover:scale-110"
+              style={{
+                background: "linear-gradient(180deg, #FFFFFF 0%, #AF33FF 100%)",
+                padding: "2.95px",
+              }}
+            >
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-background">
+                <ChevronRight className="h-5 w-5 text-white" />
+              </div>
+            </div>
           </button>
         </div>
       </div>

@@ -42,7 +42,7 @@ const Offerings = ({ data }: OfferingsProps) => {
   return (
     <section
       id="offerings"
-      className="relative bg-white py-24 dark:bg-black overflow-hidden"
+      className="relative bg-white dark:bg-[#1F2123] py-24 overflow-hidden"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-16 flex items-end justify-between">

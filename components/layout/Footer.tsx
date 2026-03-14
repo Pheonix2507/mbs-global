@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Facebook, Youtube, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white dark:bg-black border-t border-zinc-200 dark:border-zinc-800">
+    <footer className="w-full bg-[#1F1F1F] border-t border-zinc-200">
       <div className="container mx-auto px-6 max-w-7xl py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Column 1: Icons and Contact Button */}

@@ -19,8 +19,8 @@ interface ContactProps {
 
 const Contact = ({ data }: ContactProps) => {
   const banner = data?.[0];
-  const title = banner?.title || "Engineering Better Tomorrow";
-  const backgroundImage = getStrapiMedia(banner?.image) || "/join.jpg";
+  const title = banner?.title || "";
+  const backgroundImage = getStrapiMedia(banner?.image) || "";
   const buttonText = banner?.button?.[0]?.text || "Build Your Team";
 
   if (!data || data.length === 0) return null;
@@ -41,9 +41,7 @@ const Contact = ({ data }: ContactProps) => {
         <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
       <div className="relative z-10 mx-auto rounded-[40px] p-12 sm:p-20 text-center">
-        <div className="text-6xl font-normal font-zalando mb-6.5">
-          {title}
-        </div>
+        <div className="text-6xl font-normal font-zalando mb-6.5">{title}</div>
         <div className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center">
           <span className="font-zalando font-normal text-white">
             {buttonText}

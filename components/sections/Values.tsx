@@ -25,10 +25,10 @@ const Values = ({ data }: ValuesProps) => {
   return (
     <section
       id="values"
-      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden px-6 py-24 bg-white"
+      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden px-6 py-24 bg-white dark:bg-[#1F2123]"
     >
       <div className="relative z-10 mx-auto rounded-[40px] mb-16">
-        <div className="text-6xl font-normal font-zalando text-[#AF33FF] text-center">
+        <div className="text-6xl font-normal font-zalando text-[#D699FF] text-center">
           {title}
         </div>
       </div>
@@ -38,16 +38,16 @@ const Values = ({ data }: ValuesProps) => {
             key={index}
             className="flex flex-col items-center text-center gap-6"
           >
-            <div className="relative w-32 h-32 rounded-full bg-[#EEF1F4] flex items-center justify-center overflow-hidden">
+            <div className="relative w-64 h-64 rounded-full flex items-center justify-center overflow-hidden">
               <Image
-                src={getStrapiMedia(value.icon) || "/value-1.png"}
+                src={getStrapiMedia(value.icon)}
                 alt=""
                 width={64}
                 height={64}
                 className="object-contain"
               />
             </div>
-            <p className="text-lg max-w-[345px] leading-tight text-[#1F2123] font-zalando font-medium">
+            <p className="text-lg max-w-[345px] leading-tight text-[#1F2123] dark:text-white font-zalando font-medium">
               {value.text}
             </p>
           </div>

@@ -18,7 +18,8 @@ const locations: Location[] = [
     id: "india",
     country: "India",
     flag: "🇮🇳",
-    address: "B/1205 Empire Business Hub,\nScience City Road, Sola,\nAhmedabad GJ 380060",
+    address:
+      "B/1205 Empire Business Hub,\nScience City Road, Sola,\nAhmedabad GJ 380060",
     left: "71%",
     top: "44%",
   },
@@ -54,7 +55,11 @@ const Pin = ({ location }: { location: Location }) => {
   return (
     <div
       className="absolute z-10 flex flex-col items-center cursor-pointer"
-      style={{ left: location.left, top: location.top, transform: "translate(-50%, -100%)" }}
+      style={{
+        left: location.left,
+        top: location.top,
+        transform: "translate(-50%, -100%)",
+      }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -141,10 +146,9 @@ const Pin = ({ location }: { location: Location }) => {
   );
 };
 
-
 const WorldMap = () => {
   return (
-    <section className="py-16 px-6 bg-background">
+    <section className="py-16 px-6 bg-white dark:bg-[#1F2123]">
       <div className="max-w-6xl mx-auto">
         {/* Map container */}
         <div
@@ -159,7 +163,7 @@ const WorldMap = () => {
             className="object-fit"
             priority
           />
-
+          <div className="absolute inset-0 z-0"></div>
           {/* Location pins */}
           {locations.map((loc) => (
             <Pin key={loc.id} location={loc} />

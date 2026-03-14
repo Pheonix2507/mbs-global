@@ -20,7 +20,7 @@ const AboutCompany = ({ data }: AboutCompanyProps) => {
   return (
     <section
       id="about-company"
-      className="relative bg-white py-32 px-6 overflow-hidden min-h-screen"
+      className="relative bg-white dark:bg-[#1F2123] py-32 px-6 overflow-hidden min-h-screen"
     >
       {/* Smudge SVG at relative px distance */}
       <div
@@ -38,11 +38,11 @@ const AboutCompany = ({ data }: AboutCompanyProps) => {
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col gap-2">
               <div className="flex items-baseline gap-1">
-                <span className="font-zalando text-6xl font-normal tracking-tighter text-[#020203]">
+                <span className="font-zalando text-6xl font-normal tracking-tighter text-[#020203] dark:text-white">
                   {stat.number}
                 </span>
               </div>
-              <p className="text-lg max-w-[200px] leading-tight text-[#020203]">
+              <p className="text-lg max-w-[200px] leading-tight text-[#020203] dark:text-white">
                 {stat.text}
               </p>
             </div>

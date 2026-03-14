@@ -1,8 +1,6 @@
 import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
-import ServiceSemicircleLoader from "@/components/sections/ServiceSemicircleLoader";
 import ServiceHero from "@/components/sections/ServiceHero";
 import ServiceTagline from "@/components/sections/ServiceTagline";
-import ServiceMetrics from "@/components/sections/ServiceMetrics";
 import Image from "next/image";
 
 export default function DataAnalyticsCloudAiPage() {
@@ -77,11 +75,14 @@ export default function DataAnalyticsCloudAiPage() {
 
       {/* Shared Section - Metrics & Resilience Responsive Stack */}
       <div className="hidden md:block">
-        <ServiceSemicircleLoader
-          title="Data Processing Velocity"
-          description="Accelerated data ingestion and real-time analytics streaming that enables instantaneous decision-making at any scale."
-        />
-        <ServiceMetrics metrics={metrics} />
+        <div className="container mx-auto px-6 max-w-4xl text-center pt-24 pb-12">
+          <h2 className="text-[39px] md:text-5xl font-zalando font-bold text-white tracking-tight mb-8">
+            Data Processing Velocity
+          </h2>
+          <p className="text-base md:text-xl text-zinc-400 font-sans leading-relaxed max-w-2xl mx-auto">
+            Accelerated data ingestion and real-time analytics streaming that enables instantaneous decision-making at any scale.
+          </p>
+        </div>
       </div>
 
       {/* Mobile-only Metrics Design from Previous Task */}
@@ -90,37 +91,11 @@ export default function DataAnalyticsCloudAiPage() {
           <h2 className="text-3xl font-zalando font-bold text-white text-center mb-16 leading-tight">
             Data Processing Velocity.
           </h2>
-          <div className="w-full mb-12">
-            <ServiceSemicircleLoader
-              title=""
-              description=""
-              className="bg-[#1F1F1F]"
-            />
-          </div>
+
           <div className="w-full max-w-[360px] bg-[#1A1A1A] border border-[#AF33FF]/40 p-8 rounded-[20px] mb-20 text-center">
             <p className="text-zinc-300 font-sans text-base leading-relaxed">
               Accelerated data ingestion and real-time analytics streaming that enables instantaneous decision-making at any scale.
             </p>
-          </div>
-          <div className="w-full max-w-[298px] flex flex-col items-center gap-[31px]">
-            {[
-              { score: "5x", label: "Faster", desc: "Faster Data Processing", offset: 100 },
-              { score: "85%", label: "Accuracy", desc: "Model Accuracy Improvement", offset: 45 },
-              { score: "10+", label: "Integrations", desc: "Advanced Enterprise Integrations", offset: 80 },
-              { score: "360°", label: "Visibility", desc: "Comprehensive Business Visibility", offset: 0 }
-            ].map((metric, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
-                <div className="relative w-48 h-48 rounded-full flex flex-col items-center justify-center bg-black/40 border border-[#AF33FF]/20 backdrop-blur-xl mb-6">
-                  <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="48" fill="none" stroke="#AF33FF" strokeWidth="2" className="opacity-10" />
-                    <circle cx="50" cy="50" r="48" fill="none" stroke="#AF33FF" strokeWidth="2" strokeDasharray="301.59" strokeDashoffset={metric.offset} strokeLinecap="round" className="transition-all duration-1000 ease-out" />
-                  </svg>
-                  <span className="text-3xl font-light text-white font-zalando">{metric.score}</span>
-                  <span className="text-sm text-zinc-400 font-sans mt-1">{metric.label}</span>
-                </div>
-                <p className="text-sm text-zinc-300 font-sans leading-relaxed max-w-[280px]">{metric.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

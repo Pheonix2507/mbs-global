@@ -5,6 +5,7 @@ import Contact from "@/components/sections/Contact";
 import Values from "@/components/sections/Values";
 import Offerings from "@/components/sections/Offerings";
 import Competencies from "@/components/sections/Competencies";
+import WorldMap from "@/components/sections/WorldMap";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Values />
       <Competencies />
       <Contact />
+      <WorldMap />
     </main>
   );
 }

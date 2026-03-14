@@ -23,6 +23,12 @@ const getGlassmorphismContent = (slug: string) => {
         description:
           "Streamlined operational workflows engineered to maximize efficiency across your entire enterprise.",
       };
+    case "total-talent-solutions":
+      return {
+        title: "Total Talent Solutions",
+        description:
+          "End-to-end workforce strategies that integrate recruitment, retention, and development to build world-class engineering teams.",
+      };
     case "strategic-consulting":
       return {
         title: "Strategic Consulting",
@@ -63,13 +69,13 @@ const SolutionGlassmorphism = ({ slug, data }: Props) => {
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div>
+        <div className="bg-white/5 dark:bg-black/20 backdrop-blur-xl border border-white/10 dark:border-white/5 rounded-[4px] overflow-hidden shadow-2xl">
           {/* Glassmorphism Card */}
-          <div className="p-10 md:p-14">
-            <h2 className="font-zalando text-[#D699FF] font-normal text-4xl md:text-5xl tracking-tight mb-6">
+          <div className="p-8 md:p-14 text-left">
+            <h2 className="font-zalando text-[#D699FF] font-normal text-[39px] md:text-5xl tracking-tight mb-6">
               {content.title}
             </h2>
-            <p className="font-sans text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
+            <p className="font-sans text-base md:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
               {content.description}
             </p>
           </div>

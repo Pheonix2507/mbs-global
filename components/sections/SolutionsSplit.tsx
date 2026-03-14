@@ -13,15 +13,17 @@ interface SolutionsSplitProps {
 
 const SolutionsSplit = ({ data }: SolutionsSplitProps) => {
   const title = data?.title || "Unrivaled Execution.";
-  const subtitle = data?.subtitle || "MBS empowers global enterprises to build distributed teams...";
+  const subtitle =
+    data?.subtitle ||
+    "MBS empowers global enterprises to build distributed teams...";
   const image = getStrapiMedia(data?.image) || "/about-hero.jpg";
   const buttonText = data?.button?.text || "Learn More About Scale";
 
   return (
-    <section className="bg-zinc-50 dark:bg-[#1F2123] py-24 md:py-32 overflow-hidden">
+    <section className="bg-zinc-50 dark:bg-[#1F2123] py-16 md:py-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-1 md:order-1 relative h-[500px] md:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl group">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="order-1 relative h-[320px] md:h-[600px] w-full max-w-[360px] md:max-w-none mx-auto rounded-[4px] overflow-hidden shadow-2xl group mb-8 md:mb-0">
             <Image
               src={image}
               alt={title}
@@ -30,16 +32,16 @@ const SolutionsSplit = ({ data }: SolutionsSplitProps) => {
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
           </div>
-          <div className="order-2 md:order-2 space-y-8">
-            <h2 className="font-zalando text-4xl md:text-6xl font-semibold tracking-tight text-zinc-900 dark:text-white">
+          <div className="order-2 space-y-6 md:space-y-8">
+            <h2 className="font-zalando text-[39px] md:text-6xl font-semibold tracking-tight text-zinc-900 dark:text-white leading-[120%]">
               {title}
             </h2>
-            <p className="font-sans text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            <p className="font-sans text-base md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed">
               {subtitle}
             </p>
             <div className="pt-4">
-              <div className="inline-block border border-zinc-900 dark:border-white/40 hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 rounded-sm py-4 px-10 cursor-pointer group">
-                <span className="font-zalando font-normal text-lg tracking-wide uppercase">
+              <div className="inline-block border border-zinc-900 dark:border-white/40 hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 rounded-sm py-3 px-8 md:py-4 md:px-10 cursor-pointer group">
+                <span className="font-zalando font-normal text-base md:text-lg tracking-wide uppercase">
                   {buttonText}
                 </span>
               </div>

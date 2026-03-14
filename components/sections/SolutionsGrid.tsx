@@ -26,7 +26,7 @@ const SolutionsGrid = ({ title, data }: SolutionsGridProps) => {
   if (!solutions || solutions.length === 0) return null;
 
   return (
-    <section className="bg-[#1F1F1F] py-24">
+    <section className="bg-[#1F1F1F] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-7xl">
         <span className="flex items-center justify-center text-center font-zalando font-normal text-[#D699FF] text-5xl mb-12">
           {gridTitle}

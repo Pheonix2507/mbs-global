@@ -25,18 +25,18 @@ const Values = ({ data }: ValuesProps) => {
   return (
     <section
       id="values"
-      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden px-6 py-24 bg-white dark:bg-[#1F2123]"
+      className="relative flex flex-col min-h-fit items-center justify-center overflow-hidden px-6 py-[60px] md:py-24 bg-[#1F1F1F] md:bg-white dark:bg-[#1F2123]"
     >
-      <div className="relative z-10 mx-auto rounded-[40px] mb-16">
-        <div className="text-6xl font-normal font-zalando text-[#D699FF] text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto mb-16">
+        <h2 className="text-[49px] md:text-6xl font-normal font-zalando text-[#D699FF] md:text-[#D699FF] text-left md:text-center leading-[120%] letter-spacing-0">
           {title}
-        </div>
+        </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 w-full max-w-7xl mx-auto gap-12 md:gap-20">
+      <div className="grid grid-cols-2 md:grid-cols-4 w-full max-w-7xl mx-auto gap-[60px]">
         {values.map((value, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center gap-6"
+            className="flex flex-col items-center md:items-center text-center gap-6"
           >
             <div className="relative w-64 h-64 rounded-full flex items-center justify-center overflow-hidden">
               <Image
@@ -47,7 +47,7 @@ const Values = ({ data }: ValuesProps) => {
                 className="object-contain"
               />
             </div>
-            <p className="text-lg max-w-[345px] leading-tight text-[#1F2123] dark:text-white font-zalando font-medium">
+            <p className="text-base md:text-lg max-w-[345px] leading-tight text-white md:text-[#1F2123] dark:text-white font-zalando font-medium">
               {value.text}
             </p>
           </div>

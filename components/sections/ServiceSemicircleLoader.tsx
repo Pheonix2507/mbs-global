@@ -4,12 +4,14 @@ import React, { useState, useEffect, useRef } from "react";
 
 interface ServiceSemicircleLoaderProps {
   title?: string;
-  description: string;
+  description?: string;
+  className?: string;
 }
 
 const ServiceSemicircleLoader = ({
   title = "Performance",
   description,
+  className,
 }: ServiceSemicircleLoaderProps) => {
   const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -66,14 +68,16 @@ const ServiceSemicircleLoader = ({
   return (
     <section
       ref={sectionRef}
-      className="py-24 relative overflow-hidden bg-zinc-50 dark:bg-zinc-900"
+      className={`py-6 relative overflow-hidden ${className || "bg-zinc-50 dark:bg-zinc-900"}`}
     >
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Container */}
         <div className="flex flex-col items-center max-w-2xl w-full">
-          <h3 className="text-2xl md:text-3xl font-zalando text-zinc-900 dark:text-zinc-100 mb-16 font-medium text-center max-w-md">
-            {title}
-          </h3>
+          {title !== "" && (
+            <h3 className="text-2xl md:text-3xl font-zalando text-zinc-900 dark:text-zinc-100 mb-16 font-medium text-center max-w-md">
+              {title}
+            </h3>
+          )}
 
           {/* Semicircle SVG */}
           <div className="relative w-full max-w-[400px] aspect-2/1 mb-12 flex flex-col justify-end">
@@ -89,10 +93,21 @@ const ServiceSemicircleLoader = ({
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor="#A3A3A3" />
-                  <stop offset="100%" stopColor="#4B0082" />
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="60%" stopColor="#AF33FF" />
+                  <stop offset="100%" stopColor="#AF33FF" />
                 </linearGradient>
               </defs>
+
+              {/* Background Track */}
+              <path
+                d="M 10 97 A 90 90 0 0 1 190 97"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="4"
+                strokeLinecap="round"
+                className="opacity-10 text-zinc-400 dark:text-zinc-600"
+              />
 
               {/* Foreground Track (Animated) */}
               <path

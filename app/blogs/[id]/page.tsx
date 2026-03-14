@@ -14,9 +14,6 @@ export default async function BlogDetailPage({
 
   const response = await fetchStrapi<StrapiResponse<StrapiBlog>>(
     `/blogs/${id}`,
-    {
-      populate: "*",
-    },
   );
 
   if (!response.data) {

@@ -1,14 +1,56 @@
+import populationMap from "./population-map.json";
+
 const STRAPI_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
 export async function fetchStrapi<T>(
   path: string,
-  urlParamsObject?: Record<string, string>,
+  urlParamsObject?: any,
   options?: RequestInit,
 ): Promise<T> {
   try {
-    const queryString = urlParamsObject
-      ? `?${new URLSearchParams(urlParamsObject).toString()}`
+    // Automatically apply population if not explicitly provided
+    const pathSegments = path.split("/").filter(Boolean);
+    const apiName = pathSegments[0];
+    
+    let finalParams = { ...urlParamsObject };
+    
+    if (apiName && !finalParams.populate && (populationMap as any)[apiName]) {
+      finalParams.populate = (populationMap as any)[apiName];
+    }
+
+    const buildQueryString = (params: any, prefix = ""): string => {
+      const query = Object.keys(params)
+        .map((key) => {
+          const value = params[key];
+          const newPrefix = prefix ? `${prefix}[${key}]` : key;
+
+          if (
+            value !== null &&
+            typeof value === "object" &&
+            !Array.isArray(value)
+          ) {
+            return buildQueryString(value, newPrefix);
+          }
+
+          if (Array.isArray(value)) {
+            return value
+              .map(
+                (item, index) =>
+                  `${encodeURIComponent(`${newPrefix}[${index}]`)}=${encodeURIComponent(item)}`,
+              )
+              .join("&");
+          }
+
+          return `${encodeURIComponent(newPrefix)}=${encodeURIComponent(value)}`;
+        })
+        .filter((str) => str !== "")
+        .join("&");
+      return query;
+    };
+
+    const queryString = Object.keys(finalParams).length > 0
+      ? `?${buildQueryString(finalParams)}`
       : "";
 
     const requestUrl = `${STRAPI_URL}/api${path}${queryString}`;
@@ -37,6 +79,12 @@ export async function fetchStrapi<T>(
 
 export function getStrapiMedia(media: any) {
   if (media == null) return null;
+
+  // Handle Strapi v5 array of media objects
+  if (Array.isArray(media)) {
+    if (media.length === 0) return null;
+    media = media[0];
+  }
 
   // If it's a string (direct URL)
   if (typeof media === "string") {

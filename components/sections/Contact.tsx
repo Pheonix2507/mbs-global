@@ -1,6 +1,30 @@
 import Image from "next/image";
 
-const Contact = () => {
+import { getStrapiMedia } from "@/lib/strapi";
+
+interface ContactData {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: any;
+  button: Array<{
+    id: number;
+    text: string;
+  }>;
+}
+
+interface ContactProps {
+  data?: ContactData[];
+}
+
+const Contact = ({ data }: ContactProps) => {
+  const banner = data?.[0];
+  const title = banner?.title || "Engineering Better Tomorrow";
+  const backgroundImage = getStrapiMedia(banner?.image) || "/join.jpg";
+  const buttonText = banner?.button?.[0]?.text || "Build Your Team";
+
+  if (!data || data.length === 0) return null;
+
   return (
     <section
       id="contact"
@@ -8,21 +32,21 @@ const Contact = () => {
     >
       <div className="absolute inset-0 z-0">
         <Image
-          src="/join.jpg"
-          alt="Services Background"
+          src={backgroundImage}
+          alt="Contact Background"
           fill
           className="object-cover"
         />
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
         <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
-      <div className="relative z-10 mx-auto rounded-[40px] p-12 sm:p-20">
+      <div className="relative z-10 mx-auto rounded-[40px] p-12 sm:p-20 text-center">
         <div className="text-6xl font-normal font-zalando mb-6.5">
-          Engineering Better Tomorrow
+          {title}
         </div>
         <div className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center">
           <span className="font-zalando font-normal text-white">
-            Build Your Team
+            {buttonText}
           </span>
         </div>
       </div>

@@ -5,9 +5,7 @@ import { StrapiBlog, StrapiResponse } from "@/lib/strapi-types";
 import { BlogPost } from "@/lib/blog-data";
 
 export default async function BlogsPage() {
-  const response = await fetchStrapi<StrapiResponse<StrapiBlog[]>>("/blogs", {
-    populate: "*",
-  });
+  const response = await fetchStrapi<StrapiResponse<StrapiBlog[]>>("/blogs");
 
   const blogs: BlogPost[] = (response.data || []).map((blog) => {
     // Strapi 5 uses direct properties (capitalized) or attributes (lowercase fallback)

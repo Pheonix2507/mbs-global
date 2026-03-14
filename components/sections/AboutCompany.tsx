@@ -1,21 +1,22 @@
 import Image from "next/image";
 
-const stats = [
-  { number: "15+", description: "Years of industry-leading experience." },
-  { number: "150+", description: "Active tech resources ready to deploy." },
-  {
-    number: "20+",
-    description: "Active global clients across diverse sectors.",
-  },
-  { number: "100+", description: "Skills served across tech and operations." },
-  {
-    number: "5",
-    description: "Strategic offices in India, Europe, Canada, and the US.",
-  },
-  { number: "", description: "" },
-];
+interface AboutCompanyProps {
+  data?: {
+    title?: string;
+    numbers?: Array<{
+      id: number;
+      number: string;
+      text: string;
+    }>;
+  };
+}
 
-const AboutCompany = () => {
+const AboutCompany = ({ data }: AboutCompanyProps) => {
+  const stats = data?.numbers || [];
+  const title = data?.title || "Proven Scale. Global Impact.";
+
+  if (!data) return null;
+
   return (
     <section
       id="about-company"
@@ -31,7 +32,7 @@ const AboutCompany = () => {
 
       <div className="relative mx-auto max-w-5xl z-10">
         <div className="text-[#AF33FF] text-6xl font-normal font-zalando mb-28">
-          Proven Scale. Global Impact.
+          {title}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {stats.map((stat, index) => (
@@ -42,7 +43,7 @@ const AboutCompany = () => {
                 </span>
               </div>
               <p className="text-lg max-w-[200px] leading-tight text-[#020203]">
-                {stat.description}
+                {stat.text}
               </p>
             </div>
           ))}

@@ -1,0 +1,1060 @@
+{
+  "about-us": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "A_Legacy_of_Transformation": {
+      "populate": {
+        "yearAndtext": {
+          "populate": "*"
+        }
+      }
+    },
+    "short_about": {
+      "populate": "*"
+    },
+    "empowering_text": {
+      "populate": "*"
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "about-uses": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "A_Legacy_of_Transformation": {
+      "populate": {
+        "yearAndtext": {
+          "populate": "*"
+        }
+      }
+    },
+    "short_about": {
+      "populate": "*"
+    },
+    "empowering_text": {
+      "populate": "*"
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "blog": {
+    "Image": {
+      "populate": "*"
+    }
+  },
+  "blogs": {
+    "Image": {
+      "populate": "*"
+    }
+  },
+  "business-information": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Core_Transformation_Pillars": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "business-informations": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Core_Transformation_Pillars": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "data-analytics-cloud-ai": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Technical_Pillars": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "data-analytics-cloud-ais": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Technical_Pillars": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "digital-infra-op": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Framework": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    }
+  },
+  "digital-infra-ops": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Framework": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "impact_count": {
+      "populate": {
+        "numbers": {
+          "populate": "*"
+        }
+      }
+    },
+    "co_person": {
+      "populate": "*"
+    },
+    "Core_Offerings_components": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "core_value_component": {
+      "populate": {
+        "icons": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Technical_Competencies_component": {
+      "populate": {
+        "title_subtile": {
+          "populate": "*"
+        },
+        "side_image": {
+          "populate": "*"
+        },
+        "button": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "homes": {
+    "hero": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "impact_count": {
+      "populate": {
+        "numbers": {
+          "populate": "*"
+        }
+      }
+    },
+    "co_person": {
+      "populate": "*"
+    },
+    "Core_Offerings_components": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "core_value_component": {
+      "populate": {
+        "icons": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Technical_Competencies_component": {
+      "populate": {
+        "title_subtile": {
+          "populate": "*"
+        },
+        "side_image": {
+          "populate": "*"
+        },
+        "button": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "home-page": "*",
+  "home-pages": "*",
+  "innovation": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Toolkit": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "Concept_to_Reality": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "innovation": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "innovations": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Toolkit": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "Concept_to_Reality": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "innovation": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "operative-management": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "title_subtile": {
+      "populate": "*"
+    },
+    "Global_Efficiency": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "Managed_Services": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "operative_management_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "operative-managements": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "title_subtile": {
+      "populate": "*"
+    },
+    "Global_Efficiency": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "Managed_Services": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "operative_management_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "platform-product-engineering": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_Excellence": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "platform-product-engineerings": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_Excellence": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "strategic-consulting": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_Excellence": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "strategic-consultings": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_Excellence": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Strategic_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "total-talent-solution": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "MBS_Lifecycle": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "talent_progess": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "total_talent_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "total-talent-solutions": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "MBS_Lifecycle": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "talent_progess": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "total_talent_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "workspace-solution": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "title_subtile": {
+      "populate": "*"
+    },
+    "Workspaces_pillar": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Workspaces_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "workspace-solutions": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "title_subtile": {
+      "populate": "*"
+    },
+    "Workspaces_pillar": {
+      "populate": {
+        "pillar_element": {
+          "populate": {
+            "image": {
+              "populate": "*"
+            },
+            "title_subtile": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Workspaces_info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  }
+}

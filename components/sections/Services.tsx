@@ -4,33 +4,29 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const services = [
-  {
-    title: "Own",
-    description:
-      "We align with your business objectives as if they were our own, ensuring shared accountability and long-term success.",
-  },
-  {
-    title: "Engineer",
-    description:
-      "Our experts work side-by-side with your team to architect, build, and scale world-class tech solutions.",
-  },
-  {
-    title: "Deliver",
-    description:
-      "Our experts work side-by-side with your team to architect, build, and scale world-class tech solutions.",
-  },
-];
+interface ServiceData {
+  id: number;
+  title: string;
+  sub_title: string; // Strapi uses sub_title in co_person
+}
 
-const Services = () => {
+interface ServicesProps {
+  data?: ServiceData[];
+}
+
+const defaultServices: any[] = [];
+
+const Services = ({ data }: ServicesProps) => {
+  const services = data;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+
+  if (!services || services.length === 0) return null;
 
   const handleScroll = () => {
     if (scrollRef.current) {
       const scrollPosition = scrollRef.current.scrollLeft;
       const itemWidth = scrollRef.current.offsetWidth;
-      // Use offsetWidth + gap (8 * 4 = 32px) for more accurate index calculation
       const gap = 32;
       const index = Math.round(scrollPosition / (itemWidth + gap));
 
@@ -46,17 +42,15 @@ const Services = () => {
       scrollNode.addEventListener("scroll", handleScroll);
       return () => scrollNode.removeEventListener("scroll", handleScroll);
     }
-  }, [activeIndex]);
+  }, [activeIndex, services.length]);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth + 32; // item width + gap
+      const scrollAmount = scrollRef.current.offsetWidth + 32;
 
       if (direction === "right" && activeIndex === services.length - 1) {
-        // Infinite loop to start
         scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
       } else if (direction === "left" && activeIndex === 0) {
-        // Infinite loop to end
         scrollRef.current.scrollTo({
           left: (services.length - 1) * scrollAmount,
           behavior: "smooth",
@@ -115,10 +109,18 @@ const Services = () => {
               className="w-full min-w-full snap-center rounded-3xl border border-white/20 bg-white/20 backdrop-blur-xs p-12 shadow-2xl"
             >
               <h3 className="mb-6 font-zalando text-5xl font-semibold">
-                Co-<span className="text-purple-600">{service.title}</span>:
+                {service.title.startsWith("Co-") ? (
+                  <>
+                    Co-<span className="text-purple-600">{service.title.replace("Co-", "")}</span>:
+                  </>
+                ) : (
+                  <>
+                    Co-<span className="text-purple-600">{service.title}</span>:
+                  </>
+                )}
               </h3>
               <p className="font-zalando font-normal text-2xl text-white">
-                {service.description}
+                {service.sub_title}
               </p>
             </div>
           ))}

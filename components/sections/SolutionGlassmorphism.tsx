@@ -3,6 +3,10 @@ import Image from "next/image";
 
 interface Props {
   slug: string;
+  data?: {
+    title: string;
+    description?: string;
+  };
 }
 
 const getGlassmorphismContent = (slug: string) => {
@@ -39,8 +43,11 @@ const getGlassmorphismContent = (slug: string) => {
   }
 };
 
-const SolutionGlassmorphism = ({ slug }: Props) => {
-  const content = getGlassmorphismContent(slug);
+const SolutionGlassmorphism = ({ slug, data }: Props) => {
+  const content = data ? { 
+    title: data.title, 
+    description: data.description || getGlassmorphismContent(slug).description 
+  } : getGlassmorphismContent(slug);
 
   return (
     <section className="relative w-full py-24 overflow-hidden bg-background">

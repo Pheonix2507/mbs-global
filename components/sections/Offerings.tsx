@@ -4,61 +4,26 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const OFFERINGS = [
-  {
-    id: 1,
-    title: "Digital Strategy",
-    description: "Tailored roadmaps for your digital transformation journey.",
-    image: "/mechanism.jpg",
-  },
-  {
-    id: 2,
-    title: "Product Design",
-    description: "Breathtaking user interfaces and seamless experiences.",
-    image: "/hero.jpg",
-  },
-  {
-    id: 3,
-    title: "Cloud Migration",
-    description: "Seamlessly move your infrastructure to the cloud.",
-    image: "/join.jpg",
-  },
-  {
-    id: 4,
-    title: "AI Integration",
-    description: "Leverage machine learning to optimize your workflows.",
-    image: "/competencies.png",
-  },
-  {
-    id: 5,
-    title: "Mobile Development",
-    description: "High-performance native and cross-platform mobile apps.",
-    image: "/value-1.png",
-  },
-  {
-    id: 6,
-    title: "Data Analytics",
-    description: "Turn your data into actionable business insights.",
-    image: "/value-2.png",
-  },
-  {
-    id: 7,
-    title: "Cybersecurity",
-    description: "Protect your digital assets with enterprise-grade security.",
-    image: "/value-3.png",
-  },
-  {
-    id: 8,
-    title: "Growth Marketing",
-    description: "Scale your business with data-driven marketing strategies.",
-    image: "/join.jpg",
-  },
-];
+import { getStrapiMedia } from "@/lib/strapi";
 
-const Offerings = () => {
+interface OfferingData {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: any;
+}
+
+interface OfferingsProps {
+  data?: OfferingData[];
+}
+
+const Offerings = ({ data }: OfferingsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
-  const totalItems = OFFERINGS.length;
+  const offerings = data || [];
+  const totalItems = offerings.length;
+
+  if (!offerings || offerings.length === 0) return null;
 
   const nextSlide = () => {
     setCurrentIndex((prev) =>
@@ -95,7 +60,7 @@ const Offerings = () => {
               transform: `translateX(-${(currentIndex * 100) / itemsPerPage}%)`,
             }}
           >
-            {OFFERINGS.map((item) => (
+            {offerings.map((item) => (
               <div
                 key={item.id}
                 className="w-full shrink-0 px-4 sm:w-1/2 lg:w-1/3"
@@ -103,7 +68,7 @@ const Offerings = () => {
                 <div className="group relative flex flex-col space-y-6">
                   <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
                     <Image
-                      src={item.image}
+                      src={getStrapiMedia(item.image) || "/mechanism.jpg"}
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -115,7 +80,7 @@ const Offerings = () => {
                       {item.title}
                     </h3>
                     <p className="font-sans text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                      {item.description}
+                      {item.subtitle}
                     </p>
                   </div>
                 </div>

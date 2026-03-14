@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { getStrapiMedia } from "@/lib/strapi";
 
 interface FeaturePoint {
   title: string;
@@ -146,13 +147,18 @@ const DATA_AI_DATA: FeaturePoint[] = [
 
 interface Props {
   slug: string;
+  data?: Array<{
+    title: string;
+    subtitle: string;
+    image: any;
+  }>;
 }
 
-const SolutionAnimatedFeatures = ({ slug }: Props) => {
+const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  const data =
+  const staticData =
     slug === "platform"
       ? PLATFORM_DATA
       : slug === "infra"
@@ -162,6 +168,15 @@ const SolutionAnimatedFeatures = ({ slug }: Props) => {
           : slug === "innovation"
             ? INNOVATION_DATA
             : OPERATIVE_DATA;
+
+  const data: FeaturePoint[] = strapiFeatures 
+    ? strapiFeatures.map(item => ({
+        title: item.title,
+        description: item.subtitle,
+        image: getStrapiMedia(item.image) || "/mechanism.jpg"
+      }))
+    : staticData;
+
   const DURATION = 6000; // 6 seconds per slide
 
   useEffect(() => {

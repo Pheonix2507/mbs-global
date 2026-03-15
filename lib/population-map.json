@@ -12,13 +12,7 @@
       }
     },
     "short_about": { "populate": "*" },
-    "empowering_text": { "populate": "*" },
-    "banner": {
-      "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
-      }
-    }
+    "empowering_text": { "populate": "*" }
   },
   "business-information": {
     "hero_section": {
@@ -402,7 +396,11 @@
         "numbers": { "populate": "*" }
       }
     },
-    "co_person": { "populate": "*" },
+    "co_person": {
+      "populate": {
+        "background_image": { "populate": "*" }
+      }
+    },
     "Core_Offerings_components": {
       "populate": {
         "button": { "populate": "*" },

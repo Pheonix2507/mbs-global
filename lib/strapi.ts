@@ -8,13 +8,14 @@ export async function fetchStrapi<T>(
   urlParamsObject?: any,
   options?: RequestInit,
 ): Promise<T> {
-  try {
-    // Automatically apply population if not explicitly provided
     const pathSegments = path.split("/").filter(Boolean);
     const apiName = pathSegments[0];
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
     
+    try {
+
     let finalParams = { ...urlParamsObject };
-    
+
     if (apiName && !finalParams.populate && (populationMap as any)[apiName]) {
       finalParams.populate = (populationMap as any)[apiName];
     }
@@ -49,11 +50,12 @@ export async function fetchStrapi<T>(
       return query;
     };
 
-    const queryString = Object.keys(finalParams).length > 0
-      ? `?${buildQueryString(finalParams)}`
-      : "";
+    const queryString =
+      Object.keys(finalParams).length > 0
+        ? `?${buildQueryString(finalParams)}`
+        : "";
 
-    const requestUrl = `${STRAPI_URL}/api${path}${queryString}`;
+    const requestUrl = `${STRAPI_URL}/api${normalizedPath}${queryString}`;
 
     const response = await fetch(requestUrl, {
       ...options,
@@ -79,7 +81,7 @@ export async function fetchStrapi<T>(
   } catch (error: any) {
     console.error("Strapi fetch error details:", error.message || error);
     throw new Error(
-      `Strapi connectivity failed at ${STRAPI_URL}/api${path}. Error: ${error.message || "Unknown error"}`,
+      `Strapi connectivity failed at ${STRAPI_URL}/api${normalizedPath}. Error: ${error.message || "Unknown error"}`,
     );
   }
 }

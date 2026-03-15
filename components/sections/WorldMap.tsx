@@ -13,7 +13,41 @@ interface Location {
   top: string;
 }
 
-const locations: Location[] = [];
+const locations: Location[] = [
+  {
+    id: "india",
+    country: "India",
+    flag: "🇮🇳",
+    address:
+      "B/1205 Empire Business Hub,\nScience City Road, Sola,\nAhmedabad GJ 380060",
+    left: "71%",
+    top: "44%",
+  },
+  {
+    id: "uk",
+    country: "United Kingdom",
+    flag: "🇬🇧",
+    address: "123 Business Lane,\nLondon, EC1A 1BB,\nUnited Kingdom",
+    left: "44%",
+    top: "20%",
+  },
+  {
+    id: "canada",
+    country: "Canada",
+    flag: "🇨🇦",
+    address: "456 Commerce Ave,\nToronto, ON M5V 2H1,\nCanada",
+    left: "10%",
+    top: "10%",
+  },
+  {
+    id: "usa",
+    country: "United States",
+    flag: "🇺🇸",
+    address: "789 Innovation Blvd,\nNew York, NY 10001,\nUSA",
+    left: "17%",
+    top: "35%",
+  },
+];
 
 const Pin = ({ location }: { location: Location }) => {
   const [hovered, setHovered] = useState(false);
@@ -34,29 +68,28 @@ const Pin = ({ location }: { location: Location }) => {
         className={`
           absolute top-full mt-2 left-1/2 -translate-x-1/2
           bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700
-          rounded-xl shadow-xl px-4 py-3 z-20
+          rounded-xl shadow-xl px-3 py-2 md:px-4 md:py-3 z-20
           transition-all duration-200 pointer-events-none
           ${hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}
         `}
-        style={{ minWidth: "190px", whiteSpace: "nowrap" }}
+        style={{ minWidth: "150px", width: "max-content", maxWidth: "220px" }}
       >
         {/* Tooltip arrow pointing up */}
         <div className="absolute left-1/2 -translate-x-1/2 bottom-full w-0 h-0 border-l-[7px] border-r-[7px] border-b-[7px] border-l-transparent border-r-transparent border-b-white dark:border-b-zinc-900" />
-        <p className="font-semibold text-zinc-900 dark:text-zinc-100 text-sm mb-1">
+        <p className="font-semibold text-zinc-900 dark:text-zinc-100 text-xs md:text-sm mb-1">
           {location.flag} {location.country}
         </p>
-        <p className="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed whitespace-pre-line">
+        <p className="text-zinc-500 dark:text-zinc-400 text-[10px] md:text-xs leading-relaxed whitespace-pre-line">
           {location.address}
         </p>
       </div>
 
       {/* Classic teardrop map pin using SVG */}
       <svg
-        width="40"
-        height="52"
         viewBox="0 0 52 68"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="w-6 h-[31px] md:w-10 md:h-[52px]"
         style={{
           transition: "transform 0.2s ease",
           transform: hovered ? "scale(1.1)" : "scale(1)",
@@ -78,15 +111,8 @@ const Pin = ({ location }: { location: Location }) => {
         {/* Flag emoji via foreignObject */}
         <foreignObject x="7" y="5" width="38" height="38">
           <div
+            className="w-full h-full flex items-center justify-center rounded-full overflow-hidden text-base md:text-2xl"
             style={{
-              width: "38px",
-              height: "38px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "50%",
-              overflow: "hidden",
-              fontSize: "24px",
               lineHeight: 1,
             }}
           >
@@ -97,9 +123,8 @@ const Pin = ({ location }: { location: Location }) => {
 
       {/* White oval beneath pin tip */}
       <div
+        className="w-3 h-1 md:w-4 md:h-1.5"
         style={{
-          width: "16px",
-          height: "6px",
           borderRadius: "50%",
           background: "rgba(255,255,255,0.75)",
           boxShadow: "0 1px 4px rgba(0,0,0,0.12)",
@@ -116,24 +141,20 @@ const WorldMap = () => {
   return (
     <section className="py-16 px-6 bg-white dark:bg-[#1F2123]">
       <div className="max-w-6xl mx-auto">
-        {/* Map container */}
-        <div
-          className="relative w-full"
-          style={{ aspectRatio: "2/1" }}
-        >
+        {/* Map container - remove fixed aspect ratio to prevent empty space around map */}
+        <div className="relative w-full">
           {/* World map image */}
-          <Image
+          <img
             src="/world-map.png"
-            alt=""
-            fill
-            className="object-contain"
-            priority
+            alt="World Map"
+            className="w-full h-auto block"
           />
-          <div className="absolute inset-0 z-0"></div>
-          {/* Location pins */}
-          {locations.map((loc) => (
-            <Pin key={loc.id} location={loc} />
-          ))}
+          {/* Location pins overlaying the image */}
+          <div className="absolute inset-0">
+            {locations.map((loc) => (
+              <Pin key={loc.id} location={loc} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

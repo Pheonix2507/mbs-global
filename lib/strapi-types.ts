@@ -24,6 +24,20 @@ export interface StrapiHero {
   background_image?: any;
 }
 
+export interface StrapiAboutUs {
+  id: number;
+  documentId: string;
+  hero_section: StrapiHero;
+  A_Legacy_of_Transformation: {
+    id: number;
+    title: string;
+    yearAndtext: Array<{ id: number; title: string; sub_title: string }>;
+  };
+  short_about: Array<{ id: number; title: string; sub_title: string }>;
+  empowering_text: Array<{ id: number; title: string; sub_title: string }>;
+  banner?: StrapiBanner;
+}
+
 export interface StrapiBanner {
   id: number;
   title: string;
@@ -85,7 +99,7 @@ export interface StrapiHome {
     title: string; 
     numbers: Array<{ id: number; number: string; text: string }> 
   };
-  co_person: Array<{ id: number; title: string; sub_title: string }>;
+  co_person: Array<{ id: number; title: string; sub_title: string; background_image?: any }>;
   Core_Offerings_components: Array<{ id: number; title: string; subtitle: string; image: any }>;
   core_value_component: { 
     id: number; 

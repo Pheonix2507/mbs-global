@@ -19,9 +19,18 @@ interface OfferingsProps {
 
 const Offerings = ({ data }: OfferingsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 3;
+  const [itemsPerPage, setItemsPerPage] = useState(3);
   const offerings = data || [];
   const totalItems = offerings.length;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerPage(window.innerWidth < 768 ? 1 : 3);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (!offerings || offerings.length === 0) return null;
 
@@ -40,8 +49,8 @@ const Offerings = ({ data }: OfferingsProps) => {
     >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-12 md:mb-16">
-          <h2 className="font-zalando text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] md:text-zinc-900 md:dark:text-white max-w-[300px] md:max-w-none">
-            {/* The title should probably be passed in 'data' or a 'title' prop, but for now we follow the user's request to remove static text */}
+          <h2 className="font-zalando text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] md:text-zinc-900 md:dark:text-white max-w-[300px] md:max-w-none">
+            {/* The title should probably be passed in 'data' or a 'title' prop */}
           </h2>
         </div>
 
@@ -59,7 +68,7 @@ const Offerings = ({ data }: OfferingsProps) => {
                 style={{ width: `${100 / itemsPerPage}%` }}
               >
                 <div className="group relative flex flex-col space-y-6">
-                  <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
+                  <div className="relative aspect-video overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
                     <Image
                       src={getStrapiMedia(item.image) || ""}
                       alt={item.title}
@@ -69,10 +78,10 @@ const Offerings = ({ data }: OfferingsProps) => {
                     <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
                   <div className="space-y-4">
-                    <h3 className="font-zalando text-3xl font-normal text-white md:text-zinc-900 md:dark:text-white">
+                    <h3 className="font-zalando text-2xl md:text-3xl font-normal text-white md:text-zinc-900 md:dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="font-sans text-lg text-[#E0E0E0] md:text-zinc-600 md:dark:text-zinc-400 leading-relaxed">
+                    <p className="font-sans text-base md:text-lg text-[#E0E0E0] md:text-zinc-600 md:dark:text-zinc-400 leading-relaxed">
                       {item.subtitle}
                     </p>
                   </div>

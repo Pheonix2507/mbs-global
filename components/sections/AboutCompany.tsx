@@ -22,23 +22,23 @@ const AboutCompany = ({ data }: AboutCompanyProps) => {
       id="about-company"
       className="relative bg-white dark:bg-[#1F2123] py-32 px-6 overflow-hidden min-h-screen"
     >
-      {/* Smudge SVG at relative px distance */}
+      {/* Smudge SVG at relative px distance — hidden on mobile to prevent overflow */}
       <div
-        className="absolute pointer-events-none z-1"
-        style={{ left: "1260px", top: "386px" }}
+        className="absolute pointer-events-none z-1 hidden lg:block"
+        style={{ right: "-20%", top: "30%" }}
       >
         <Image src="/smudge.svg" alt="" width={814} height={664} />
       </div>
 
       <div className="relative mx-auto max-w-5xl z-10">
-        <div className="text-[#D699FF] md:text-[#AF33FF] text-6xl font-normal font-zalando mb-28">
+        <div className="text-[#D699FF] md:text-[#AF33FF] text-4xl md:text-6xl font-normal font-zalando mb-12 md:mb-28">
           {title}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {stats.map((stat, index) => (
             <div key={index} className="flex flex-col gap-2">
               <div className="flex items-baseline gap-1">
-                <span className="font-zalando text-6xl font-normal tracking-tighter text-white md:text-[#020203] dark:text-white">
+                <span className="font-zalando text-5xl md:text-6xl font-normal tracking-tighter text-white md:text-[#020203] dark:text-white">
                   {stat.number}
                 </span>
               </div>

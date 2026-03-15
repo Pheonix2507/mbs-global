@@ -46,7 +46,7 @@ const SolutionsBanner = ({ data }: SolutionsBannerProps) => {
 
       {/* CTA Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <h2 className="text-5xl md:text-7xl font-normal font-zalando mb-8 tracking-tighter text-white">
+        <h2 className="text-4xl md:text-7xl font-normal font-zalando mb-8 tracking-tighter text-white">
           {title}
         </h2>
         <p className="text-xl md:text-2xl font-sans font-normal text-zinc-200 mb-12 max-w-2xl mx-auto">

@@ -22,7 +22,7 @@ export default function BlogHero({ blog }: { blog: BlogPost }) {
 
         <div className="flex flex-col space-y-6">
           <div className="space-y-4">
-            <h2 className="text-4xl font-zalando font-semibold tracking-tight text-zinc-900 dark:text-white lg:text-5xl">
+            <h2 className="text-3xl font-zalando font-semibold tracking-tight text-zinc-900 dark:text-white md:text-5xl">
               {blog.title.split(" ").map((word, i) => {
                 const highlightWords = [
                   "Transformation",

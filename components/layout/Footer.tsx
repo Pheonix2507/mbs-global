@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="w-full bg-[#1F1F1F] md:bg-white md:dark:bg-black border-t border-zinc-800 md:border-zinc-200 md:dark:border-zinc-800">
       <div className="container mx-auto px-6 max-w-7xl pt-[40px] pb-12 md:py-16">
         {/* ── DESKTOP layout (hidden on mobile) ── */}
-        <div className="hidden md:grid md:grid-cols-4 gap-8">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Social + Contact */}
           <div className="flex flex-col gap-6">
             <div className="flex flex-wrap gap-4 text-zinc-600 dark:text-zinc-400">

@@ -116,7 +116,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
                 >
                   <div className="space-y-3">
                     <h3
-                      className={`font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-left text-white transition-colors duration-500 leading-[110%] ${
+                      className={`font-zalando text-2xl md:text-4xl font-semibold tracking-tight text-left text-white transition-colors duration-500 leading-[110%] ${
                         isActive ? "text-[#AF33FF]" : ""
                       }`}
                     >

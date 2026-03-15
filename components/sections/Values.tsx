@@ -31,17 +31,17 @@ const Values = ({ data }: ValuesProps) => {
       className="relative flex flex-col min-h-fit items-center justify-center overflow-hidden px-6 py-[60px] md:py-24 bg-[#1F1F1F] md:bg-white dark:bg-[#1F2123]"
     >
       <div className="relative z-10 w-full max-w-7xl mx-auto mb-16">
-        <h2 className="text-[49px] md:text-6xl font-normal font-zalando text-[#D699FF] md:text-[#D699FF] text-left md:text-center leading-[120%] letter-spacing-0">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-normal font-zalando text-[#D699FF] md:text-[#D699FF] text-left md:text-center leading-[120%] letter-spacing-0">
           {title}
         </h2>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 w-full max-w-7xl mx-auto gap-[60px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full max-w-7xl mx-auto gap-12 md:gap-[60px]">
         {values.map((value, index) => (
           <div
             key={index}
-            className="flex flex-col items-center md:items-center text-center gap-6"
+            className="flex flex-col items-center text-center gap-6"
           >
-            <div className="relative w-64 h-64 rounded-full flex items-center justify-center overflow-hidden">
+            <div className="relative w-40 h-40 md:w-56 lg:w-64 rounded-full flex items-center justify-center overflow-hidden">
               <Image
                 src={getStrapiMedia(value.icon)}
                 alt=""

@@ -8,7 +8,7 @@ const ContactHero = () => {
 
       {/* "Contact us" Button */}
       <div 
-        className="relative flex items-center justify-center w-[130px] h-[35px] rounded-[16px] p-[1px] mb-[46px]" 
+        className="relative flex items-center justify-center w-[130px] h-[35px] rounded-[16px] p-px mb-[46px]" 
         style={{ background: "linear-gradient(90deg, #FFFFFF 0%, #AF33FF 100%)" }}
       >
         <div className="w-full h-full bg-[#1F2123] rounded-[15px] flex items-center justify-center py-[8px] px-[16px]">
@@ -19,7 +19,7 @@ const ContactHero = () => {
       {/* Title & Text Container in center */}
       <div className="flex flex-col items-center justify-center w-full max-w-[362px] min-h-[261px] md:max-w-[1199px] md:min-h-[131px] gap-[40px] z-10 transition-all">
         {/* Title */}
-        <h1 className="font-zalando font-semibold text-[39px] md:text-[49px] leading-[120%] tracking-[0%] text-center text-white m-0">
+        <h1 className="font-zalando font-semibold text-3xl md:text-[49px] leading-[120%] tracking-[0%] text-center text-white m-0">
           Let&apos;s build your global team, together.
         </h1>
 

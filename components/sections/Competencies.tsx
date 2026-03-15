@@ -48,23 +48,25 @@ const Competencies = ({ data }: CompetenciesProps) => {
             />
           </div>
         </div>
-        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-12 sm:p-20">
-          <div className="font-zalando font-normal text-[#D699FF] text-6xl mb-12">
+        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-20">
+          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl lg:text-6xl mb-8 md:mb-12">
             {title}
           </div>
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col text-[#FFFFFF] dark:text-[#1F1F1F] text-2xl p-6"
-            >
-              <span className="font-zalando font-medium">{item.title}</span>
-              <div className="font-sans font-normal text-[#FFFFFF] dark:text-[#1F1F1F] text-xl pt-3">
-                {item.sub_title}
+          <div className="flex flex-col gap-2">
+            {items.map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col text-white dark:text-[#1F1F1F] p-4 md:p-6"
+              >
+                <span className="font-zalando font-medium text-xl md:text-2xl">{item.title}</span>
+                <div className="font-sans font-normal text-zinc-400 dark:text-zinc-600 text-base md:text-xl pt-2">
+                  {item.sub_title}
+                </div>
               </div>
-            </div>
-          ))}
-          <div className="z-10 max-w-fit mt-12 border border-white dark:border-[#1F1F1F] rounded-sm py-3 px-6 ms-3">
-            <span className="font-zalando font-normal text-white dark:text-[#1F1F1F]">
+            ))}
+          </div>
+          <div className="z-10 max-w-fit mt-8 md:mt-12 border border-white dark:border-[#1F1F1F] rounded-sm py-3 px-6 ms-4">
+            <span className="font-zalando font-normal text-white dark:text-[#1F1F1F] text-sm md:text-base">
               {buttonText}
             </span>
           </div>

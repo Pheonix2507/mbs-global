@@ -46,12 +46,12 @@ const Hero = ({ data }: HeroProps) => {
         <div className="absolute right-0 top-0 h-[200px] w-[200px] md:h-[300px] md:w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
 
-      <div className="relative z-10 px-39 ml-10 min-w-[1134px]">
-        <h1 className="mb-8 font-zalando font-semibold text-[49px] tracking-tight">
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 text-center">
+        <h1 className="mb-8 font-zalando font-semibold text-4xl md:text-[49px] tracking-tight text-white">
           {title}
         </h1>
 
-        <p className="mb-8 md:mb-10 font-sans font-normal text-[15px] sm:text-lg md:text-xl leading-[120%] tracking-normal text-center text-[#FFFFFF] dark:text-[#FFFFFF] max-w-2xl mx-auto">
+        <p className="mb-8 md:mb-10 font-sans font-normal text-base sm:text-lg md:text-xl leading-[120%] tracking-normal text-center text-white max-w-2xl mx-auto">
           {subtitle}
         </p>
       </div>

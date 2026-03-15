@@ -33,10 +33,10 @@ const SolutionsGrid = ({
   return (
     <section className="bg-[#1F1F1F] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-7xl">
-        <span className="flex items-center justify-center text-center font-zalando font-normal text-[#D699FF] text-5xl mb-12">
+        <span className="flex items-center justify-center text-center font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-8 md:mb-12">
           {gridTitle}
         </span>
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-12 md:gap-24">
           {solutions.map((item: any, index: number) => {
             const mediaUrl = getStrapiMedia(item.image) || "";
             const isVideo = Array.isArray(item.image)

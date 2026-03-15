@@ -47,7 +47,7 @@ const GetInTouch = () => {
     <section className="py-16 md:py-24 px-[26px] bg-[#1F2123] flex justify-center w-full">
       <div className="w-[360px] md:max-w-6xl md:w-full mx-auto flex flex-col gap-[40px]">
         {/* Mobile Title */}
-        <h2 className="md:hidden font-zalando font-bold text-[45px] leading-tight text-white text-left tracking-tight m-0">
+        <h2 className="md:hidden font-zalando font-bold text-4xl leading-tight text-white text-left tracking-tight m-0">
           Get in touch
         </h2>
 

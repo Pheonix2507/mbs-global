@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getStrapiMedia } from "@/lib/strapi";
 
 interface ServiceData {
   id: number;
   title: string;
-  sub_title: string; // Strapi uses sub_title in co_person
+  sub_title: string;
+  background_image?: any;
 }
 
 interface ServicesProps {
@@ -70,27 +72,40 @@ const Services = ({ data }: ServicesProps) => {
       className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-background px-6 py-24"
     >
       <div className="absolute inset-0 z-0">
-        <Image
-          src=""
-          alt=""
-          fill
-          className="object-cover"
-        />
+        <div
+          className="flex h-full w-full transition-transform duration-700 ease-in-out"
+          style={{
+            transform: `translateX(-${activeIndex * 100}%)`,
+          }}
+        >
+          {services.map((service, index) => (
+            <div key={index} className="relative h-full w-full shrink-0">
+              <Image
+                src={getStrapiMedia(service.background_image) || ""}
+                alt=""
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-background/50"></div>
         <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
         <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto p-5 mt-50">
+      <div className="relative z-10 w-full max-w-6xl mx-auto p-4 md:p-6 mt-20 md:mt-50">
         {/* Rotating Index */}
-        <div className="absolute top-10 right-10 flex h-16 flex-col items-end overflow-hidden">
+        <div className="absolute top-0 right-4 md:top-10 md:right-10 flex h-12 md:h-16 flex-col items-end overflow-hidden">
           <div
             className="flex flex-col items-end transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateY(-${activeIndex * 4}rem)` }}
+            style={{ transform: `translateY(-${activeIndex * (typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 4)}rem)` }}
           >
             {services.map((_, i) => (
               <span
                 key={i}
-                className="flex h-16 items-center font-zalando text-6xl font-black text-purple-600/10 leading-none"
+                className="flex h-12 md:h-16 items-center font-zalando text-4xl md:text-6xl font-black text-purple-600/10 leading-none"
               >
                 0{i + 1}
               </span>
@@ -106,9 +121,9 @@ const Services = ({ data }: ServicesProps) => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="w-full min-w-full snap-center rounded-3xl border border-white/20 bg-white/20 backdrop-blur-xs p-12 shadow-2xl"
+              className="w-full min-w-full snap-center rounded-3xl border border-white/20 bg-white/20 backdrop-blur-xs p-8 md:p-12 shadow-2xl"
             >
-              <h3 className="mb-6 font-zalando text-5xl font-semibold">
+              <h3 className="mb-6 font-zalando text-3xl md:text-5xl font-semibold text-white">
                 {service.title.startsWith("Co-") ? (
                   <>
                     Co-
@@ -123,7 +138,7 @@ const Services = ({ data }: ServicesProps) => {
                   </>
                 )}
               </h3>
-              <p className="font-zalando font-normal text-2xl text-white">
+              <p className="font-zalando font-normal text-lg md:text-2xl text-white">
                 {service.sub_title}
               </p>
             </div>

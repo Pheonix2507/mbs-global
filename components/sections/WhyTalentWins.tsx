@@ -66,7 +66,7 @@ const WhyTalentWins = () => {
     <section className="bg-[#1F1F1F] py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Heading */}
-        <h2 className="font-zalando text-[39px] md:text-[49px] font-semibold text-white text-center leading-[120%] mb-16 md:mb-20">
+        <h2 className="font-zalando text-3xl md:text-5xl font-semibold text-white text-center leading-[120%] mb-12 md:mb-20">
           Why Our Talent Wins
         </h2>
 
@@ -116,7 +116,7 @@ const WhyTalentWins = () => {
                   <div className={`relative w-full overflow-hidden transition-all duration-500 ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}>
                     <div className="absolute inset-0 bg-white/10 rounded-full" />
                     <div 
-                      className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-600 to-[#AF33FF] rounded-full" 
+                      className="absolute top-0 left-0 h-full bg-linear-to-r from-purple-600 to-[#AF33FF] rounded-full" 
                       style={{ width: `${progress}%` }}
                     />
                   </div>

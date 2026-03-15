@@ -77,7 +77,7 @@ const SolutionCarousel = ({
           <div className="w-full md:px-20">
             <div className="bg-white dark:bg-black rounded-[4px] px-4 py-8 sm:px-8 md:p-16 shadow-2xl border border-zinc-100 dark:border-zinc-800 text-left md:text-center transform transition-all duration-500 min-h-[300px] flex flex-col justify-center">
               <h3
-                className="font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6 animate-in fade-in zoom-in duration-500 wrap-break-words leading-[110%]"
+                className="font-zalando text-3xl md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6 animate-in fade-in zoom-in duration-500 wrap-break-words leading-[110%]"
                 key={`title-${currentIndex}`}
               >
                 {displayData[currentIndex].title}

@@ -10,11 +10,17 @@ const navLinks = [
   { name: "About", href: "/about-us" },
   {
     name: "Solutions",
-    href: "/solutions",
+    href: "#",
     subLinks: [
       { name: "Workspace Solution", href: "/solutions/workspace-solution" },
-      { name: "Total Talent Solutions", href: "/solutions/total-talent-solutions" },
-      { name: "Operative Managements", href: "/solutions/operative-managements" },
+      {
+        name: "Total Talent Solutions",
+        href: "/solutions/total-talent-solutions",
+      },
+      {
+        name: "Operative Managements",
+        href: "/solutions/operative-managements",
+      },
       { name: "Strategic Consulting", href: "/solutions/strategic-consulting" },
       { name: "Innovation", href: "/solutions/innovation" },
       { name: "Business Information", href: "/solutions/business-information" },
@@ -24,9 +30,15 @@ const navLinks = [
     name: "Services",
     href: "#",
     subLinks: [
-      { name: "Platform & Product Engineering", href: "/services/platform-product-engineering" },
+      {
+        name: "Platform & Product Engineering",
+        href: "/services/platform-product-engineering",
+      },
       { name: "Digital Infra & Ops", href: "/services/digital-infra-ops" },
-      { name: "Data, Analytics, Cloud & AI", href: "/services/data-analytics-cloud-ai" },
+      {
+        name: "Data, Analytics, Cloud & AI",
+        href: "/services/data-analytics-cloud-ai",
+      },
     ],
   },
   { name: "Blogs", href: "/blogs" },
@@ -40,18 +52,23 @@ const Navbar = () => {
     <>
       {/* ── Navbar — desktop unchanged, mobile gets hamburger ── */}
       <nav className="fixed top-0 left-0 right-0 z-50">
-        <div className="flex w-full items-center justify-between px-6 md:px-30 py-3 backdrop-blur-md dark:bg-black/50">
-
+        <div className="flex w-full items-center justify-between px-6 md:px-12 lg:px-30 py-3 backdrop-blur-md dark:bg-black/50">
           {/* Logo — unchanged */}
           <Link
             href="/"
             className="font-zalando shrink-0 text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
           >
-            <Image src="/mbs-logo.png" alt="Logo" width={150} height={35} className="md:w-[200px] md:h-[43px]" />
+            <Image
+              src="/mbs-logo.png"
+              alt="Logo"
+              width={150}
+              height={35}
+              className="md:w-[200px] md:h-[43px]"
+            />
           </Link>
 
           {/* Desktop nav links — UNCHANGED */}
-          <div className="hidden gap-10 lg:gap-20 md:flex flex-1 items-center justify-center">
+          <div className="hidden gap-10 lg:gap-20 lg:flex flex-1 items-center justify-center">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group p-2">
                 {link.subLinks ? (
@@ -91,28 +108,31 @@ const Navbar = () => {
           {/* Right side */}
           <div className="flex items-center gap-2">
             {/* Theme toggle — desktop only */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <ThemeToggle />
             </div>
             {/* Hamburger — mobile only */}
             <button
-              className="md:hidden flex items-center justify-center w-[40px] h-[40px] text-white hover:bg-white/10 rounded-md transition-colors"
+              className="lg:hidden flex items-center justify-center w-[40px] h-[40px] text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-white/10 rounded-md transition-colors"
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label="Toggle menu"
             >
-              {mobileOpen
-                ? <X className="w-6 h-6 text-white" />
-                : <Menu className="w-6 h-6 text-white" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
-
         </div>
       </nav>
 
       {/* ── Mobile drawer — only visible on mobile ── */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
       >
         {/* Backdrop */}
@@ -133,7 +153,9 @@ const Navbar = () => {
                 <button
                   className="w-full flex items-center justify-between px-3 py-3 text-base font-semibold rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#AF33FF] transition-all text-left"
                   onClick={() =>
-                    setOpenDropdown(openDropdown === link.name ? null : link.name)
+                    setOpenDropdown(
+                      openDropdown === link.name ? null : link.name,
+                    )
                   }
                 >
                   {link.name}
@@ -166,7 +188,9 @@ const Navbar = () => {
 
             {/* Theme toggle inside drawer — mobile only */}
             <div className="flex items-center justify-between px-3 py-3 mt-2 border-t border-zinc-200 dark:border-zinc-800">
-              <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Theme</span>
+              <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                Theme
+              </span>
               <ThemeToggle />
             </div>
           </nav>

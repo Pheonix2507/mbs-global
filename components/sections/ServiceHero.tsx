@@ -10,7 +10,7 @@ interface ServiceHeroProps {
 }
 
 const ServiceHero = ({ title, description, image, media }: ServiceHeroProps) => {
-  const mediaUrl = getStrapiMedia(media) || image || "/hero.jpg";
+  const mediaUrl = getStrapiMedia(media) || image || "";
   const isVideo = Array.isArray(media)
     ? media[0]?.mime?.startsWith("video/")
     : media?.mime?.startsWith("video/");

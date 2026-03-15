@@ -14,7 +14,9 @@ export default function BlogHero({ blog }: { blog: BlogPost }) {
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="text-zinc-400 font-medium">Featured Image</span>
+            <div className="absolute inset-0 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+            <span className="text-zinc-400 font-medium"></span>
+          </div>
           )}
         </div>
 

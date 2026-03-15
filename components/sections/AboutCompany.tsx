@@ -13,7 +13,7 @@ interface AboutCompanyProps {
 
 const AboutCompany = ({ data }: AboutCompanyProps) => {
   const stats = data?.numbers || [];
-  const title = data?.title || "Proven Scale. Global Impact.";
+  const title = data?.title || "";
 
   if (!data) return null;
 

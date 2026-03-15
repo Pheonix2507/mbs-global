@@ -1,5 +1,6 @@
 import ServiceHero from "@/components/sections/ServiceHero";
-import ServiceTagline from "@/components/sections/ServiceTagline";
+import ServiceSemicircleLoader from "@/components/sections/ServiceSemicircleLoader";
+import StrategicBusinessOutcomes from "@/components/sections/StrategicBusinessOutcomes";
 import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
 import ServiceMetrics from "@/components/sections/ServiceMetrics";
 import SolutionsBanner from "@/components/sections/SolutionsBanner";
@@ -22,6 +23,7 @@ export default async function PlatformProductEngineeringPage() {
   const result = strapiData.Result_section;
   const progress = strapiData.progress;
   const metricsData = strapiData.number_growth;
+  const outcomes = strapiData.Strategic_Business_Outcomes;
   const banner = strapiData.banner;
 
   return (
@@ -35,8 +37,14 @@ export default async function PlatformProductEngineeringPage() {
       )}
 
       {result && (
-        <ServiceTagline tagline={result.title} description={result.sub_title} />
+        <ServiceSemicircleLoader
+          title={result.title}
+          description={result.sub_title}
+          image={getStrapiMedia(result.swipe_element)}
+        />
       )}
+
+      {outcomes && <StrategicBusinessOutcomes data={outcomes} />}
 
       {progress && <SolutionAnimatedFeatures slug="platform" data={progress} />}
 

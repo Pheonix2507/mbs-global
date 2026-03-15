@@ -12,7 +12,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
 
   if (!title && !subtitle) return null;
 
-  const backgroundImage = getStrapiMedia(data?.background_image) || "/hero.jpg";
+  const backgroundImage = getStrapiMedia(data?.background_image) || "";
   const isVideo = Array.isArray(data?.background_image)
     ? data?.background_image[0]?.mime?.startsWith("video/")
     : data?.background_image?.mime?.startsWith("video/");
@@ -32,7 +32,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
         ) : (
           <Image
             src={backgroundImage}
-            alt="Solutions Hero"
+            alt={title || "Solutions Hero"}
             fill
             className="object-cover"
             priority
@@ -43,14 +43,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
 
       <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto">
         <h1 className="font-zalando text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000">
-          {(title || "").split("Global Ambitions").map((part, i, arr) => (
-            <span key={i}>
-              {part}
-              {i < arr.length - 1 && (
-                <span className="text-purple-400">Global Ambitions</span>
-              )}
-            </span>
-          ))}
+          {title}
         </h1>
         <p className="text-lg md:text-xl text-zinc-200 font-sans font-normal animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-200 max-w-2xl mx-auto">
           {subtitle}

@@ -13,12 +13,15 @@ interface ValueData {
 }
 
 interface ValuesProps {
-  data?: ValueData;
+  data?: {
+    title?: string;
+    icons: ValueData["icons"]; // Corrected to reference the inner icons array type
+  };
 }
 
 const Values = ({ data }: ValuesProps) => {
   const values = data?.icons || [];
-  const title = "Core Values";
+  const title = data?.title || "";
 
   if (!data || values.length === 0) return null;
 

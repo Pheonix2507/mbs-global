@@ -41,7 +41,7 @@ const Offerings = ({ data }: OfferingsProps) => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-12 md:mb-16">
           <h2 className="font-zalando text-5xl md:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] md:text-zinc-900 md:dark:text-white max-w-[300px] md:max-w-none">
-            Core Offerings
+            {/* The title should probably be passed in 'data' or a 'title' prop, but for now we follow the user's request to remove static text */}
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ const Offerings = ({ data }: OfferingsProps) => {
                 <div className="group relative flex flex-col space-y-6">
                   <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
                     <Image
-                      src={getStrapiMedia(item.image) || "/mechanism.jpg"}
+                      src={getStrapiMedia(item.image) || ""}
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -101,15 +101,15 @@ const Offerings = ({ data }: OfferingsProps) => {
           <div className="flex gap-4 md:gap-4 w-full justify-end md:w-auto">
             <button
               onClick={prevSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
-              aria-label="Previous slide"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              aria-label=""
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-[2px] border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
-              aria-label="Next slide"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              aria-label=""
             >
               <ChevronRight className="h-6 w-6" />
             </button>

@@ -1,10 +1,10 @@
-import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
 import ServiceHero from "@/components/sections/ServiceHero";
-import ServiceTagline from "@/components/sections/ServiceTagline";
+import ServiceSemicircleLoader from "@/components/sections/ServiceSemicircleLoader";
+import StrategicBusinessOutcomes from "@/components/sections/StrategicBusinessOutcomes";
+import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
 import ServiceMetrics from "@/components/sections/ServiceMetrics";
-import SolutionsGrid from "@/components/sections/SolutionsGrid";
 import SolutionsBanner from "@/components/sections/SolutionsBanner";
-import { fetchStrapi } from "@/lib/strapi";
+import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
 
 export default async function DataAnalyticsCloudAiPage() {
   let strapiData: any = null;
@@ -36,14 +36,14 @@ export default async function DataAnalyticsCloudAiPage() {
       )}
 
       {result && (
-        <ServiceTagline tagline={result.title} description={result.sub_title} />
-      )}
-
-      {outcomes && (
-        <SolutionsGrid
-          data={{ title: outcomes.title, pillar_element: outcomes.card }}
+        <ServiceSemicircleLoader
+          title={result.title}
+          description={result.sub_title}
+          image={getStrapiMedia(result.swipe_element)}
         />
       )}
+
+      {outcomes && <StrategicBusinessOutcomes data={outcomes} />}
 
       {progress && <SolutionAnimatedFeatures slug="data" data={progress} />}
 

@@ -11,13 +11,13 @@ interface SolutionsBannerProps {
 }
 
 const SolutionsBanner = ({ data }: SolutionsBannerProps) => {
-  const title = data?.title || "Ready to Reach the Pinnacle?";
-  const subtitle = data?.subtitle || "At MBS, the sky is the limit. Let's build your next strategic powerhouse together.";
-  const mediaUrl = getStrapiMedia(data?.image) || "/join.jpg";
+  const title = data?.title || "";
+  const subtitle = data?.subtitle || "";
+  const mediaUrl = getStrapiMedia(data?.image);
   const isVideo = Array.isArray(data?.image)
     ? data?.image[0]?.mime?.startsWith("video/")
     : data?.image?.mime?.startsWith("video/");
-  const buttonText = (Array.isArray(data?.button) ? data?.button[0]?.text : data?.button?.text) || "Build Your Team";
+  const buttonText = (Array.isArray(data?.button) ? data?.button[0]?.text : data?.button?.text) || "";
 
   return (
     <div className="relative mt-32 py-32 overflow-hidden text-center w-full">

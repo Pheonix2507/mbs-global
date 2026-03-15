@@ -12,7 +12,7 @@ const Hero = ({ data }: HeroProps) => {
 
   if (!title && !subtitle) return null;
 
-  const backgroundImage = getStrapiMedia(data?.background_image) || "/hero.jpg";
+  const backgroundImage = getStrapiMedia(data?.background_image) || "";
   const isVideo = Array.isArray(data?.background_image)
     ? data?.background_image[0]?.mime?.startsWith("video/")
     : data?.background_image?.mime?.startsWith("video/");
@@ -36,7 +36,7 @@ const Hero = ({ data }: HeroProps) => {
         ) : (
           <Image
             src={backgroundImage}
-            alt="Hero Background"
+            alt={title || "Hero Background"}
             fill
             className="object-cover"
           />
@@ -48,14 +48,7 @@ const Hero = ({ data }: HeroProps) => {
 
       <div className="relative z-10 px-39 ml-10 min-w-[1134px]">
         <h1 className="mb-8 font-zalando font-semibold text-[49px] tracking-tight">
-          {(title || "").split("Engineering").map((part, i, arr) => (
-            <span key={i}>
-              {part}
-              {i < arr.length - 1 && (
-                <span className="text-purple-400">Engineering</span>
-              )}
-            </span>
-          ))}
+          {title}
         </h1>
 
         <p className="mb-8 md:mb-10 font-sans font-normal text-[15px] sm:text-lg md:text-xl leading-[120%] tracking-normal text-center text-[#FFFFFF] dark:text-[#FFFFFF] max-w-2xl mx-auto">
@@ -64,11 +57,13 @@ const Hero = ({ data }: HeroProps) => {
       </div>
 
       {/* CTA Button */}
-      <div className="relative z-10 flex items-center justify-center w-[266.52px] h-[55.26px] md:w-auto md:h-auto gap-[11.36px] rounded-[4.54px] border-[1.14px] border-[#FFFFFF] py-[13.63px] md:py-4 px-[27.26px] md:px-10 opacity-100">
-        <span className="font-zalando font-normal text-white text-sm sm:text-base md:text-lg">
-          Build Your Team
-        </span>
-      </div>
+      {data?.button?.[0]?.text && (
+        <div className="relative z-10 flex items-center justify-center w-[266.52px] h-[55.26px] md:w-auto md:h-auto gap-[11.36px] rounded-[4.54px] border-[1.14px] border-[#FFFFFF] py-[13.63px] md:py-4 px-[27.26px] md:px-10 opacity-100">
+          <span className="font-zalando font-normal text-white text-sm sm:text-base md:text-lg">
+            {data.button[0].text}
+          </span>
+        </div>
+      )}
     </section>
   );
 };

@@ -71,8 +71,8 @@ const Services = ({ data }: ServicesProps) => {
     >
       <div className="absolute inset-0 z-0">
         <Image
-          src="/mechanism.jpg"
-          alt="Services Background"
+          src=""
+          alt=""
           fill
           className="object-cover"
         />
@@ -135,7 +135,7 @@ const Services = ({ data }: ServicesProps) => {
           <button
             onClick={() => scroll("left")}
             className="flex h-[59px] w-[59px] items-center justify-center"
-            aria-label="Previous service"
+            aria-label=""
           >
             <div
               className="flex h-[44.25px] w-[44.25px] items-center justify-center rounded-full transition-all hover:scale-110"
@@ -147,7 +147,7 @@ const Services = ({ data }: ServicesProps) => {
           <button
             onClick={() => scroll("right")}
             className="flex h-[59px] w-[59px] items-center justify-center"
-            aria-label="Next service"
+            aria-label=""
           >
             <div
               className="relative flex h-[44.25px] w-[44.25px] items-center justify-center rounded-full transition-all hover:scale-110"

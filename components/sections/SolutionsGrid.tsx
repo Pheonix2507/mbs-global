@@ -19,8 +19,13 @@ interface SolutionsGridProps {
 
 const DEFAULT_SOLUTIONS_DATA: any[] = [];
 
-const SolutionsGrid = ({ title: propTitle, data: rawData }: SolutionsGridProps) => {
-  const solutions = Array.isArray(rawData) ? rawData : (rawData as any)?.pillar_element;
+const SolutionsGrid = ({
+  title: propTitle,
+  data: rawData,
+}: SolutionsGridProps) => {
+  const solutions = Array.isArray(rawData)
+    ? rawData
+    : (rawData as any)?.pillar_element;
   const gridTitle = propTitle || (rawData as any)?.title;
 
   if (!solutions || solutions.length === 0) return null;
@@ -33,20 +38,31 @@ const SolutionsGrid = ({ title: propTitle, data: rawData }: SolutionsGridProps) 
         </span>
         <div className="flex flex-col gap-24">
           {solutions.map((item: any, index: number) => {
-            const mediaUrl = getStrapiMedia(item.image) || "/mechanism.jpg";
+            const mediaUrl = getStrapiMedia(item.image) || "";
             const isVideo = Array.isArray(item.image)
               ? item.image[0]?.mime?.startsWith("video/")
               : item.image?.mime?.startsWith("video/");
-            
+
             // Map either title_subtile (API) or swipe_element or points (previous) or simple subtitle/sub_title
-            const itemPoints = item.title_subtile 
-              ? item.title_subtile.map((p: any) => ({ title: p.sub_title ? p.title : "", description: p.sub_title || p.title }))
+            const itemPoints = item.title_subtile
+              ? item.title_subtile.map((p: any) => ({
+                  title: p.sub_title ? p.title : "",
+                  description: p.sub_title || p.title,
+                }))
               : item.swipe_element
-                ? item.swipe_element.map((p: any) => ({ title: p.title, description: p.subtitle || p.sub_title }))
-                : item.points 
-                  ? item.points 
+                ? item.swipe_element.map((p: any) => ({
+                    title: p.title,
+                    description: p.subtitle || p.sub_title,
+                  }))
+                : item.points
+                  ? item.points
                   : item.subtitle || item.sub_title
-                    ? [{ title: "", description: item.subtitle || item.sub_title }] 
+                    ? [
+                        {
+                          title: "",
+                          description: item.subtitle || item.sub_title,
+                        },
+                      ]
                     : [];
 
             return (

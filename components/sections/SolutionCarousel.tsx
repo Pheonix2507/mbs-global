@@ -3,24 +3,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const CAROUSEL_DATA = [
-  {
-    title: "Global Market Entry",
-    description:
-      "Navigate new markets with confidence. Our strategic consulting framework provides deep market analysis, regulatory guidance, and localized launch strategies to ensure your expansion succeeds.",
-  },
-  {
-    title: "Digital Transformation",
-    description:
-      "Modernize your legacy systems. We architect scalable solutions that transition your business processes into agile, cloud-native operations with zero downtime.",
-  },
-  {
-    title: "Operational Excellence",
-    description:
-      "Streamline your workflows. By identifying bottlenecks and implementing automation, we help you achieve higher throughput and significantly reduced overhead costs.",
-  },
-];
-
 interface SolutionCarouselProps {
   data?: any;
   title?: string;
@@ -41,13 +23,15 @@ const SolutionCarousel = ({
     (Array.isArray(data) ? data : null);
 
   // Extract header info
-  const headerTitle = propTitle || data?.title || "Strategic Initiatives";
+  const headerTitle =
+    propTitle || data?.title || data?.title_subtile?.title || "";
   const headerDescription =
     propDescription ||
     data?.sub_title ||
     data?.subtitle ||
     data?.description ||
-    "Explore our curated approaches to solving your most complex business challenges.";
+    data?.title_subtile?.sub_title ||
+    "";
 
   const displayData =
     Array.isArray(strapiItems) && strapiItems.length > 0
@@ -55,7 +39,7 @@ const SolutionCarousel = ({
           title: item.title,
           description: item.subtitle || item.sub_title || item.description,
         }))
-      : CAROUSEL_DATA;
+      : [];
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? displayData.length - 1 : prev - 1));
@@ -84,7 +68,7 @@ const SolutionCarousel = ({
           <button
             onClick={prevSlide}
             className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 p-4 -ml-8 bg-white dark:bg-black rounded-full shadow-lg border border-zinc-100 dark:border-zinc-800 text-purple-600 hover:text-purple-400 hover:scale-110 transition-all focus:outline-none items-center justify-center"
-            aria-label="Previous slide"
+            aria-label=""
           >
             <ChevronLeft className="w-10 h-10" />
           </button>
@@ -93,7 +77,7 @@ const SolutionCarousel = ({
           <div className="w-full md:px-20">
             <div className="bg-white dark:bg-black rounded-[4px] px-4 py-8 sm:px-8 md:p-16 shadow-2xl border border-zinc-100 dark:border-zinc-800 text-left md:text-center transform transition-all duration-500 min-h-[300px] flex flex-col justify-center">
               <h3
-                className="font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6 animate-in fade-in zoom-in duration-500 break-words leading-[110%]"
+                className="font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6 animate-in fade-in zoom-in duration-500 wrap-break-words leading-[110%]"
                 key={`title-${currentIndex}`}
               >
                 {displayData[currentIndex].title}
@@ -117,7 +101,7 @@ const SolutionCarousel = ({
                       ? "bg-purple-600 w-8"
                       : "bg-zinc-300 dark:bg-zinc-700 hover:bg-purple-400"
                   }`}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  aria-label=""
                 />
               ))}
             </div>
@@ -127,14 +111,14 @@ const SolutionCarousel = ({
               <button
                 onClick={prevSlide}
                 className="flex items-center justify-center p-3 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600/10 transition-all focus:outline-none"
-                aria-label="Previous slide"
+                aria-label=""
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={nextSlide}
                 className="flex items-center justify-center p-3 rounded-full border-2 border-purple-600 text-purple-600 hover:bg-purple-600/10 transition-all focus:outline-none"
-                aria-label="Next slide"
+                aria-label=""
               >
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -145,7 +129,7 @@ const SolutionCarousel = ({
           <button
             onClick={nextSlide}
             className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 p-4 -mr-8 bg-white dark:bg-black rounded-full shadow-lg border border-zinc-100 dark:border-zinc-800 text-purple-600 hover:text-purple-400 hover:scale-110 transition-all focus:outline-none items-center justify-center"
-            aria-label="Next slide"
+            aria-label=""
           >
             <ChevronRight className="w-10 h-10" />
           </button>

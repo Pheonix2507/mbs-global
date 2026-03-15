@@ -13,41 +13,7 @@ interface Location {
   top: string;
 }
 
-const locations: Location[] = [
-  {
-    id: "india",
-    country: "India",
-    flag: "🇮🇳",
-    address:
-      "B/1205 Empire Business Hub,\nScience City Road, Sola,\nAhmedabad GJ 380060",
-    left: "71%",
-    top: "44%",
-  },
-  {
-    id: "uk",
-    country: "United Kingdom",
-    flag: "🇬🇧",
-    address: "123 Business Lane,\nLondon, EC1A 1BB,\nUnited Kingdom",
-    left: "44%",
-    top: "20%",
-  },
-  {
-    id: "canada",
-    country: "Canada",
-    flag: "🇨🇦",
-    address: "456 Commerce Ave,\nToronto, ON M5V 2H1,\nCanada",
-    left: "10%",
-    top: "10%",
-  },
-  {
-    id: "usa",
-    country: "United States",
-    flag: "🇺🇸",
-    address: "789 Innovation Blvd,\nNew York, NY 10001,\nUSA",
-    left: "17%",
-    top: "35%",
-  },
-];
+const locations: Location[] = [];
 
 const Pin = ({ location }: { location: Location }) => {
   const [hovered, setHovered] = useState(false);
@@ -158,7 +124,7 @@ const WorldMap = () => {
           {/* World map image */}
           <Image
             src="/world-map.png"
-            alt="World map showing MBS Global office locations"
+            alt=""
             fill
             className="object-contain"
             priority

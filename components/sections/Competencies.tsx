@@ -42,7 +42,7 @@ const Competencies = ({ data }: CompetenciesProps) => {
           <div className="relative z-10 w-full h-full">
             <Image
               src={sideImage}
-              alt="Competencies"
+              alt=""
               fill
               className="object-contain"
             />

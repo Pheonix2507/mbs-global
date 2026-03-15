@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface ServiceSemicircleLoaderProps {
   title?: string;
   description?: string;
+  image?: string | null;
   className?: string;
 }
 
 const ServiceSemicircleLoader = ({
-  title = "Performance",
+  title,
   description,
+  image,
   className,
 }: ServiceSemicircleLoaderProps) => {
   const [progress, setProgress] = useState(0);
@@ -68,19 +71,19 @@ const ServiceSemicircleLoader = ({
   return (
     <section
       ref={sectionRef}
-      className={`py-6 relative overflow-hidden ${className || "bg-zinc-50 dark:bg-zinc-900"}`}
+      className={`py-24 relative overflow-hidden ${className || "bg-white dark:bg-black"}`}
     >
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Container */}
-        <div className="flex flex-col items-center max-w-2xl w-full">
-          {title !== "" && (
-            <h3 className="text-2xl md:text-3xl font-zalando text-zinc-900 dark:text-zinc-100 mb-16 font-medium text-center max-w-md">
+        <div className="flex flex-col items-center max-w-4xl w-full">
+          {title && (
+            <h3 className="text-3xl md:text-4xl font-zalando text-zinc-900 dark:text-zinc-100 mb-16 font-medium text-center max-w-2xl leading-tight">
               {title}
             </h3>
           )}
 
           {/* Semicircle SVG */}
-          <div className="relative w-full max-w-[400px] aspect-2/1 mb-12 flex flex-col justify-end">
+          <div className="relative w-full max-w-[500px] aspect-2/1 mb-12 flex flex-col justify-end">
             <svg
               viewBox="0 0 200 100"
               className="w-full h-full overflow-visible absolute bottom-0 left-0"
@@ -122,15 +125,28 @@ const ServiceSemicircleLoader = ({
               />
             </svg>
 
-            {/* Center percentage text */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 transform text-5xl md:text-6xl font-light text-zinc-900 dark:text-zinc-100 tracking-wider flex items-center">
-              {Math.round(progress)}
-              <span className="text-3xl md:text-4xl">%</span>
+            {/* Center content: image or percentage text */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 transform w-full flex justify-center items-center">
+              {image ? (
+                <div className="relative w-32 h-32 md:w-40 md:h-40">
+                  <Image
+                    src={image}
+                    alt="Result center"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="text-5xl md:text-7xl font-light text-zinc-900 dark:text-zinc-100 tracking-wider flex items-center">
+                  {Math.round(progress)}
+                  <span className="text-3xl md:text-4xl ml-1">%</span>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="text-center">
-            <p className="text-zinc-600 dark:text-zinc-400 font-sans text-lg md:text-xl leading-relaxed max-w-lg mx-auto">
+          <div className="text-center mt-8">
+            <p className="text-zinc-600 dark:text-zinc-400 font-sans text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
               {description}
             </p>
           </div>

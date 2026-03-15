@@ -54,15 +54,19 @@ const Navbar = () => {
           <div className="hidden gap-10 lg:gap-20 md:flex flex-1 items-center justify-center">
             {navLinks.map((link) => (
               <div key={link.name} className="relative group p-2">
-                <Link
-                  href={link.href}
-                  className="text-base font-semibold flex items-center gap-1 hover:text-[#AF33FF] transition-colors"
-                >
-                  {link.name}
-                  {link.subLinks && (
+                {link.subLinks ? (
+                  <div className="text-base font-semibold flex items-center gap-1 hover:text-[#AF33FF] transition-colors cursor-pointer">
+                    {link.name}
                     <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-                  )}
-                </Link>
+                  </div>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-base font-semibold flex items-center gap-1 hover:text-[#AF33FF] transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                )}
 
                 {/* Dropdown Menu — UNCHANGED */}
                 {link.subLinks && (

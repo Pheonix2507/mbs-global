@@ -1,11 +1,10 @@
 import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
 import ServiceHero from "@/components/sections/ServiceHero";
 import ServiceTagline from "@/components/sections/ServiceTagline";
-import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
 import ServiceMetrics from "@/components/sections/ServiceMetrics";
 import SolutionsGrid from "@/components/sections/SolutionsGrid";
 import SolutionsBanner from "@/components/sections/SolutionsBanner";
-import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
+import { fetchStrapi } from "@/lib/strapi";
 
 export default async function DataAnalyticsCloudAiPage() {
   let strapiData: any = null;

@@ -14,14 +14,14 @@ interface SolutionItem {
 
 interface SolutionsGridProps {
   title?: string;
-  data?: SolutionItem[];
+  data?: any;
 }
 
 const DEFAULT_SOLUTIONS_DATA: any[] = [];
 
-const SolutionsGrid = ({ title, data }: SolutionsGridProps) => {
-  const solutions = data;
-  const gridTitle = title;
+const SolutionsGrid = ({ title: propTitle, data: rawData }: SolutionsGridProps) => {
+  const solutions = Array.isArray(rawData) ? rawData : (rawData as any)?.pillar_element;
+  const gridTitle = propTitle || (rawData as any)?.title;
 
   if (!solutions || solutions.length === 0) return null;
 
@@ -32,8 +32,23 @@ const SolutionsGrid = ({ title, data }: SolutionsGridProps) => {
           {gridTitle}
         </span>
         <div className="flex flex-col gap-24">
-          {solutions.map((item, index) => {
-            const imageUrl = getStrapiMedia(item.image) || "/mechanism.jpg";
+          {solutions.map((item: any, index: number) => {
+            const mediaUrl = getStrapiMedia(item.image) || "/mechanism.jpg";
+            const isVideo = Array.isArray(item.image)
+              ? item.image[0]?.mime?.startsWith("video/")
+              : item.image?.mime?.startsWith("video/");
+            
+            // Map either title_subtile (API) or swipe_element or points (previous) or simple subtitle/sub_title
+            const itemPoints = item.title_subtile 
+              ? item.title_subtile.map((p: any) => ({ title: p.sub_title ? p.title : "", description: p.sub_title || p.title }))
+              : item.swipe_element
+                ? item.swipe_element.map((p: any) => ({ title: p.title, description: p.subtitle || p.sub_title }))
+                : item.points 
+                  ? item.points 
+                  : item.subtitle || item.sub_title
+                    ? [{ title: "", description: item.subtitle || item.sub_title }] 
+                    : [];
+
             return (
               <div
                 key={index}
@@ -46,19 +61,30 @@ const SolutionsGrid = ({ title, data }: SolutionsGridProps) => {
                   </h3>
                 </div>
 
-                {/* Middle: Image */}
+                {/* Middle: Media */}
                 <div className="order-2 relative aspect-4/3 overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800 shadow-xl">
-                  <Image
-                    src={imageUrl}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-105"
-                  />
+                  {isVideo ? (
+                    <video
+                      src={mediaUrl}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  ) : (
+                    <Image
+                      src={mediaUrl}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                    />
+                  )}
                 </div>
 
                 {/* Right: Description (Points) */}
                 <div className="order-3 space-y-8 md:pt-4">
-                  {item.points?.map((point, pIdx) => (
+                  {itemPoints.map((point: any, pIdx: number) => (
                     <div key={pIdx} className="flex gap-4">
                       <span className="text-2xl font-bold text-purple-400 shrink-0">
                         {pIdx + 1}.

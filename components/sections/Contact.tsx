@@ -5,25 +5,23 @@ import { getStrapiMedia } from "@/lib/strapi";
 interface ContactData {
   id: number;
   title: string;
-  subtitle: string;
-  image: any;
-  button: Array<{
-    id: number;
-    text: string;
-  }>;
+  subtitle: string | null;
+  image?: any;
+  button?: any;
 }
 
 interface ContactProps {
-  data?: ContactData[];
+  data?: ContactData | ContactData[];
 }
 
 const Contact = ({ data }: ContactProps) => {
-  const banner = data?.[0];
+  const banner = Array.isArray(data) ? data[0] : data;
   const title = banner?.title || "";
   const backgroundImage = getStrapiMedia(banner?.image) || "";
-  const buttonText = banner?.button?.[0]?.text || "Build Your Team";
+  const buttonText = (Array.isArray(banner?.button) ? banner?.button[0]?.text : banner?.button?.text) || "Build Your Team";
 
-  if (!data || data.length === 0) return null;
+  if (!data) return null;
+  if (Array.isArray(data) && data.length === 0) return null;
 
   return (
     <section

@@ -17,7 +17,7 @@ const SolutionsSplit = ({ data }: SolutionsSplitProps) => {
     data?.subtitle ||
     "MBS empowers global enterprises to build distributed teams...";
   const image = getStrapiMedia(data?.image) || "/about-hero.jpg";
-  const buttonText = data?.button?.text || "Learn More About Scale";
+  const buttonText = (Array.isArray(data?.button) ? data?.button[0]?.text : data?.button?.text) || "Learn More About Scale";
 
   return (
     <section className="bg-zinc-50 dark:bg-[#1F2123] py-16 md:py-32 overflow-hidden">

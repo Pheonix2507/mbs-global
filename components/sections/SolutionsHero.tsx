@@ -3,7 +3,7 @@ import { StrapiHero } from "@/lib/strapi-types";
 import { getStrapiMedia } from "@/lib/strapi";
 
 interface SolutionsHeroProps {
-  data?: StrapiHero & { background_image?: any };
+  data?: { background_image?: any; title?: string; subtitle?: string };
 }
 
 const SolutionsHero = ({ data }: SolutionsHeroProps) => {
@@ -18,28 +18,31 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
     : data?.background_image?.mime?.startsWith("video/");
 
   return (
-    <section className="relative h-[60vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
-      {isVideo ? (
-        <video
-          src={backgroundImage}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="h-full w-full object-cover"
-        />
-      ) : (
-        <Image
-          src={backgroundImage}
-          alt="Solutions Hero"
-          fill
-          className="object-cover"
-          priority
-        />
-      )}
-      <div className="absolute inset-0 bg-black/40"></div>
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-zalando text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+    <section className="relative h-[60vh] min-h-[400px] md:min-h-[500px] w-full flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        {isVideo ? (
+          <video
+            src={backgroundImage}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <Image
+            src={backgroundImage}
+            alt="Solutions Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+        )}
+        <div className="absolute inset-0 bg-black/50"></div>
+      </div>
+
+      <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto">
+        <h1 className="font-zalando text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000">
           {(title || "").split("Global Ambitions").map((part, i, arr) => (
             <span key={i}>
               {part}
@@ -49,7 +52,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
             </span>
           ))}
         </h1>
-        <p className="text-xl text-zinc-200 font-sans font-normal animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-200 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-zinc-200 font-sans font-normal animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-200 max-w-2xl mx-auto">
           {subtitle}
         </p>
       </div>

@@ -21,31 +21,61 @@ const CAROUSEL_DATA = [
   },
 ];
 
-const SolutionCarousel = () => {
+interface SolutionCarouselProps {
+  data?: any;
+  title?: string;
+  description?: string;
+}
+
+const SolutionCarousel = ({
+  data,
+  title: propTitle,
+  description: propDescription,
+}: SolutionCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Extract dynamic data from Strapi swipe component or direct array (e.g. Guides)
+  const strapiItems =
+    data?.title_subtile?.swipe_element ||
+    data?.swipe_element ||
+    (Array.isArray(data) ? data : null);
+
+  // Extract header info
+  const headerTitle = propTitle || data?.title || "Strategic Initiatives";
+  const headerDescription =
+    propDescription ||
+    data?.sub_title ||
+    data?.subtitle ||
+    data?.description ||
+    "Explore our curated approaches to solving your most complex business challenges.";
+
+  const displayData =
+    Array.isArray(strapiItems) && strapiItems.length > 0
+      ? strapiItems.map((item: any) => ({
+          title: item.title,
+          description: item.subtitle || item.sub_title || item.description,
+        }))
+      : CAROUSEL_DATA;
+
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? CAROUSEL_DATA.length - 1 : prev - 1,
-    );
+    setCurrentIndex((prev) => (prev === 0 ? displayData.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === CAROUSEL_DATA.length - 1 ? 0 : prev + 1,
-    );
+    setCurrentIndex((prev) => (prev === displayData.length - 1 ? 0 : prev + 1));
   };
+
+  if (!displayData || displayData.length === 0) return null;
 
   return (
     <section className="bg-zinc-50 dark:bg-zinc-900/50 py-24">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-left md:text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-zalando text-[39px] md:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6">
-            Strategic Initiatives
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-zalando text-4xl md:text-5xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6">
+            {headerTitle}
           </h2>
           <p className="font-sans text-lg text-zinc-600 dark:text-zinc-400">
-            Explore our curated approaches to solving your most complex business
-            challenges.
+            {headerDescription}
           </p>
         </div>
 
@@ -66,19 +96,19 @@ const SolutionCarousel = () => {
                 className="font-zalando text-[39px] md:text-4xl font-semibold tracking-tight text-zinc-900 dark:text-white mb-6 animate-in fade-in zoom-in duration-500 break-words leading-[110%]"
                 key={`title-${currentIndex}`}
               >
-                {CAROUSEL_DATA[currentIndex].title}
+                {displayData[currentIndex].title}
               </h3>
               <p
                 className="font-sans text-base md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl md:mx-auto animate-in fade-in zoom-in duration-500 delay-100"
                 key={`desc-${currentIndex}`}
               >
-                {CAROUSEL_DATA[currentIndex].description}
+                {displayData[currentIndex].description}
               </p>
             </div>
 
             {/* Dots */}
             <div className="flex justify-center gap-3 mt-8">
-              {CAROUSEL_DATA.map((_, idx) => (
+              {displayData.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}

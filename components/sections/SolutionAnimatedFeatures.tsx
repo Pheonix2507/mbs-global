@@ -8,6 +8,7 @@ interface FeaturePoint {
   title: string;
   description: string;
   image: string;
+  media?: any;
 }
 
 const INNOVATION_DATA: FeaturePoint[] = [
@@ -80,7 +81,7 @@ const PLATFORM_DATA: FeaturePoint[] = [
   {
     title: "Architecture Builder",
     description:
-      "Gain real-time visualization of your \"to-be\" state with our automated architecture blueprints and fix bottlenecks before they happen.",
+      'Gain real-time visualization of your "to-be" state with our automated architecture blueprints and fix bottlenecks before they happen.',
     image: "/about-values-side.jpg",
   },
   {
@@ -147,14 +148,10 @@ const DATA_AI_DATA: FeaturePoint[] = [
 
 interface Props {
   slug: string;
-  data?: Array<{
-    title: string;
-    subtitle: string;
-    image: any;
-  }>;
+  data?: any;
 }
 
-const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
+const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -169,11 +166,17 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
             ? INNOVATION_DATA
             : OPERATIVE_DATA;
 
-  const data: FeaturePoint[] = strapiFeatures 
-    ? strapiFeatures.map(item => ({
+  const strapiFeatures = Array.isArray(strapiFeaturesRaw)
+    ? strapiFeaturesRaw
+    : (strapiFeaturesRaw as any)?.title_subtile_image ||
+      (strapiFeaturesRaw as any)?.progress_item;
+
+  const data: FeaturePoint[] = strapiFeatures
+    ? strapiFeatures.map((item: any) => ({
         title: item.title,
-        description: item.subtitle,
-        image: getStrapiMedia(item.image) || "/mechanism.jpg"
+        description: item.subtitle || item.sub_title,
+        image: getStrapiMedia(item.image) || "/mechanism.jpg",
+        media: item.image,
       }))
     : staticData;
 
@@ -205,21 +208,43 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
   return (
     <section className="py-16 md:py-24 bg-[#1F1F1F]">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Left: Dynamic Image Container */}
-          <div className="relative aspect-[4/3] lg:aspect-square w-full max-w-[400px] lg:max-w-none mx-auto lg:mx-0 rounded-[4px] overflow-hidden shadow-2xl bg-zinc-900 mb-2 lg:mb-0">
-            {data.map((item, idx) => (
-              <Image
-                key={idx}
-                src={item.image}
-                alt={item.title}
-                fill
-                className={`object-cover transition-opacity duration-1000 ease-in-out ${
-                  activeIndex === idx ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-            <div className="absolute inset-0 bg-black/20" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left: Dynamic Media */}
+          <div className="relative aspect-square md:aspect-4/3 lg:aspect-square overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900 shadow-2xl">
+            {data.map((item, idx) => {
+              const isVideo = Array.isArray(item.media)
+                ? item.media[0]?.mime?.startsWith("video/")
+                : item.media?.mime?.startsWith("video/");
+
+              if (isVideo) {
+                return (
+                  <video
+                    key={idx}
+                    src={item.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                      activeIndex === idx ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                );
+              }
+
+              return (
+                <Image
+                  key={idx}
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className={`object-cover transition-opacity duration-1000 ease-in-out ${
+                    activeIndex === idx ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              );
+            })}
+            <div className="absolute inset-0 bg-black/10 dark:bg-black/20" />
           </div>
 
           {/* Right: Points with Loaders */}
@@ -244,9 +269,11 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
                     >
                       {item.title}:
                     </h3>
-                    
+
                     {/* Description - always show or only active? Screenshot shows active one expanded */}
-                    <div className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0 lg:max-h-40 lg:opacity-100"}`}>
+                    <div
+                      className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0 lg:max-h-40 lg:opacity-100"}`}
+                    >
                       <p className="font-sans text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl">
                         {item.description}
                       </p>
@@ -254,7 +281,9 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeatures }: Props) => {
                   </div>
 
                   {/* Progress Bar - Visible for active item on both desktop and mobile */}
-                  <div className={`relative w-full overflow-hidden transition-all duration-500 rounded-full ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}>
+                  <div
+                    className={`relative w-full overflow-hidden transition-all duration-500 rounded-full ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}
+                  >
                     <div className="absolute inset-0 bg-white/20 rounded-full" />
                     <div
                       className="absolute top-0 left-0 h-full bg-gradient-to-r from-purple-600 to-[#AF33FF] rounded-full transition-none"

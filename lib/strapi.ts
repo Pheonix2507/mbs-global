@@ -64,7 +64,14 @@ export async function fetchStrapi<T>(
     });
 
     if (!response.ok) {
-      throw new Error(`Strapi fetch error: ${response.statusText}`);
+      let errorDetail = "";
+      try {
+        const errorData = await response.json();
+        errorDetail = JSON.stringify(errorData);
+      } catch (e) {
+        errorDetail = response.statusText;
+      }
+      throw new Error(`Strapi fetch error: ${response.status} ${errorDetail}`);
     }
 
     const data = await response.json();

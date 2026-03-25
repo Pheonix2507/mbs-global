@@ -37,7 +37,7 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white dark:bg-[#111111]">
+    <section ref={sectionRef} className="py-24 bg-[#FAFAFA] dark:bg-[#111111]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {metrics.map((metric, idx) => (
@@ -51,7 +51,7 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {/* Circular Glass Container */}
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center mb-6 px-4 bg-white/20 dark:bg-black/20 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-[0_8px_32px_0_rgba(175,51,255,0.05)] transition-all duration-500 hover:shadow-[0_8px_32px_0_rgba(175,51,255,0.2)] hover:bg-white/30 dark:hover:bg-white/5">
+              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center mb-6 px-4 bg-white dark:bg-black/20 backdrop-blur-xl border border-purple-200 dark:border-white/10 shadow-[0_8px_32px_0_rgba(175,51,255,0.08)] dark:shadow-[0_8px_32px_0_rgba(175,51,255,0.05)] transition-all duration-500 hover:shadow-[0_8px_32px_0_rgba(175,51,255,0.2)] hover:border-purple-300 dark:hover:bg-white/5">
                 {/* SVG for Animated Stroke */}
                 <svg
                   className="absolute inset-0 w-full h-full -rotate-90 overflow-visible"

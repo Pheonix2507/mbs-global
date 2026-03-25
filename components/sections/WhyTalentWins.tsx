@@ -63,16 +63,16 @@ const WhyTalentWins = () => {
   }, [points.length]);
 
   return (
-    <section className="bg-[#1F1F1F] py-16 md:py-24 overflow-hidden">
+    <section className="bg-white dark:bg-[#1F1F1F] py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Heading */}
-        <h2 className="font-zalando text-3xl md:text-5xl font-semibold text-white text-center leading-[120%] mb-12 md:mb-20">
+        <h2 className="font-zalando text-3xl md:text-5xl font-semibold text-zinc-900 dark:text-white text-center leading-[120%] mb-12 md:mb-20">
           Why Our Talent Wins
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left: Dynamic Image Container */}
-          <div className="order-1 relative aspect-square w-full max-w-[520px] mx-auto lg:mx-0 rounded-[4px] overflow-hidden shadow-2xl bg-zinc-900">
+          <div className="order-1 relative aspect-square w-full max-w-[520px] mx-auto lg:mx-0 rounded-[4px] overflow-hidden shadow-2xl bg-zinc-100 dark:bg-zinc-900">
             {points.map((point, idx) => (
               <Image
                 key={idx}
@@ -102,11 +102,11 @@ const WhyTalentWins = () => {
                   }}
                 >
                   <div className="space-y-3">
-                    <h3 className={`font-zalando text-2xl md:text-[32px] font-semibold tracking-tight transition-colors duration-500 ${isActive ? "text-[#AF33FF]" : "text-white"}`}>
+                    <h3 className={`font-zalando text-2xl md:text-[32px] font-semibold tracking-tight transition-colors duration-500 ${isActive ? "text-[#AF33FF]" : "text-zinc-900 dark:text-white"}`}>
                       {point.title}
                     </h3>
                     <div className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0 lg:max-h-40 lg:opacity-100"}`}>
-                      <p className="font-sans text-base md:text-lg text-zinc-400 leading-relaxed font-normal">
+                      <p className="font-sans text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
                         {point.description}
                       </p>
                     </div>
@@ -114,7 +114,7 @@ const WhyTalentWins = () => {
                   
                   {/* Progress Bar Container - Only visible for active item */}
                   <div className={`relative w-full overflow-hidden transition-all duration-500 ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}>
-                    <div className="absolute inset-0 bg-white/10 rounded-full" />
+                     <div className="absolute inset-0 bg-zinc-300 dark:bg-white/10 rounded-full" />
                     <div 
                       className="absolute top-0 left-0 h-full bg-linear-to-r from-purple-600 to-[#AF33FF] rounded-full" 
                       style={{ width: `${progress}%` }}

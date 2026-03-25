@@ -14,7 +14,7 @@ const AboutUs = async () => {
     aboutData?.A_Legacy_of_Transformation?.yearAndtext || [];
 
   return (
-    <main className="min-h-screen pt-20 bg-background text-foreground">
+    <main className="min-h-screen pt-20 text-foreground">
       {/* Hero Section */}
       <section className="relative min-h-[800px] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
         <Image
@@ -48,16 +48,16 @@ const AboutUs = async () => {
       </section>
 
       {/* Main Content Sections with Common Background */}
-      <section className="bg-[#1F2123] py-16 md:py-32">
+      <section className="bg-white dark:bg-[#1F2123] py-16 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section 1: Title and Description (short_about - repeatable) */}
           <div className="mb-16 md:mb-32">
             {aboutData?.short_about?.map((item, idx) => (
               <div key={idx} className="mb-12">
-                <h2 className="font-zalando text-[#D699FF] text-4xl md:text-6xl font-normal mb-6 md:mb-8 tracking-tight leading-[120%]">
+                <h2 className="font-zalando text-[#D699FF] dark:text-[#D699FF] text-4xl md:text-6xl font-normal mb-6 md:mb-8 tracking-tight leading-[120%]">
                   {item.title}
                 </h2>
-                <p className="mx-auto font-sans font-normal text-base md:text-2xl leading-relaxed">
+                <p className="mx-auto font-sans font-normal text-base md:text-2xl leading-relaxed text-zinc-700 dark:text-zinc-200">
                   {item.sub_title}
                 </p>
               </div>
@@ -68,7 +68,7 @@ const AboutUs = async () => {
           <div className="mb-16 md:mb-48">
             {/* Heading — left aligned on mobile, centered on desktop */}
             <div className="text-left md:text-center mb-8">
-              <h3 className="font-zalando font-semibold text-3xl md:text-5xl mb-4">
+              <h3 className="font-zalando font-semibold text-3xl md:text-5xl mb-4 text-zinc-900 dark:text-white">
                 Values That
                 <br className="md:hidden" /> Drive <br className="md:hidden" />
                 Excellence.
@@ -91,28 +91,28 @@ const AboutUs = async () => {
               {/* Competency items */}
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-white">
+                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
                     Platform & Product <br className="md:hidden" />
                     Engineering
                   </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-400">
+                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
                     Modern architecture for scalable{" "}
                     <br className="md:hidden" /> global products.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-white">
+                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
                     Digital Infra & Ops
                   </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-400">
+                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
                     Robust infrastructure management for 24/7 availability.
                   </p>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-white">
+                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
                     Data, Analytics & AI
                   </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-400">
+                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
                     Actionable intelligence to power your digital evolution.
                   </p>
                 </div>
@@ -122,9 +122,9 @@ const AboutUs = async () => {
               <div>
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center border border-white rounded-sm py-2 px-6"
+                  className="inline-flex items-center justify-center border border-zinc-900 dark:border-white rounded-sm py-2 px-6"
                 >
-                  <span className="font-zalando font-normal text-sm text-white">
+                  <span className="font-zalando font-normal text-sm text-zinc-900 dark:text-white">
                     Explore more
                   </span>
                 </a>
@@ -149,10 +149,10 @@ const AboutUs = async () => {
                     <Lightbulb className="w-6 h-6 text-purple-500" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-white font-zalando tracking-tight">
+                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
                       People First
                     </h4>
-                    <p className="text-white text-lg leading-relaxed max-w-md">
+                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
                       Your growth is our growth; we foster an atmosphere of
                       mutual respect and loyalty.
                     </p>
@@ -163,10 +163,10 @@ const AboutUs = async () => {
                     <Target className="w-6 h-6 text-blue-500" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-white font-zalando tracking-tight">
+                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
                       Knowledge Sharing
                     </h4>
-                    <p className="text-white text-lg leading-relaxed max-w-md">
+                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
                       We host weekly MBS Knowledge Exchange sessions to ensure
                       expertise flows across every team and country.
                     </p>
@@ -177,10 +177,10 @@ const AboutUs = async () => {
                     <CheckCircle2 className="w-6 h-6 text-emerald-500" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-white font-zalando tracking-tight">
+                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
                       Customer Transparency
                     </h4>
-                    <p className="text-white text-lg leading-relaxed max-w-md">
+                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
                       We build long-term relationships through proactive
                       value-adds and shared common goals.
                     </p>
@@ -191,10 +191,10 @@ const AboutUs = async () => {
                     <Users className="w-6 h-6 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-white font-zalando tracking-tight">
+                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
                       Quality Without Compromise
                     </h4>
-                    <p className="text-white text-lg leading-relaxed max-w-md">
+                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
                       100% efficiency is our norm because in technology,
                       &quot;enough&quot; is never enough.
                     </p>
@@ -208,28 +208,25 @@ const AboutUs = async () => {
           <div className="relative overflow-hidden pt-12">
             {/* Heading */}
             <div className="text-center mb-12 md:mb-24">
-              <h3 className="font-zalando text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="font-zalando font-semibold text-[49px] leading-[120%] text-center text-zinc-900 dark:text-white">
                 {aboutData?.A_Legacy_of_Transformation?.title}
               </h3>
-              <p className="hidden md:block text-muted-foreground">
-                Milestones that defined our path.
-              </p>
             </div>
 
             {/* ── MOBILE Timeline ── */}
             <div className="relative md:hidden flex flex-col items-center gap-5 px-6">
               {/* Vertical line through the center */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-zinc-800"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-zinc-300 dark:bg-zinc-800"></div>
 
               {timelineEvents.map((event, idx) => (
                 <div
                   key={idx}
-                  className="relative z-10 w-full max-w-[361px] min-h-[183px] bg-[#150D1D] p-[28px_18px] rounded-[4px] border border-zinc-800/50 flex flex-col gap-[10px] items-center text-center justify-center"
+                  className="relative z-10 w-full max-w-[361px] min-h-[183px] bg-[#D699FF] dark:bg-[#150D1D] p-[28px_18px] rounded-[4px] border border-[#D699FF] dark:border-zinc-800/50 flex flex-col gap-[10px] items-center text-center justify-center"
                 >
-                  <h4 className="font-zalando font-bold text-3xl text-white">
+                  <h4 className="font-zalando font-bold text-3xl text-zinc-900 dark:text-white">
                     {event.title}
                   </h4>
-                  <p className="font-sans text-sm text-zinc-300 leading-relaxed text-center">
+                  <p className="font-sans text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed text-center">
                     {event.sub_title}
                   </p>
                 </div>
@@ -260,22 +257,22 @@ const AboutUs = async () => {
                     {/* Content Card */}
                     <div className="w-[45%] relative z-10">
                       <div
-                        className={`p-8 rounded-3xl backdrop-blur-md bg-white/80 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 shadow-lg hover:border-purple-500/50 transition-colors duration-500 ${
+                        className={`p-8 rounded-3xl backdrop-blur-md bg-[#D699FF] dark:bg-[#150D1D] border border-[#D699FF] dark:border-zinc-800 shadow-lg hover:border-purple-500/50 transition-colors duration-500 ${
                           idx % 2 === 0 ? "mr-8" : "ml-8"
                         }`}
                       >
                         <div className="flex items-center gap-4 mb-4">
-                          <span className="text-4xl font-black text-purple-500/20 group-hover:text-purple-500/40 transition-colors">
+                          <span className="font-zalando font-normal text-[39px] leading-[120%] text-black transition-colors dark:text-white">
                             {event.title}
                           </span>
                           <div className="h-px flex-1 bg-zinc-200 dark:bg-zinc-800" />
                         </div>
-                        <p className="text-muted-foreground leading-relaxed italic">
+                        <p className="font-zalando font-normal text-[20px] leading-[120%] text-black dark:text-white">
                           &quot;{event.sub_title}&quot;
                         </p>
                       </div>
 
-                      {/* Connection Dot */}
+                     
                       <div
                         className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-purple-500 z-20 ${
                           idx % 2 === 0 ? "-left-10" : "-right-10"
@@ -291,10 +288,10 @@ const AboutUs = async () => {
           <div className="my-16 md:my-24">
             {aboutData?.empowering_text?.map((item, idx) => (
               <div key={idx} className="mb-12">
-                <h2 className="font-zalando text-[#D699FF] text-4xl md:text-6xl font-normal mb-6 md:mb-8 tracking-tight leading-[120%]">
+                <h2 className="font-zalando text-[#D699FF] dark:text-[#D699FF] text-4xl md:text-6xl font-normal mb-6 md:mb-8 tracking-tight leading-[120%]">
                   {item.title}
                 </h2>
-                <p className="mx-auto font-sans font-normal text-base md:text-2xl leading-relaxed">
+                <p className="mx-auto font-sans font-normal text-base md:text-2xl leading-relaxed text-zinc-700 dark:text-zinc-200">
                   {item.sub_title}
                 </p>
               </div>

@@ -57,7 +57,7 @@ const StrategicBusinessOutcomes = ({
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <h3 className="text-2xl font-zalando font-semibold text-[#AF33FF] mb-4">
+                <h3 className="text-2xl font-zalando font-semibold text-[#1F2123] dark:text-zinc-100 mb-4">
                   {item.title}
                 </h3>
                 <p className="text-zinc-600 dark:text-zinc-400 font-sans text-lg leading-relaxed">

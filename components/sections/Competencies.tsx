@@ -32,10 +32,10 @@ const Competencies = ({ data }: CompetenciesProps) => {
   return (
     <section
       id="competencies"
-      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-white dark:bg-[#1F2123]"
+      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-[#EEF1F4] dark:bg-black"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 dark:bg-[#1F2123] w-full min-h-fit">
-        <div className="relative w-full h-[400px] md:h-full bg-white dark:bg-[#1F2123] flex items-center justify-center overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-fit">
+        <div className="relative w-full h-[400px] md:h-full bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
           {/* Radial Blur Effect */}
           {/* <div className="absolute inset-0 z-0 bg-radial-[at_center] from-white via-[#AF33FF] to-transparent blur-[2px]"></div> */}
 
@@ -56,7 +56,7 @@ const Competencies = ({ data }: CompetenciesProps) => {
             {items.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col text-white dark:text-[#1F1F1F] p-4 md:p-6"
+                className="flex flex-col text-white dark:text-[#1F2123] p-4 md:p-6"
               >
                 <span className="font-zalando font-medium text-xl md:text-2xl">{item.title}</span>
                 <div className="font-sans font-normal text-zinc-400 dark:text-zinc-600 text-base md:text-xl pt-2">
@@ -65,8 +65,8 @@ const Competencies = ({ data }: CompetenciesProps) => {
               </div>
             ))}
           </div>
-          <div className="z-10 max-w-fit mt-8 md:mt-12 border border-white dark:border-[#1F1F1F] rounded-sm py-3 px-6 ms-4">
-            <span className="font-zalando font-normal text-white dark:text-[#1F1F1F] text-sm md:text-base">
+          <div className="z-10 max-w-fit mt-8 md:mt-12 border border-white dark:border-[#1F2123] rounded-sm py-3 px-6 ms-4">
+            <span className="font-zalando font-normal text-white dark:text-[#1F2123] text-sm md:text-base">
               {buttonText}
             </span>
           </div>

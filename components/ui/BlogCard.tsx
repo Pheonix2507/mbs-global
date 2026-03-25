@@ -17,7 +17,7 @@ export default function BlogCard({ blog }: { blog: BlogPost }) {
         />
       </div>
       <div className="flex flex-col space-y-2">
-        <h3 className="line-clamp-2 font-zalando text-xl font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+        <h3 className="line-clamp-2 font-zalando text-xl font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-[#D699FF]">
           {blog.title}
         </h3>
         <p className="line-clamp-3 font-sans text-sm font-normal text-zinc-600 dark:text-zinc-400">

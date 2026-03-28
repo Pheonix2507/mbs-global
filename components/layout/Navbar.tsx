@@ -51,15 +51,15 @@ const Navbar = () => {
   return (
     <>
       {/* ── Navbar — desktop unchanged, mobile gets hamburger ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-black">
-        <div className="flex w-full items-center justify-between px-6 md:px-12 lg:px-30 py-3 backdrop-blur-md bg-black text-white">
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="flex w-full items-center justify-between px-6 md:px-12 lg:px-30 py-3 backdrop-blur-xl bg-[#1F2123] text-white">
           {/* Logo — unchanged */}
           <Link
             href="/"
             className="font-zalando shrink-0 text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
           >
             <Image
-              src="/mbs-logo.png"
+              src="/mbs-logo.svg"
               alt="Logo"
               width={150}
               height={35}
@@ -129,10 +129,11 @@ const Navbar = () => {
 
       {/* ── Mobile drawer — only visible on mobile ── */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileOpen
+        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+          mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-          }`}
+        }`}
       >
         {/* Backdrop */}
         <div
@@ -142,8 +143,9 @@ const Navbar = () => {
 
         {/* Drawer panel — slides down from nav bar */}
         <div
-          className={`absolute top-[52px] left-0 right-0 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-xl transition-transform duration-300 ${mobileOpen ? "translate-y-0" : "-translate-y-4"
-            }`}
+          className={`absolute top-[52px] left-0 right-0 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 shadow-xl transition-transform duration-300 ${
+            mobileOpen ? "translate-y-0" : "-translate-y-4"
+          }`}
         >
           <nav className="flex flex-col px-4 py-4 gap-1">
             {navLinks.map((link) => (
@@ -159,8 +161,9 @@ const Navbar = () => {
                   {link.name}
                   {link.subLinks && (
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.name ? "rotate-180" : ""
-                        }`}
+                      className={`w-4 h-4 transition-transform duration-200 ${
+                        openDropdown === link.name ? "rotate-180" : ""
+                      }`}
                     />
                   )}
                 </button>

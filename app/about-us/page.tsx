@@ -216,7 +216,7 @@ const AboutUs = async () => {
             {/* ── MOBILE Timeline ── */}
             <div className="relative md:hidden flex flex-col items-center gap-5 px-6">
               {/* Vertical line through the center */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-zinc-300 dark:bg-zinc-800"></div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-zinc-300 dark:bg-zinc-800"></div>
 
               {timelineEvents.map((event, idx) => (
                 <div
@@ -272,7 +272,6 @@ const AboutUs = async () => {
                         </p>
                       </div>
 
-                     
                       <div
                         className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-purple-500 z-20 ${
                           idx % 2 === 0 ? "-left-10" : "-right-10"

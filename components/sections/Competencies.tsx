@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { getStrapiMedia } from "@/lib/strapi";
+import Link from "next/link";
 
 interface CompetencyData {
   id: number;
@@ -40,12 +41,7 @@ const Competencies = ({ data }: CompetenciesProps) => {
           {/* <div className="absolute inset-0 z-0 bg-radial-[at_center] from-white via-[#AF33FF] to-transparent blur-[2px]"></div> */}
 
           <div className="relative z-10 w-full h-full">
-            <Image
-              src={sideImage}
-              alt=""
-              fill
-              className="object-contain"
-            />
+            <Image src={sideImage} alt="" fill className="object-contain" />
           </div>
         </div>
         <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-20">
@@ -58,18 +54,23 @@ const Competencies = ({ data }: CompetenciesProps) => {
                 key={index}
                 className="flex flex-col text-white dark:text-[#1F2123] p-4 md:p-6"
               >
-                <span className="font-zalando font-medium text-xl md:text-2xl">{item.title}</span>
+                <span className="font-zalando font-medium text-xl md:text-2xl">
+                  {item.title}
+                </span>
                 <div className="font-sans font-normal text-zinc-400 dark:text-zinc-600 text-base md:text-xl pt-2">
                   {item.sub_title}
                 </div>
               </div>
             ))}
           </div>
-          <div className="z-10 max-w-fit mt-8 md:mt-12 border border-white dark:border-[#1F2123] rounded-sm py-3 px-6 ms-4">
-            <span className="font-zalando font-normal text-white dark:text-[#1F2123] text-sm md:text-base">
+          <Link
+            href="/services"
+            className="z-10 max-w-fit mt-8 md:mt-12 border border-white hover:bg-white hover:border-black dark:border-[#1F1F1F] rounded-sm py-3 px-6 ms-4"
+          >
+            <span className="font-zalando font-normal text-white hover:text-black dark:text-[#1F1F1F] text-sm md:text-base">
               {buttonText}
             </span>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

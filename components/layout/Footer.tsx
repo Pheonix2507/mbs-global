@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Linkedin, Twitter, Facebook, Youtube, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -8,45 +9,11 @@ const Footer = () => {
         {/* ── DESKTOP layout (hidden on mobile) ── */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Column 1: Social + Contact */}
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-wrap gap-4 text-zinc-400">
-              <Link
-                href="#"
-                className="hover:text-blue-600 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="hover:text-blue-400 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="hover:text-blue-800 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="hover:text-red-600 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="hover:text-pink-600 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </Link>
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-wrap gap-4 text-zinc-600 dark:text-zinc-400">
+              <Image src="/mbs-logo.svg" alt="Logo" width={150} height={35} />
             </div>
-            <div className="mt-8">
+            <div>
               <Link
                 href="/contact"
                 className="border border-white rounded-sm py-3 px-6"
@@ -56,6 +23,21 @@ const Footer = () => {
                 </span>
               </Link>
             </div>
+            <div>
+              <Link
+                href="https://www.linkedin.com/company/mbs-global/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/linkedin.svg"
+                  alt="LinkedIn"
+                  width={28}
+                  height={28}
+                />
+              </Link>
+            </div>
           </div>
           {/* Column 2: Quick Links */}
           <div className="flex flex-col gap-4">
@@ -63,10 +45,7 @@ const Footer = () => {
               Quick Links
             </h3>
             <div className="flex flex-col gap-3 text-sm text-zinc-400">
-              <Link
-                href="/"
-                className="hover:text-white transition-colors"
-              >
+              <Link href="/" className="hover:text-white transition-colors">
                 Home
               </Link>
               <Link

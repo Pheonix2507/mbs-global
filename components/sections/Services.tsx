@@ -100,7 +100,9 @@ const Services = ({ data }: ServicesProps) => {
         <div className="absolute top-0 right-4 md:top-10 md:right-10 flex h-12 md:h-16 flex-col items-end overflow-hidden">
           <div
             className="flex flex-col items-end transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateY(-${activeIndex * (typeof window !== 'undefined' && window.innerWidth < 768 ? 3 : 4)}rem)` }}
+            style={{
+              transform: `translateY(-${activeIndex * (typeof window !== "undefined" && window.innerWidth < 768 ? 3 : 4)}rem)`,
+            }}
           >
             {services.map((_, i) => (
               <span

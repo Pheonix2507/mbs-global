@@ -8,12 +8,11 @@ export async function fetchStrapi<T>(
   urlParamsObject?: any,
   options?: RequestInit,
 ): Promise<T> {
-    const pathSegments = path.split("/").filter(Boolean);
-    const apiName = pathSegments[0];
-    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-    
-    try {
+  const pathSegments = path.split("/").filter(Boolean);
+  const apiName = pathSegments[0];
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
+  try {
     let finalParams = { ...urlParamsObject };
 
     if (apiName && !finalParams.populate && (populationMap as any)[apiName]) {

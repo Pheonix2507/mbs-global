@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { getStrapiMedia } from "@/lib/strapi";
 
 interface SolutionsBannerProps {
@@ -17,7 +18,10 @@ const SolutionsBanner = ({ data }: SolutionsBannerProps) => {
   const isVideo = Array.isArray(data?.image)
     ? data?.image[0]?.mime?.startsWith("video/")
     : data?.image?.mime?.startsWith("video/");
-  const buttonText = (Array.isArray(data?.button) ? data?.button[0]?.text : data?.button?.text) || "";
+  const buttonText =
+    (Array.isArray(data?.button)
+      ? data?.button[0]?.text
+      : data?.button?.text) || "";
 
   return (
     <div className="relative mt-32 py-32 overflow-hidden text-center w-full">
@@ -52,11 +56,11 @@ const SolutionsBanner = ({ data }: SolutionsBannerProps) => {
         <p className="text-xl md:text-2xl font-sans font-normal text-zinc-200 mb-12 max-w-2xl mx-auto">
           {subtitle}
         </p>
-        <div className="inline-block border border-white/40 hover:border-white hover:bg-white hover:text-black transition-all duration-300 rounded-sm py-4 px-12 cursor-pointer group">
-          <span className="font-zalando font-normal text-lg tracking-wide uppercase">
+        <Link href="/contact" className="inline-block border border-white/40 hover:border-white hover:bg-white hover:text-black transition-all duration-300 rounded-sm py-4 px-12 cursor-pointer group">
+          <span className="font-zalando font-normal text-lg text-white hover:text-black tracking-wide uppercase">
             {buttonText}
           </span>
-        </div>
+        </Link>
       </div>
     </div>
   );

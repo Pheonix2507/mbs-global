@@ -31,7 +31,7 @@ const Hero = ({ data }: HeroProps) => {
             loop
             muted
             playsInline
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover opacity-50"
           />
         ) : (
           <Image

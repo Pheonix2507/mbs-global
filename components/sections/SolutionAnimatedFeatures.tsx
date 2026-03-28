@@ -59,7 +59,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
   }, [data.length]);
 
   return (
-    <section className="py-16 md:py-24 bg-[#1F1F1F]">
+    <section className="py-16 md:py-24 bg-white dark:bg-[#1F1F1F]">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Dynamic Media */}
@@ -116,7 +116,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
                 >
                   <div className="space-y-3">
                     <h3
-                      className={`font-zalando text-2xl md:text-4xl font-semibold tracking-tight text-left text-white transition-colors duration-500 leading-[110%] ${
+                      className={`font-zalando text-2xl md:text-4xl font-semibold tracking-tight text-left text-zinc-900 dark:text-white transition-colors duration-500 leading-[110%] ${
                         isActive ? "text-[#AF33FF]" : ""
                       }`}
                     >
@@ -127,7 +127,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
                     <div
                       className={`overflow-hidden transition-all duration-500 ${isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0 lg:max-h-40 lg:opacity-100"}`}
                     >
-                      <p className="font-sans text-base md:text-lg text-zinc-300 leading-relaxed max-w-xl">
+                      <p className="font-sans text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-xl">
                         {item.description}
                       </p>
                     </div>
@@ -137,7 +137,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
                   <div
                     className={`relative w-full overflow-hidden transition-all duration-500 rounded-full ${isActive ? "h-[6px] mt-2 opacity-100" : "h-0 opacity-0 mt-0"}`}
                   >
-                    <div className="absolute inset-0 bg-white/20 rounded-full" />
+                    <div className="absolute inset-0 bg-zinc-300 dark:bg-white/20 rounded-full" />
                     <div
                       className="absolute top-0 left-0 h-full bg-linear-to-r from-purple-600 to-[#AF33FF] rounded-full transition-none"
                       style={{ width: `${progress}%` }}

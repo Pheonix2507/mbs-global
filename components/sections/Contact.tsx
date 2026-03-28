@@ -29,7 +29,7 @@ const Contact = ({ data }: ContactProps) => {
   return (
     <section
       id="contact"
-      className="relative flex flex-col min-h-[500px] shrink-0 items-center justify-center overflow-hidden bg-background px-6 py-24"
+      className="relative flex flex-col min-h-[500px] shrink-0 items-center justify-center overflow-hidden px-6 py-24"
     >
       <div className="absolute inset-0 z-0">
         <Image

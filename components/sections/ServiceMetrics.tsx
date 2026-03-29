@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface Metric {
   score: string;
@@ -50,49 +51,22 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
               }`}
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
-              {/* Circular Glass Container */}
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center mb-6 px-4 bg-white dark:bg-black/20 backdrop-blur-xl border border-purple-200 dark:border-white/10 shadow-[0_8px_32px_0_rgba(175,51,255,0.08)] dark:shadow-[0_8px_32px_0_rgba(175,51,255,0.05)] transition-all duration-500 hover:shadow-[0_8px_32px_0_rgba(175,51,255,0.2)] hover:border-purple-300 dark:hover:bg-white/5">
-                {/* SVG for Animated Stroke */}
-                <svg
-                  className="absolute inset-0 w-full h-full -rotate-90 overflow-visible"
-                  viewBox="0 0 100 100"
-                >
-                  <defs>
-                    <linearGradient
-                      id={`metric-gradient-${idx}`}
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor="#A3A3A3" />
-                      <stop offset="100%" stopColor="#4B0082" />
-                    </linearGradient>
-                  </defs>
+              {/* Circular Container with Ellipse SVG */}
+              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mb-6 transition-transform duration-500 hover:scale-105">
+                <Image
+                  src="/ellipse.svg"
+                  alt="Metric Background"
+                  fill
+                  className="object-contain"
+                />
 
-                  {/* Foreground Animated Track */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r={48}
-                    fill="none"
-                    stroke={`url(#metric-gradient-${idx})`}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeDasharray={2 * Math.PI * 48}
-                    strokeDashoffset={isVisible ? 0 : 2 * Math.PI * 48}
-                    className="transition-all duration-2000 ease-out"
-                    style={{ transitionDelay: `${idx * 150 + 300}ms` }}
-                  />
-                </svg>
-
-                <span className="text-3xl md:text-3xl lg:text-4xl font-light tracking-wide text-zinc-900 dark:text-zinc-100 relative z-10 w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-zinc-900 dark:text-white relative z-10 flex flex-col items-center text-center px-6 leading-tight max-w-full break-words">
                   {metric.score}
                 </span>
               </div>
 
               {/* Description */}
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-sans max-w-[200px]">
+              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-sans max-w-[220px] mx-auto leading-relaxed">
                 {metric.description}
               </p>
             </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface SolutionCarouselProps {
@@ -48,6 +48,14 @@ const SolutionCarousel = ({
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev === displayData.length - 1 ? 0 : prev + 1));
   };
+
+  useEffect(() => {
+    if (!displayData || displayData.length === 0) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === 0 ? displayData.length - 1 : prev - 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [displayData.length]);
 
   if (!displayData || displayData.length === 0) return null;
 

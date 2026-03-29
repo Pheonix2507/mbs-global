@@ -13,15 +13,13 @@ export async function fetchStrapi<T>(
   const apiName = pathSegments[0];
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
 
-  const isPlural = apiName.endsWith("s");
 
   const apiToModelMap: Record<string, string> = {
     categories: "category",
+    about_us: "about_us",
   };
 
-  const modelName = isPlural
-    ? apiToModelMap[apiName] || apiName.slice(0, -1)
-    : apiName;
+  const modelName = apiToModelMap[apiName] || apiName;
 
   try {
     let finalParams = { ...urlParamsObject };

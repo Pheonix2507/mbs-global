@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CheckCircle2, Target, Users, Lightbulb } from "lucide-react";
 import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
 import { StrapiAboutUs } from "@/lib/strapi-types";
+import TimelineStem from "@/components/ui/TimelineStem";
 
 const AboutUs = async () => {
   const response = await fetchStrapi<StrapiAboutUs>("about-us");
@@ -233,11 +234,7 @@ const AboutUs = async () => {
             {/* ── DESKTOP Timeline ── */}
             <div className="relative hidden md:block">
               {/* Vertical Center Wall (Stem) */}
-              <div className="absolute left-1/2 -translate-x-1/2 h-full w-2 flex flex-col gap-4">
-                <div className="flex-1 bg-purple-300" />
-                <div className="h-24 bg-purple-500 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)] animate-pulse" />
-                <div className="flex-1 bg-purple-300" />
-              </div>
+              <TimelineStem />
 
               {/* Timeline Items */}
               <div className="space-y-24">
@@ -254,7 +251,7 @@ const AboutUs = async () => {
                     {/* Content Card */}
                     <div className="w-[45%] relative z-10">
                       <div
-                        className={`p-8 rounded-3xl backdrop-blur-md bg-[#D699FF] dark:bg-[#150D1D] border border-[#D699FF] dark:border-zinc-800 shadow-lg hover:border-purple-500/50 transition-colors duration-500 ${
+                        className={`p-8 rounded-1xl backdrop-blur-md bg-[#D699FF] dark:bg-[#150D1D] border border-[#D699FF] dark:border-zinc-800 shadow-lg hover:border-purple-500/50 transition-colors duration-500 ${
                           idx % 2 === 0 ? "mr-8" : "ml-8"
                         }`}
                       >

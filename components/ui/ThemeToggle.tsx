@@ -24,25 +24,42 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`relative flex items-center w-14 h-8 rounded-full p-1 transition-colors duration-500 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 ${
-        isDark ? "bg-[#24272C]" : "bg-[#E9EAF0]"
-      }`}
+      className={`relative flex items-center w-14 h-8 rounded-full p-1 transition-colors duration-500 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:focus:ring-zinc-600 ${isDark ? "bg-[#24272C]" : "bg-[#E9EAF0]"
+        }`}
       aria-label="Toggle theme"
     >
       <div
-        className={`flex items-center justify-center w-6 h-6 rounded-full transition-transform duration-500 shadow-sm ${
-          isDark 
-            ? "translate-x-6 bg-[#E9EAF0]" 
+        className={`relative flex items-center justify-center w-6 h-6 rounded-full transition-transform duration-500 shadow-sm ${isDark
+            ? "translate-x-6 bg-[#E9EAF0]"
             : "translate-x-0 bg-[#24272C]"
-        }`}
+          }`}
       >
-        <Image 
-          src={isDark ? "/dark.svg" : "/light.svg"} 
-          alt={isDark ? "Dark mode" : "Light mode"}
-          width={15}
-          height={15}
-          priority
-        />
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+            isDark ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <Image
+            src="/light.svg"
+            alt="Light mode"
+            width={15}
+            height={15}
+            priority
+          />
+        </div>
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
+            isDark ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <Image
+            src="/dark.svg"
+            alt="Dark mode"
+            width={15}
+            height={15}
+            priority
+          />
+        </div>
       </div>
     </button>
   );

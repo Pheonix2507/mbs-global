@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { getStrapiMedia } from "@/lib/strapi";
 
@@ -45,11 +46,11 @@ const Contact = ({ data }: ContactProps) => {
         <div className="text-4xl md:text-6xl font-normal font-zalando mb-8 text-white">
           {title}
         </div>
-        <div className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center">
+        <Link href="/contact" className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center block">
           <span className="font-zalando font-normal text-white">
             {buttonText}
           </span>
-        </div>
+        </Link>
       </div>
     </section>
   );

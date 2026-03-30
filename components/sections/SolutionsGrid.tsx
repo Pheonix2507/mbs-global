@@ -33,7 +33,7 @@ const SolutionsGrid = ({
   return (
     <section className="bg-white dark:bg-[#1F1F1F] py-16 md:py-24">
       <div className="container mx-auto px-6 max-w-7xl">
-        <span className="flex items-center justify-center text-center font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-8 md:mb-12">
+        <span className="flex items-center justify-center text-left md:text-center font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-8 md:mb-12">
           {gridTitle}
         </span>
         <div className="flex flex-col gap-12 md:gap-24">
@@ -102,14 +102,14 @@ const SolutionsGrid = ({
                 <div className="order-3 space-y-8 md:pt-4">
                   {itemPoints.map((point: any, pIdx: number) => (
                     <div key={pIdx} className="flex gap-4">
-                      <span className="text-2xl font-bold text-purple-400 shrink-0">
+                      {/* <span className="text-2xl font-bold text-purple-400 shrink-0">
                         {pIdx + 1}.
-                      </span>
+                      </span> */}
                       <div className="space-y-1">
                         <h4 className="font-zalando text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
-                          {point.title}
+                          {point.title} 
                         </h4>
-                        <p className="font-sans text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        <p className="font-zalando font-normal text-lg md:text-[25px] text-black dark:text-white leading-[1.2] tracking-normal">
                           {point.description}
                         </p>
                       </div>

@@ -33,19 +33,25 @@ const Competencies = ({ data }: CompetenciesProps) => {
   return (
     <section
       id="competencies"
-      className="relative flex flex-col h-[90vh] items-center justify-center overflow-hidden bg-[#EEF1F4] dark:bg-black"
+      className="relative flex flex-col min-h-0 md:min-h-screen items-center justify-center bg-[#EEF1F4] dark:bg-black"
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-fit">
-        <div className="relative w-full h-[400px] md:h-full bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
-          {/* Radial Blur Effect */}
-          {/* <div className="absolute inset-0 z-0 bg-radial-[at_center] from-white via-[#AF33FF] to-transparent blur-[2px]"></div> */}
-
-          <div className="relative z-10 w-full h-full">
-            <Image src={sideImage} alt="" fill className="object-contain" />
+      <div className="grid grid-cols-1 md:grid-cols-2 w-full">
+        {/* Image Container - Reordered for mobile (2nd) */}
+        <div className="order-2 md:order-1 relative w-full h-[300px] sm:h-[400px] md:h-auto bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
+          <div className="relative w-full h-full">
+            <Image
+              src={sideImage}
+              alt=""
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         </div>
-        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-12">
-          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-6 lg:text-6xl">
+
+        {/* Text Container - Reordered for mobile (1st) */}
+        <div className="order-1 md:order-2 flex flex-col bg-[#1F2123] dark:bg-white w-full p-8 sm:p-12 lg:p-16">
+          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-6 lg:text-6xl text-left">
             {title}
           </div>
           <div className="flex flex-col gap-4">

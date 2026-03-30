@@ -18,7 +18,7 @@ const Footer = () => {
                 href="/contact"
                 className="border text-white border-white rounded-sm py-3 px-6 hover:bg-white hover:text-black"
               >
-                <span className="font-zalando font-normal text-sm tracking-wide uppercase">
+                <span className="font-zalando font-normal text-sm tracking-wide uppercase dark:text-white">
                   Contact Us
                 </span>
               </Link>

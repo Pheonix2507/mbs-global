@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -11,7 +11,7 @@ const displayNames = new Intl.DisplayNames(['en'], { type: 'region' });
 const countryCodes = getCountries()
   .map((country) => ({
     code: `+${getCountryCallingCode(country)}`,
-    flag: country.toUpperCase().replace(/./g, (char) => 
+    flag: country.toUpperCase().replace(/./g, (char) =>
       String.fromCodePoint(char.charCodeAt(0) + 127397)
     ),
     name: displayNames.of(country) || country,
@@ -23,6 +23,27 @@ const inputClass =
 
 const GetInTouch = () => {
   const [selectedCode, setSelectedCode] = useState("+91");
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Filter country codes based on search term
+  const filteredCountryCodes = countryCodes.filter(
+    (c) =>
+      c.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      c.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const [form, setForm] = useState({
     fullName: "",
     email: "",
@@ -104,31 +125,72 @@ const GetInTouch = () => {
                   Mobile number
                 </label>
                 <div className="flex w-full h-[46px] bg-white dark:bg-[#1A1A1A] border border-zinc-300 dark:border-[#333333] rounded-[4px] focus-within:border-purple-500 transition-all duration-200">
-                  <div className="relative shrink-0 flex items-center border-r border-zinc-300 dark:border-[#333333]">
-                    <select
-                      value={selectedCode}
-                      onChange={(e) => setSelectedCode(e.target.value)}
-                      className="h-full bg-transparent pl-4 pr-[32px] font-sans text-[14px] text-zinc-700 dark:text-zinc-400 focus:outline-none appearance-none cursor-pointer leading-none"
+                  <div
+                    ref={dropdownRef}
+                    className="relative shrink-0 flex items-center border-r border-zinc-300 dark:border-[#333333]"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setIsOpen(!isOpen)}
+                      className="h-full bg-transparent pl-4 pr-[32px] font-sans text-[14px] text-zinc-700 dark:text-zinc-400 focus:outline-none cursor-pointer leading-none flex items-center min-w-[70px]"
                     >
-                      {countryCodes.map((c) => (
-                        <option
-                          key={`${c.flag}-${c.code}`}
-                          value={c.code}
-                          className="text-zinc-600"
-                        >
-                          {c.code}
-                        </option>
-                      ))}
-                    </select>
+                      {selectedCode}
+                    </button>
                     {/* Caret Down Icon */}
                     <div className="absolute right-[12px] top-1/2 -translate-y-1/2 pointer-events-none w-[20px] h-[20px]">
                       <Image
                         src="/Arrow/Caret_Down_MD.svg"
                         alt="Dropdown"
                         fill
-                        className="object-contain"
+                        className={`object-contain transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                       />
                     </div>
+
+                    {/* Custom Dropdown List */}
+                    {isOpen && (
+                      <div className="absolute top-[calc(100%+8px)] left-0 z-50 w-[240px] bg-white dark:bg-[#1A1A1A] border border-zinc-300 dark:border-[#333333] rounded-[4px] shadow-[0_4px_20px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                        {/* Search Input */}
+                        <div className="p-2 border-b border-zinc-200 dark:border-[#333333]">
+                          <input
+                            type="text"
+                            placeholder="Search code or country..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="w-full px-3 py-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-[4px] text-[13px] text-zinc-900 dark:text-white placeholder:text-white/50 focus:outline-none focus:border-purple-500"
+                            autoFocus
+                          />
+                        </div>
+
+                        {/* List */}
+                        <div className="max-h-[250px] overflow-y-auto custom-scrollbar">
+                          {filteredCountryCodes.length > 0 ? (
+                            filteredCountryCodes.map((c) => (
+                              <div
+                                key={`${c.flag}-${c.code}`}
+                                onClick={() => {
+                                  setSelectedCode(c.code);
+                                  setIsOpen(false);
+                                  setSearchTerm("");
+                                }}
+                                className={`px-4 py-2.5 text-[14px] font-sans transition-colors cursor-pointer flex items-center gap-3
+                                  ${selectedCode === c.code
+                                    ? 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400'
+                                    : 'text-zinc-700 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                                  }`}
+                              >
+                                <span className="text-base shrink-0">{c.flag}</span>
+                                <span className="font-medium shrink-0 min-w-[45px]">{c.code}</span>
+                                <span className="text-zinc-400 dark:text-zinc-500 text-[12px] truncate">{c.name}</span>
+                              </div>
+                            ))
+                          ) : (
+                            <div className="px-4 py-8 text-center text-zinc-400 text-[13px]">
+                              No results found
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <input
                     type="tel"

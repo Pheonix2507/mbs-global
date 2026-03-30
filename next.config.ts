@@ -24,7 +24,6 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: "http",
@@ -41,7 +40,12 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: STRAPI_HOST,
-        pathname: "/uploads/**",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "**.strapiapp.com",
+        pathname: "/**",
       },
     ],
   },

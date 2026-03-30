@@ -107,7 +107,7 @@ const SolutionsGrid = ({
                       </span> */}
                       <div className="space-y-1">
                         <h4 className="font-zalando text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
-                          {point.title} 
+                          {point.title}
                         </h4>
                         <p className="font-zalando font-normal text-lg md:text-[25px] text-black dark:text-white leading-[1.2] tracking-normal">
                           {point.description}

@@ -34,7 +34,7 @@ const SolutionsSplit = ({ data }: SolutionsSplitProps) => {
             <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
           </div>
           <div className="order-2 space-y-6 md:space-y-8">
-            <h2 className="font-zalando text-3xl md:text-6xl font-semibold tracking-tight text-left md:text-center text-zinc-900 dark:text-[#D699FF] leading-[120%]">
+            <h2 className="font-zalando text-3xl md:text-6xl font-semibold tracking-tight text-left md:text-center text-[#D699FF] dark:text-[#D699FF] leading-[120%]">
               {title}
             </h2>
             <p className="font-sans text-base md:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed">

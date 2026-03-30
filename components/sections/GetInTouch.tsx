@@ -4,17 +4,19 @@ import { useState } from "react";
 import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
-const countryCodes = [
-  { code: "+91", flag: "🇮🇳", name: "India" },
-  { code: "+1", flag: "🇺🇸", name: "USA" },
-  { code: "+1", flag: "🇨🇦", name: "Canada" },
-  { code: "+44", flag: "🇬🇧", name: "UK" },
-  { code: "+61", flag: "🇦🇺", name: "Australia" },
-  { code: "+971", flag: "🇦🇪", name: "UAE" },
-  { code: "+49", flag: "🇩🇪", name: "Germany" },
-  { code: "+33", flag: "🇫🇷", name: "France" },
-  { code: "+65", flag: "🇸🇬", name: "Singapore" },
-];
+import { getCountries, getCountryCallingCode } from "libphonenumber-js";
+
+const displayNames = new Intl.DisplayNames(['en'], { type: 'region' });
+
+const countryCodes = getCountries()
+  .map((country) => ({
+    code: `+${getCountryCallingCode(country)}`,
+    flag: country.toUpperCase().replace(/./g, (char) => 
+      String.fromCodePoint(char.charCodeAt(0) + 127397)
+    ),
+    name: displayNames.of(country) || country,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 const inputClass =
   "w-full h-[46px] bg-white dark:bg-[#1A1A1A] border border-zinc-300 dark:border-[#333333] rounded-[4px] px-4 py-3 font-sans text-[14px] text-zinc-700 dark:text-zinc-400 placeholder:text-zinc-400 dark:placeholder:text-zinc-500 focus:outline-none focus:border-purple-500 transition-all duration-200 leading-none";

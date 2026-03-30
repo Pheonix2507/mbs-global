@@ -53,15 +53,7 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
               style={{ transitionDelay: `${idx * 150}ms` }}
             >
               {/* Circular Container with Ellipse SVG */}
-              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mb-6 transition-transform duration-500 hover:scale-105">
-                <Image
-                  src="/ellipse.svg"
-                  alt="Metric Background"
-                  fill
-                  className="object-contain"
-                />
-              {/* Circular Container with Ellipse SVG */}
-              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mb-6 transition-transform duration-500 hover:scale-105">
+              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mb-8 transition-transform duration-500 hover:scale-105">
                 <Image
                   src="/ellipse.svg"
                   alt="Metric Background"
@@ -69,20 +61,21 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
                   className="object-contain"
                 />
 
-                <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-zinc-900 dark:text-white relative z-10 flex flex-col items-center text-center px-6 leading-tight max-w-full wrap-break-word">
-                  {metric.score}
-                  <span className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-sans max-w-[220px] mx-auto leading-relaxed">
+                <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+                  <span className="text-4xl md:text-5xl font-zalando font-normal text-zinc-900 dark:text-white leading-none mb-2">
+                    {metric.score}
+                  </span>
+                  <span className="text-base text-black md:text-lg font-sans font-medium dark:text-zinc-100">
                     {metric.text}
                   </span>
-                </span>
+                </div>
               </div>
 
-              {/* Description */}
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-sans max-w-[220px] mx-auto leading-relaxed">
+              {/* Description outside the SVG */}
+              <p className="font-sans text-black font-normal text-lg md:text-[25px] leading-[1.2] tracking-normal text-center max-w-[300px] mx-auto dark:text-white">
                 {metric.description}
               </p>
             </div>
-        </div>
           ))}
       </div>
       </div>

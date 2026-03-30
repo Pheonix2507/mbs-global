@@ -32,17 +32,17 @@ const AboutValues = ({ data: strapiFeaturesRaw }: Props) => {
       }))
     : [];
 
-  const DURATION = 6000; // 6 seconds per slide
+  // const DURATION = 6000; // 6 seconds per slide
 
-  useEffect(() => {
-    if (data.length <= 1) return;
+  // useEffect(() => {
+  //   if (data.length <= 1) return;
 
-    const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % data.length);
-    }, DURATION);
+  //   const timer = setInterval(() => {
+  //     setActiveIndex((prev) => (prev + 1) % data.length);
+  //   }, DURATION);
 
-    return () => clearInterval(timer);
-  }, [data.length]);
+  //   return () => clearInterval(timer);
+  // }, [data.length]);
 
   if (data.length === 0) return null;
 

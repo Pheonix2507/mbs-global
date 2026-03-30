@@ -238,7 +238,7 @@ const GetInTouch = () => {
                 strokeWidth={2}
               />
               <p className="text-zinc-900 dark:text-white font-sans font-medium text-[14px] tracking-wide">
-                +079-46003852
+                +91 86502 02023
               </p>
             </div>
 
@@ -249,7 +249,7 @@ const GetInTouch = () => {
                 strokeWidth={2}
               />
               <p className="text-zinc-900 dark:text-white font-sans font-medium text-[14px] tracking-wide">
-                hr@mbsglobal.io
+                info@mbsglobal.io
               </p>
             </div>
 
@@ -263,9 +263,8 @@ const GetInTouch = () => {
                 <p className="font-semibold mb-1">
                   The head office of Mbs Global
                 </p>
-                <p>A-1202 , The Capital, Science City Road,</p>
-                <p>Sola, Ahmedabad-380060, Gujarat,</p>
-                <p>India</p>
+                <p>128 CITY ROAD LONDON ECIV 2NX</p>
+                <p>UNITED KINGDOM</p>
               </div>
             </div>
           </div>

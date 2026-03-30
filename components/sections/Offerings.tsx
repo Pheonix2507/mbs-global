@@ -64,21 +64,21 @@ const Offerings = ({ data }: OfferingsProps) => {
             {offerings.map((item) => (
               <div
                 key={item.id}
-                className="shrink-0 px-4"
-                style={{ width: `${100 / itemsPerPage}%`, height: "100%" }}
+                className="shrink-0 px-4 flex"
+                style={{ width: `${100 / itemsPerPage}%` }}
               >
-                <div className="group relative flex flex-col space-y-4 dark:bg-[#1F1F1F] bg-[#F7F9FB] p-3">
-                  <div className="relative aspect-3/3 overflow-hidden rounded-sm bg-zinc-100 dark:bg-zinc-800">
+                <div className="group relative flex flex-col w-full h-full space-y-4 dark:bg-[#1F1F1F] bg-[#F7F9FB] p-4 md:p-6 pb-10">
+                  <div className="relative aspect-square overflow-hidden rounded-sm bg-zinc-100 dark:bg-zinc-800">
                     <Image
                       src={getStrapiMedia(item.image) || ""}
                       alt={item.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   </div>
-                  <div className="space-y-4">
-                    <h3 className="font-zalando text-2xl md:text-3xl font-normal text-white md:text-zinc-900 md:dark:text-white">
+                  <div className="flex flex-col flex-1 space-y-4">
+                    <h3 className="font-zalando text-2xl md:text-3xl font-normal text-white md:text-zinc-900 md:dark:text-white leading-tight">
                       {item.title}
                     </h3>
                     <p className="font-sans text-base md:text-lg text-[#E0E0E0] md:text-zinc-600 md:dark:text-zinc-400 leading-relaxed">

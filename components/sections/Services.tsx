@@ -141,7 +141,7 @@ const Services = ({ data }: ServicesProps) => {
                 )}
               </h3>
               <p className="font-zalando font-normal text-lg md:text-2xl text-white">
-                {service.sub_title}
+                {service.sub_title} 
               </p>
             </div>
           ))}

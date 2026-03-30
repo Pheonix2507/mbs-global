@@ -160,23 +160,31 @@ const Navbar = () => {
           <nav className="flex flex-col px-4 py-4 gap-1">
             {navLinks.map((link) => (
               <div key={link.name}>
-                <button
-                  className="w-full flex items-center justify-between px-3 py-3 text-base font-semibold rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#AF33FF] transition-all text-left"
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === link.name ? null : link.name,
-                    )
-                  }
-                >
-                  {link.name}
-                  {link.subLinks && (
+                {link.subLinks ? (
+                  <button
+                    className="w-full flex items-center justify-between px-3 py-3 text-base font-semibold rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#AF33FF] transition-all text-left"
+                    onClick={() =>
+                      setOpenDropdown(
+                        openDropdown === link.name ? null : link.name,
+                      )
+                    }
+                  >
+                    {link.name}
                     <ChevronDown
                       className={`w-4 h-4 transition-transform duration-200 ${
                         openDropdown === link.name ? "rotate-180" : ""
                       }`}
                     />
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full block px-3 py-3 text-base font-semibold rounded-xl hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-[#AF33FF] transition-all text-left"
+                  >
+                    {link.name}
+                  </Link>
+                )}
 
                 {/* Mobile accordion sub-links */}
                 {link.subLinks && openDropdown === link.name && (

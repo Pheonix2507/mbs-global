@@ -1,9 +1,19 @@
-import { fetchStrapi, getStrapiMedia, blocksToText } from "@/lib/strapi";
+import {
+  fetchStrapi,
+  getStrapiMedia,
+  blocksToText,
+  htmlToPlainText,
+  STRAPI_ORIGIN,
+} from "@/lib/strapi";
 import { StrapiBlog, StrapiResponse } from "@/lib/strapi-types";
 import { BlogPost } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import BlogSideIndex from "@/components/ui/BlogSideIndex";
+import BlogBlocksContent, {
+  blogLegacyHtmlClassName,
+} from "@/components/blog/BlogBlocksContent";
 import Image from "next/image";
+import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export default async function BlogDetailPage({
   params,
@@ -22,11 +32,23 @@ export default async function BlogDetailPage({
 
   const blogData = response.data;
   const title = blogData.Title || blogData.attributes?.title || "Untitled";
+
+  const blocksContent: BlocksContent | null =
+    Array.isArray(blogData.Content) && blogData.Content.length > 0
+      ? (blogData.Content as BlocksContent)
+      : null;
+
+  const legacyHtml =
+    !blocksContent &&
+    typeof blogData.attributes?.content === "string" &&
+    blogData.attributes.content.trim().length > 0
+      ? blogData.attributes.content
+      : "";
+
   const contentText =
     blocksToText(blogData.Content) ||
-    (typeof blogData.attributes?.content === "string"
-      ? blogData.attributes.content
-      : "");
+    (legacyHtml ? htmlToPlainText(legacyHtml) : "");
+
   const media = blogData.Image || blogData.attributes?.image;
 
   const blog: BlogPost = {
@@ -68,7 +90,7 @@ export default async function BlogDetailPage({
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
                   {blog.title}
                 </h1>
-                <p className="text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
+                <p className="text-lg font-light leading-relaxed text-zinc-600 md:text-xl dark:text-zinc-400">
                   {blog.description}
                 </p>
               </header>
@@ -80,12 +102,28 @@ export default async function BlogDetailPage({
                     id={section.id}
                     className="scroll-mt-32 space-y-6"
                   >
-                    <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
-                      {section.title}
-                    </h2>
-                    <div className="prose prose-zinc dark:prose-invert max-w-none text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-                      <p>{section.content}</p>
-                    </div>
+                    {section.id !== "main-content" ? (
+                      <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
+                        {section.title}
+                      </h2>
+                    ) : null}
+                    {blocksContent ? (
+                      <BlogBlocksContent
+                        content={blocksContent}
+                        strapiOrigin={STRAPI_ORIGIN}
+                      />
+                    ) : legacyHtml ? (
+                      <div
+                        className={blogLegacyHtmlClassName}
+                        dangerouslySetInnerHTML={{ __html: legacyHtml }}
+                      />
+                    ) : (
+                      <div className="max-w-none">
+                        <p className="text-base leading-[1.75] text-zinc-600 md:text-[1.125rem] md:leading-8 dark:text-zinc-400">
+                          {section.content}
+                        </p>
+                      </div>
+                    )}
                   </section>
                 ))}
               </div>

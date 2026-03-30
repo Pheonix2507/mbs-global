@@ -1,6 +1,9 @@
 import populationMap from "./population-map.json";
 
-const STRAPI_URL = process.env.NEXT_PROD_STRAPI_URL || "http://localhost:1337";
+export const STRAPI_ORIGIN =
+  process.env.NEXT_PROD_STRAPI_URL || "http://localhost:1337";
+
+const STRAPI_URL = STRAPI_ORIGIN;
 
 const requestCache = new Map<string, Promise<any>>();
 
@@ -173,4 +176,14 @@ export function blocksToText(blocks: any[]): string {
       return "";
     })
     .join("\n");
+}
+
+/** Strip tags for excerpts when Strapi returns HTML rich text. */
+export function htmlToPlainText(html: string): string {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<style[\s\S]*?<\/style>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }

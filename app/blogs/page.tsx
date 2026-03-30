@@ -9,7 +9,7 @@ export default async function BlogsPage() {
 
   const blogs: BlogPost[] = (response.data || []).map((blog) => {
     // Strapi 5 uses direct properties (capitalized) or attributes (lowercase fallback)
-    const title = blog.Title || blog.attributes?.title || "Untitled";
+    const title = blog.Title || blog.attributes?.title || "";
     const contentText =
       blocksToText(blog.Content) ||
       (typeof blog.attributes?.content === "string"
@@ -21,7 +21,7 @@ export default async function BlogsPage() {
       id: blog.documentId || blog.id.toString(), // Prefer documentId for Strapi 5 routing
       title: title,
       description: contentText.substring(0, 160) + "..." || "",
-      mainImage: getStrapiMedia(media) || "/mechanism.jpg",
+      mainImage: getStrapiMedia(media) || "",
       sections: [],
     };
   });

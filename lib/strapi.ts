@@ -17,6 +17,7 @@ export async function fetchStrapi<T>(
   const apiToModelMap: Record<string, string> = {
     categories: "category",
     about_us: "about_us",
+    blogs: "blog",
   };
 
   const modelName = apiToModelMap[apiName] || apiName;

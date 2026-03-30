@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 import { getStrapiMedia } from "@/lib/strapi";
 
 interface ContactData {
@@ -30,17 +31,16 @@ const Contact = ({ data }: ContactProps) => {
   return (
     <section
       id="contact"
-      className="relative flex flex-col min-h-[500px] shrink-0 items-center justify-center overflow-hidden px-6 py-24"
-    >
-      <div className="absolute inset-0 z-0">
+      className="relative flex flex-col h-[500px] md:min-h-screen shrink-0 items-center justify-center overflow-hidden px-6 py-24">
+      <div className="absolute inset-0 z-0 bg-black">
         <Image
           src={backgroundImage}
           alt="Contact Background"
           fill
           className="object-cover"
         />
-        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] dark:bg-blue-600/5"></div>
-        <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-purple-500/10 blur-[100px] dark:bg-purple-600/5"></div>
+        <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full "></div>
+        <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full "></div>
       </div>
       <div className="relative z-10 mx-auto rounded-[40px] px-4 py-12 md:p-20 text-center">
         <div className="text-4xl md:text-6xl font-normal font-zalando mb-8 text-white">

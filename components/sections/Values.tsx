@@ -45,8 +45,8 @@ const Values = ({ data }: ValuesProps) => {
               <Image
                 src={getStrapiMedia(value.icon)}
                 alt=""
-                width={64}
-                height={64}
+                width={86}
+                height={86}
                 className="object-contain"
               />
             </div>

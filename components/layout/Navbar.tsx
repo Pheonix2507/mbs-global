@@ -12,18 +12,24 @@ const navLinks = [
     name: "Solutions",
     href: "#",
     subLinks: [
-      { name: "Workspace Solution", href: "/solutions/workspace-solution" },
+      { name: "AI Fueled Innovation", href: "/solutions/innovation" },
       {
-        name: "Total Talent Solutions",
+        name: "GCC Strategy & Enablement",
+        href: "/solutions/workspace-solution",
+      },
+      {
+        name: "Cognitive Business Intelligence",
+        href: "/solutions/business-information",
+      },
+      {
+        name: "Digital Talent Orchestration",
         href: "/solutions/total-talent-solutions",
       },
+      { name: "Strategic Consulting", href: "/solutions/strategic-consulting" },
       {
-        name: "Operative Managements",
+        name: "Operations Management",
         href: "/solutions/operative-managements",
       },
-      { name: "Strategic Consulting", href: "/solutions/strategic-consulting" },
-      { name: "Innovation", href: "/solutions/innovation" },
-      { name: "Business Information", href: "/solutions/business-information" },
     ],
   },
   {
@@ -31,14 +37,18 @@ const navLinks = [
     href: "#",
     subLinks: [
       {
-        name: "Platform & Product Engineering",
+        name: "Next-Gen AI Platform Engineering",
         href: "/services/platform-product-engineering",
       },
-      { name: "Digital Infra & Ops", href: "/services/digital-infra-ops" },
+      {
+        name: "AI-centric Product Engineering",
+        href: "/services/ai-centric-product-engineering",
+      },
       {
         name: "Data, Analytics, Cloud & AI",
         href: "/services/data-analytics-cloud-ai",
       },
+      { name: "Autonomous Infra & Ops", href: "/services/digital-infra-ops" },
     ],
   },
   { name: "Blogs", href: "/blogs" },

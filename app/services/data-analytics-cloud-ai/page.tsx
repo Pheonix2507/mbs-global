@@ -7,9 +7,7 @@ import SolutionsBanner from "@/components/sections/SolutionsBanner";
 import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
 
 export default async function DataAnalyticsCloudAiPage() {
-  const response = await fetchStrapi<{ data: any }>(
-    "/data-analytics-cloud-ai",
-  );
+  const response = await fetchStrapi<{ data: any }>("/data-analytics-cloud-ai");
   const strapiData = response.data;
 
   const hero = strapiData.hero_section || strapiData.hero;
@@ -27,25 +25,24 @@ export default async function DataAnalyticsCloudAiPage() {
           media={hero.background_image}
         />
       )}
+      {progress && <SolutionAnimatedFeatures slug="data" data={progress} />}
+
+      {outcomes && <StrategicBusinessOutcomes data={outcomes} />}
 
       {result && (
         <ServiceSemicircleLoader
           title={result.title}
           description={result.sub_title}
-          image={getStrapiMedia(result.swipe_element)}
+          image={getStrapiMedia(result.background_image)}
         />
       )}
-
-      {outcomes && <StrategicBusinessOutcomes data={outcomes} />}
-
-      {progress && <SolutionAnimatedFeatures slug="data" data={progress} />}
 
       {metricsData && (
         <ServiceMetrics
           metrics={metricsData.map((m: any) => ({
             score: m.number,
-            description:
-              (m.text ? `${m.text} ` : "") + (m.description || m.title || ""),
+            text: m.text || "",
+            description: m.description || m.title || "",
           }))}
         />
       )}

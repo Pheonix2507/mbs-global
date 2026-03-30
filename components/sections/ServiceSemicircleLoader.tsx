@@ -132,7 +132,7 @@ const ServiceSemicircleLoader = ({
                     src={image}
                     alt="Result center"
                     fill
-                    className="object-contain"
+                    className="object-contain brightness-0 dark:brightness-100 dark:bg-black"
                   />
                 </div>
               ) : (
@@ -146,15 +146,18 @@ const ServiceSemicircleLoader = ({
 
           <div className="mt-8 w-full max-w-4xl mx-auto relative group">
             {/* Dark mode gradient border wrapper */}
-            <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-r from-white to-[#AF33FF] opacity-0 dark:opacity-100">
-              <div 
+            <div className="absolute inset-0 rounded-2xl p-1 bg-linear-to-r from-white to-[#AF33FF] opacity-0 dark:opacity-100">
+              <div
                 className="w-full h-full rounded-[15px] bg-[#000000]"
-                style={{ background: "linear-gradient(90deg, rgba(175, 51, 255, 0.03) 0%, rgba(214, 153, 255, 0.03) 100%), #000000" }}
+                style={{
+                  background:
+                    "linear-gradient(90deg, rgba(175, 51, 255, 0.03) 0%, rgba(214, 153, 255, 0.03) 100%), #000000",
+                }}
               />
             </div>
-            
+
             {/* The actual content box */}
-            <div className="relative text-center w-full p-6 md:p-10 rounded-2xl bg-gradient-to-r from-white to-purple-50/50 dark:bg-none dark:bg-transparent border border-purple-200 dark:border-transparent drop-shadow-sm dark:drop-shadow-none z-10">
+            <div className="relative text-center w-full p-6 md:p-10 rounded-2xl bg-linear-to-r from-white to-purple-50/50 dark:bg-none dark:bg-transparent border border-purple-200 dark:border-transparent drop-shadow-sm dark:drop-shadow-none z-10">
               <p className="text-zinc-800 dark:text-zinc-300 font-sans text-[20px] md:text-xl leading-relaxed max-w-3xl mx-auto">
                 {description}
               </p>

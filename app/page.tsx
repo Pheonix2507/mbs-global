@@ -22,7 +22,7 @@ export default async function Home() {
       <Values data={homeData?.core_value_component} />
       <Competencies data={homeData?.Technical_Competencies_component} />
       <Contact data={homeData?.banner} />
-      <WorldMap />
+      <WorldMap data={homeData?.location} />
     </main>
   );
 }

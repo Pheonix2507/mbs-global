@@ -1,158 +1,102 @@
 "use client";
 
+import React, { useRef } from "react";
 import Image from "next/image";
-import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { getStrapiMedia } from "@/lib/strapi";
+import { StrapiLocation } from "@/lib/strapi-types";
 
-interface Location {
-  id: string;
-  country: string;
-  flag: string;
-  address: string;
-  // position as percentage of container
-  left: string;
-  top: string;
+interface WorldMapProps {
+  data?: StrapiLocation;
 }
 
-const locations: Location[] = [
-  {
-    id: "india",
-    country: "India",
-    flag: "🇮🇳",
-    address:
-      "B/1205 Empire Business Hub,\nScience City Road, Sola,\nAhmedabad GJ 380060",
-    left: "71%",
-    top: "44%",
-  },
-  {
-    id: "uk",
-    country: "United Kingdom",
-    flag: "🇬🇧",
-    address: "123 Business Lane,\nLondon, EC1A 1BB,\nUnited Kingdom",
-    left: "44%",
-    top: "20%",
-  },
-  {
-    id: "canada",
-    country: "Canada",
-    flag: "🇨🇦",
-    address: "456 Commerce Ave,\nToronto, ON M5V 2H1,\nCanada",
-    left: "10%",
-    top: "10%",
-  },
-  {
-    id: "usa",
-    country: "United States",
-    flag: "🇺🇸",
-    address: "789 Innovation Blvd,\nNew York, NY 10001,\nUSA",
-    left: "17%",
-    top: "35%",
-  },
-];
+const WorldMap = ({ data }: WorldMapProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const locations = data?.location_element || [];
 
-const Pin = ({ location }: { location: Location }) => {
-  const [hovered, setHovered] = useState(false);
+  if (locations.length === 0) return null;
+
+  // Duplicate locations to ensure seamless looping for the marquee
+  const duplicatedLocations = [...locations];
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 412; // card width + gap
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
-    <div
-      className="absolute z-10 flex flex-col items-center cursor-pointer"
-      style={{
-        left: location.left,
-        top: location.top,
-        transform: "translate(-50%, -100%)",
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {/* Tooltip below pin */}
-      <div
-        className={`
-          absolute top-full mt-2 left-1/2 -translate-x-1/2
-          bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700
-          rounded-xl shadow-xl px-3 py-2 md:px-4 md:py-3 z-20
-          transition-all duration-200 pointer-events-none
-          ${hovered ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}
-        `}
-        style={{ minWidth: "150px", width: "max-content", maxWidth: "220px" }}
-      >
-        {/* Tooltip arrow pointing up */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-full w-0 h-0 border-l-[7px] border-r-[7px] border-b-[7px] border-l-transparent border-r-transparent border-b-white dark:border-b-zinc-900" />
-        <p className="font-semibold text-zinc-900 dark:text-zinc-100 text-xs md:text-sm mb-1">
-          {location.flag} {location.country}
-        </p>
-        <p className="text-zinc-500 dark:text-zinc-400 text-[10px] md:text-xs leading-relaxed whitespace-pre-line">
-          {location.address}
-        </p>
+    <section className="bg-[#1F2123] py-24 overflow-hidden relative border-t border-zinc-800/50">
+      <div className="max-w-7xl mx-auto px-6 mb-16 flex justify-between items-end">
+        <div>
+          <h2 className="text-5xl font-bold text-white tracking-tight mb-4">
+            {data?.title}
+          </h2>
+          <div className="h-1 w-20 bg-white rounded-full"></div>
+        </div>
+
+        {/* Navigation Icons */}
+        <div className="flex gap-4">
+          <button
+            onClick={() => scroll("left")}
+            className="p-4 rounded-full border border-zinc-700 hover:bg-white hover:text-black text-white transition-all duration-300 group"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="p-4 rounded-full border border-zinc-700 hover:bg-white hover:text-black text-white transition-all duration-300 group"
+            aria-label="Scroll right"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
       </div>
 
-      {/* Classic teardrop map pin using SVG */}
-      <svg
-        viewBox="0 0 52 68"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-6 h-[31px] md:w-10 md:h-[52px]"
-        style={{
-          transition: "transform 0.2s ease",
-          transform: hovered ? "scale(1.1)" : "scale(1)",
-          filter: hovered
-            ? "drop-shadow(0 6px 16px rgba(0,0,0,0.22))"
-            : "drop-shadow(0 3px 8px rgba(0,0,0,0.15))",
-        }}
-      >
-        {/* Pin body — teardrop shape */}
-        <path
-          d="M26 1C12.2 1 1 12.2 1 26C1 41.5 26 67 26 67C26 67 51 41.5 51 26C51 12.2 39.8 1 26 1Z"
-          fill="#cdd8df"
-          stroke="#b8c6cf"
-          strokeWidth="1"
-        />
-        {/* Inner circle highlight */}
-        <circle cx="26" cy="24" r="17" fill="rgba(255,255,255,0.35)" />
+      <div className="relative w-full">
+        {/* Edge masks for smooth fade effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-40 bg-linear-to-r from-[#1F2123] via-[#1F2123]/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-40 bg-linear-to-l from-[#1F2123] via-[#1F2123]/80 to-transparent z-10 pointer-events-none" />
 
-        {/* Flag emoji via foreignObject */}
-        <foreignObject x="7" y="5" width="38" height="38">
-          <div
-            className="w-full h-full flex items-center justify-center rounded-full overflow-hidden text-base md:text-2xl"
-            style={{
-              lineHeight: 1,
-            }}
-          >
-            {location.flag}
-          </div>
-        </foreignObject>
-      </svg>
-
-      {/* White oval beneath pin tip */}
-      <div
-        className="w-3 h-1 md:w-4 md:h-1.5"
-        style={{
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.75)",
-          boxShadow: "0 1px 4px rgba(0,0,0,0.12)",
-          marginTop: "-2px",
-          transition: "all 0.2s",
-          transform: hovered ? "scaleX(1.2)" : "scaleX(1)",
-        }}
-      />
-    </div>
-  );
-};
-
-const WorldMap = () => {
-  return (
-    <section className="py-16 px-6 bg-white dark:bg-[#1F2123]">
-      <div className="max-w-6xl mx-auto">
-        {/* Map container - remove fixed aspect ratio to prevent empty space around map */}
-        <div className="relative w-full">
-          {/* World map image */}
-          <img
-            src="/world-map.png"
-            alt="World Map"
-            className="w-full h-auto block"
-          />
-          {/* Location pins overlaying the image */}
-          <div className="absolute inset-0">
-            {locations.map((loc) => (
-              <Pin key={loc.id} location={loc} />
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto scrollbar-hide snap-x"
+        >
+          <div className="flex gap-8 px-[10vw] animate-marquee hover:[animation-play-state:paused]">
+            {duplicatedLocations.map((location, idx) => (
+              <div
+                key={`${location.id}-${idx}`}
+                className="w-[380px] shrink-0 p-6 rounded-3xl transition-all duration-500 group snap-center"
+              >
+                <div className="aspect-square rounded-sm mb-8 overflow-hidden bg-zinc-800 relative shadow-2xl">
+                  {location.image ? (
+                    <Image
+                      src={getStrapiMedia(location.image) || ""}
+                      alt={location.title}
+                      fill
+                      sizes="380px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-white transition-all duration-500 group-hover:bg-zinc-100" />
+                  )}
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-semibold text-white tracking-tight">
+                    {location.title}
+                  </h3>
+                  <div className="space-y-1">
+                    <p className="text-zinc-400 text-lg font-light leading-relaxed whitespace-pre-line">
+                      {location.subtitle}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

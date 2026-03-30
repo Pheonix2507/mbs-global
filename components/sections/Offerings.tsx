@@ -45,12 +45,12 @@ const Offerings = ({ data }: OfferingsProps) => {
   return (
     <section
       id="offerings"
-      className="relative bg-[#1F1F1F] md:bg-white py-[60px] md:py-24 md:dark:bg-black overflow-hidden"
+      className="relative bg-[#1F1F1F] md:bg-white py-[10px] md:py-24 md:dark:bg-black overflow-hidden"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="mb-12 md:mb-16">
-          <h2 className="font-zalando text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] md:text-zinc-900 md:dark:text-white max-w-[300px] md:max-w-none">
-            {/* The title should probably be passed in 'data' or a 'title' prop */}
+          <h2 className="font-zalando text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.1] tracking-tight text-[#D699FF] max-w-[300px] md:max-w-none">
+            Core Offerings
           </h2>
         </div>
 
@@ -65,10 +65,10 @@ const Offerings = ({ data }: OfferingsProps) => {
               <div
                 key={item.id}
                 className="shrink-0 px-4"
-                style={{ width: `${100 / itemsPerPage}%` }}
+                style={{ width: `${100 / itemsPerPage}%`, height: "100%" }}
               >
-                <div className="group relative flex flex-col space-y-6">
-                  <div className="relative aspect-video overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
+                <div className="group relative flex flex-col space-y-4 dark:bg-[#1F1F1F] bg-[#F7F9FB] p-3">
+                  <div className="relative aspect-3/3 overflow-hidden rounded-sm bg-zinc-100 dark:bg-zinc-800">
                     <Image
                       src={getStrapiMedia(item.image) || ""}
                       alt={item.title}

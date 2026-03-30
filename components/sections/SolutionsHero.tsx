@@ -18,7 +18,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
     : data?.background_image?.mime?.startsWith("video/");
 
   return (
-    <section className="relative h-[60vh] min-h-[400px] md:min-h-[500px] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[60vh] min-h-[400px] md:min-h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         {isVideo ? (
           <video
@@ -42,7 +42,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
       </div>
 
       <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto">
-        <h1 className="font-zalando text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000">
+        <h1 className="font-zalando text-4xl sm:text-5xl md:text-5xl font-semibold tracking-tighter text-white mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000">
           {title}
         </h1>
         <p className="text-lg md:text-xl text-zinc-200 font-sans font-normal animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-200 max-w-2xl mx-auto">

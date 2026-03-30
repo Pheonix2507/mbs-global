@@ -5,6 +5,7 @@ import Image from "next/image";
 
 interface Metric {
   score: string;
+  text: string;
   description: string;
 }
 
@@ -59,9 +60,20 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
                   fill
                   className="object-contain"
                 />
+              {/* Circular Container with Ellipse SVG */}
+              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center mb-6 transition-transform duration-500 hover:scale-105">
+                <Image
+                  src="/ellipse.svg"
+                  alt="Metric Background"
+                  fill
+                  className="object-contain"
+                />
 
-                <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-zinc-900 dark:text-white relative z-10 flex flex-col items-center text-center px-6 leading-tight max-w-full break-words">
+                <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-zinc-900 dark:text-white relative z-10 flex flex-col items-center text-center px-6 leading-tight max-w-full wrap-break-word">
                   {metric.score}
+                  <span className="text-base md:text-lg text-zinc-600 dark:text-zinc-300 font-sans max-w-[220px] mx-auto leading-relaxed">
+                    {metric.text}
+                  </span>
                 </span>
               </div>
 
@@ -70,8 +82,9 @@ const ServiceMetrics = ({ metrics }: ServiceMetricsProps) => {
                 {metric.description}
               </p>
             </div>
-          ))}
         </div>
+          ))}
+      </div>
       </div>
     </section>
   );

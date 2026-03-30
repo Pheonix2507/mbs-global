@@ -3,6 +3,7 @@ import { CheckCircle2, Target, Users, Lightbulb } from "lucide-react";
 import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
 import { StrapiAboutUs } from "@/lib/strapi-types";
 import TimelineStem from "@/components/ui/TimelineStem";
+import AboutValues from "@/components/sections/AboutValues";
 
 const AboutUs = async () => {
   const response = await fetchStrapi<StrapiAboutUs>("about-us");
@@ -12,9 +13,9 @@ const AboutUs = async () => {
     aboutData?.A_Legacy_of_Transformation?.yearAndtext || [];
 
   return (
-    <main className="min-h-screen pt-20 text-foreground">
+    <main className="min-h-screen text-foreground">
       {/* Hero Section */}
-      <section className="relative min-h-[800px] md:h-[80vh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[800px] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
         <Image
           src={getStrapiMedia(aboutData?.hero_section?.background_image) || ""}
           alt=""
@@ -62,145 +63,8 @@ const AboutUs = async () => {
             ))}
           </div>
 
-          {/* Section 2: Values Split Layout */}
-          <div className="mb-16 md:mb-48">
-            {/* Heading — left aligned on mobile, centered on desktop */}
-            <div className="text-left md:text-center mb-8">
-              <h3 className="font-zalando font-semibold text-3xl md:text-5xl mb-4 text-zinc-900 dark:text-white">
-                Values That
-                <br className="md:hidden" /> Drive <br className="md:hidden" />
-                Excellence.
-              </h3>
-            </div>
-
-            {/* ── MOBILE layout ── */}
-            <div className="flex flex-col gap-8 md:hidden">
-              {/* Image - full width touching edges */}
-              <div className="relative h-[300px] -mx-6 w-[calc(100%+3rem)]">
-                <Image
-                  src="/about-values-side.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
-              </div>
-
-              {/* Competency items */}
-              <div className="flex flex-col gap-6">
-                <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
-                    Platform & Product <br className="md:hidden" />
-                    Engineering
-                  </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
-                    Modern architecture for scalable{" "}
-                    <br className="md:hidden" /> global products.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
-                    Digital Infra & Ops
-                  </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
-                    Robust infrastructure management for 24/7 availability.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <h4 className="font-zalando font-medium text-lg text-zinc-900 dark:text-white">
-                    Data, Analytics & AI
-                  </h4>
-                  <p className="font-sans font-normal text-sm text-zinc-500 dark:text-zinc-400">
-                    Actionable intelligence to power your digital evolution.
-                  </p>
-                </div>
-              </div>
-
-              {/* Explore more button */}
-              <div>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center border border-zinc-900 dark:border-white rounded-sm py-2 px-6"
-                >
-                  <span className="font-zalando font-normal text-sm text-zinc-900 dark:text-white">
-                    Explore more
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            {/* ── DESKTOP layout ── */}
-            <div className="hidden md:grid md:grid-cols-2 gap-16 items-start">
-              <div className="relative h-[656px] w-full max-w-[601px] rounded-3xl overflow-hidden shadow-2xl group">
-                <Image
-                  src="/about-values-side.jpg"
-                  alt=""
-                  fill
-                  className="object-fill"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
-              </div>
-              <div className="flex flex-col gap-12 py-6">
-                {/* We'll keep these values as they are not mapped yet properly in the split section as requested */}
-                <div className="flex gap-6 items-start">
-                  <div className="shrink-0 mt-1">
-                    <Lightbulb className="w-6 h-6 text-purple-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
-                      People First
-                    </h4>
-                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
-                      Your growth is our growth; we foster an atmosphere of
-                      mutual respect and loyalty.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="shrink-0 mt-1">
-                    <Target className="w-6 h-6 text-blue-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
-                      Knowledge Sharing
-                    </h4>
-                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
-                      We host weekly MBS Knowledge Exchange sessions to ensure
-                      expertise flows across every team and country.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="shrink-0 mt-1">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
-                      Customer Transparency
-                    </h4>
-                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
-                      We build long-term relationships through proactive
-                      value-adds and shared common goals.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <div className="shrink-0 mt-1">
-                    <Users className="w-6 h-6 text-orange-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-semibold mb-2 text-zinc-900 dark:text-white font-zalando tracking-tight">
-                      Quality Without Compromise
-                    </h4>
-                    <p className="text-zinc-600 dark:text-white text-lg leading-relaxed max-w-md">
-                      100% efficiency is our norm because in technology,
-                      &quot;enough&quot; is never enough.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Section 2: Values Split Layout (Dynamic) */}
+          <AboutValues data={aboutData?.progress} />
 
           {/* Section 3: Timeline (A_Legacy_of_Transformation) */}
           <div className="relative overflow-hidden pt-12">

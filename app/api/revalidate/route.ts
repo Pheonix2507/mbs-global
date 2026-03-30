@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     // 🔥 match your fetch tags
     const tag = `strapi-${model}`;
 
-    revalidateTag(tag, "cache");
+    revalidateTag(tag, "max");
 
     return NextResponse.json({ revalidated: true, tag });
   } catch (err) {

@@ -1,22 +1,25 @@
 import ServiceHero from "@/components/sections/ServiceHero";
 import ServiceSemicircleLoader from "@/components/sections/ServiceSemicircleLoader";
-import StrategicBusinessOutcomes from "@/components/sections/StrategicBusinessOutcomes";
-import SolutionAnimatedFeatures from "@/components/sections/SolutionAnimatedFeatures";
+import SolutionsSplit from "@/components/sections/SolutionsSplit";
+import SolutionGlassmorphism from "@/components/sections/SolutionGlassmorphism";
 import ServiceMetrics from "@/components/sections/ServiceMetrics";
 import SolutionsBanner from "@/components/sections/SolutionsBanner";
 import { fetchStrapi, getStrapiMedia } from "@/lib/strapi";
+import { StrapiAiCentricProductEngineering } from "@/lib/strapi-types";
 
-export default async function PlatformProductEngineeringPage() {
-  const response = await fetchStrapi<{ data: any }>(
-    "/platform-product-engineering",
-  );
+export default async function AiCentricProductEngineeringPage() {
+  const response = await fetchStrapi<{
+    data: StrapiAiCentricProductEngineering;
+  }>("/ai-centric-product-engineering");
   const strapiData = response.data;
 
-  const hero = strapiData.hero_section || strapiData.hero;
-  const result = strapiData.Result_section;
-  const progress = strapiData.progress;
+  if (!strapiData) return null;
+
+  const hero = strapiData.hero_section;
+  const titleSubtitle = strapiData.title_subtile;
+  const info = strapiData.info;
+  const result = strapiData.Result_section[0];
   const metricsData = strapiData.number_growth;
-  const outcomes = strapiData.Strategic_Business_Outcomes;
   const banner = strapiData.banner;
 
   return (
@@ -29,6 +32,26 @@ export default async function PlatformProductEngineeringPage() {
         />
       )}
 
+      {titleSubtitle && (
+        <SolutionGlassmorphism
+          data={{
+            title: titleSubtitle.title,
+            sub_title: titleSubtitle.sub_title,
+          }}
+        />
+      )}
+
+      {info && (
+        <SolutionsSplit
+          data={{
+            title: info.title,
+            subtitle: info.subtitle,
+            image: info.image,
+            button: info.button,
+          }}
+        />
+      )}
+
       {result && (
         <ServiceSemicircleLoader
           title={result.title}
@@ -36,10 +59,6 @@ export default async function PlatformProductEngineeringPage() {
           image={getStrapiMedia(result.background_image)}
         />
       )}
-
-      {outcomes && <StrategicBusinessOutcomes data={outcomes} />}
-
-      {progress && <SolutionAnimatedFeatures slug="platform" data={progress} />}
 
       {metricsData && (
         <ServiceMetrics

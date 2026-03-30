@@ -35,6 +35,7 @@ export interface StrapiAboutUs {
   };
   short_about: Array<{ id: number; title: string; sub_title: string }>;
   empowering_text: Array<{ id: number; title: string; sub_title: string }>;
+  progress?: StrapiProgress;
   banner?: StrapiBanner;
 }
 
@@ -50,6 +51,7 @@ export interface StrapiTitleSubtitle {
   id: number;
   title: string;
   sub_title: string;
+  background_image?: any;
   swipe_element?: Array<{ id: number; title: string; subtitle: string }>;
 }
 
@@ -94,26 +96,57 @@ export interface StrapiHome {
   id: number;
   documentId: string;
   hero: StrapiHero;
-  impact_count: { 
-    id: number; 
-    title: string; 
-    numbers: Array<{ id: number; number: string; text: string }> 
+  impact_count: {
+    id: number;
+    title: string;
+    numbers: Array<{ id: number; number: string; text: string }>;
   };
-  co_person: Array<{ id: number; title: string; sub_title: string; background_image?: any }>;
-  Core_Offerings_components: Array<{ id: number; title: string; subtitle: string; image: any }>;
-  core_value_component: { 
-    id: number; 
-    description: string; 
-    icons: Array<{ id: number; icon: any; text: string }> 
+  co_person: Array<{
+    id: number;
+    title: string;
+    sub_title: string;
+    background_image?: any;
+  }>;
+  Core_Offerings_components: Array<{
+    id: number;
+    title: string;
+    subtitle: string;
+    image: any;
+  }>;
+  core_value_component: {
+    id: number;
+    description: string;
+    icons: Array<{ id: number; icon: any; text: string }>;
   };
   banner: StrapiBanner;
-  Technical_Competencies_component: { 
-    id: number; 
-    title: string; 
+  Technical_Competencies_component: {
+    id: number;
+    title: string;
     title_subtile: StrapiTitleSubtitle[];
     side_image: any;
     button: Array<{ id: number; text: string }>;
   };
+  location?: StrapiLocation;
+}
+
+export interface StrapiLocation {
+  id: number;
+  title: string;
+  location_element: StrapiLocationElement[];
+}
+
+export interface StrapiLocationElement {
+  id: number;
+  title: string;
+  subtitle: string;
+  image: any;
+  button?: any;
+}
+
+export interface StrapiContactUs {
+  id: number;
+  documentId: string;
+  location: StrapiLocation;
 }
 
 export interface StrapiInnovation {
@@ -176,7 +209,13 @@ export interface StrapiDataAnalyticsCloudAI {
   Strategic_Business_Outcomes: {
     id: number;
     title: string;
-    card: Array<{ id: number; title: string; subtitle: string; image: any; button: any }>;
+    card: Array<{
+      id: number;
+      title: string;
+      subtitle: string;
+      image: any;
+      button: any;
+    }>;
   };
   Result_section: StrapiTitleSubtitle;
   banner: StrapiBanner;
@@ -190,7 +229,13 @@ export interface StrapiDigitalInfraOp {
   Strategic_Business_Outcomes: {
     id: number;
     title: string;
-    card: Array<{ id: number; title: string; subtitle: string; image: any; button: any }>;
+    card: Array<{
+      id: number;
+      title: string;
+      subtitle: string;
+      image: any;
+      button: any;
+    }>;
   };
   Result_section: StrapiTitleSubtitle;
   banner: StrapiBanner;
@@ -211,7 +256,28 @@ export interface StrapiPlatformProductEngineering {
   hero_section: StrapiHero;
   progress: StrapiProgress;
   Result_section: StrapiTitleSubtitle;
-  number_growth: Array<{ id: number; number: string; text: string; description: string }>;
+  number_growth: Array<{
+    id: number;
+    number: string;
+    text: string;
+    description: string;
+  }>;
+  banner: StrapiBanner;
+}
+
+export interface StrapiAiCentricProductEngineering {
+  id: number;
+  documentId: string;
+  hero_section: StrapiHero;
+  title_subtile: StrapiTitleSubtitle;
+  info: StrapiInfo;
+  Result_section: StrapiTitleSubtitle[];
+  number_growth: Array<{
+    id: number;
+    number: string;
+    text: string;
+    description: string;
+  }>;
   banner: StrapiBanner;
 }
 

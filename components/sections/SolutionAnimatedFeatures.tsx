@@ -11,11 +11,11 @@ interface FeaturePoint {
   media?: any;
 }
 interface Props {
-  slug: string;
   data?: any;
+  [key: string]: any;
 }
 
-const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
+const SolutionAnimatedFeatures = ({ data: strapiFeaturesRaw }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
 
@@ -24,7 +24,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
     : (strapiFeaturesRaw as any)?.title_subtile_image ||
       (strapiFeaturesRaw as any)?.progress_item;
 
-  const data: FeaturePoint[] = strapiFeatures
+  const features: FeaturePoint[] = strapiFeatures
     ? strapiFeatures.map((item: any) => ({
         title: item.title,
         description: item.subtitle || item.sub_title,
@@ -45,7 +45,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
 
       if (elapsed >= DURATION) {
         // Switch to next item
-        setActiveIndex((prev) => (prev + 1) % data.length);
+        setActiveIndex((prev) => (prev + 1) % features.length);
         setProgress(0);
         startTime = time; // Reset start time for the next cycle
       } else {
@@ -56,15 +56,22 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
 
     animationFrameId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [data.length]);
+  }, [features.length]);
+
+  const sectionTitle = strapiFeaturesRaw?.title;
 
   return (
     <section className="py-16 md:py-24 bg-white dark:bg-[#1F1F1F]">
       <div className="container mx-auto px-6 max-w-7xl">
+        {sectionTitle && (
+          <h2 className="text-4xl md:text-5xl font-zalando font-medium mb-16 text-center text-zinc-900 dark:text-white">
+            {sectionTitle}
+          </h2>
+        )}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Dynamic Media */}
           <div className="relative aspect-square md:aspect-4/3 lg:aspect-square overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-900 shadow-2xl">
-            {data.map((item, idx) => {
+            {features.map((item, idx) => {
               const isVideo = Array.isArray(item.media)
                 ? item.media[0]?.mime?.startsWith("video/")
                 : item.media?.mime?.startsWith("video/");
@@ -102,7 +109,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
 
           {/* Right: Points with Loaders */}
           <div className="flex flex-col gap-10 md:gap-12">
-            {data.map((item, idx) => {
+            {features.map((item, idx) => {
               const isActive = activeIndex === idx;
 
               return (
@@ -116,7 +123,7 @@ const SolutionAnimatedFeatures = ({ slug, data: strapiFeaturesRaw }: Props) => {
                 >
                   <div className="space-y-3">
                     <h3
-                      className={`font-zalando text-2xl md:text-4xl font-semibold tracking-tight text-left text-zinc-900 dark:text-white transition-colors duration-500 leading-[110%] ${
+                      className={`font-zalando text-2xl font-semibold tracking-tight text-left text-zinc-900 dark:text-white transition-colors duration-500 leading-[110%] ${
                         isActive ? "text-[#AF33FF]" : ""
                       }`}
                     >

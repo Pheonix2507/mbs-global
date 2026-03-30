@@ -156,7 +156,11 @@ const Services = ({ data }: ServicesProps) => {
           >
             <div
               className="flex h-[44.25px] w-[44.25px] items-center justify-center rounded-full transition-all hover:scale-110"
-              style={{ border: "2.95px solid #FFFFFF" }}
+              style={{
+                borderWidth: "2.95px",
+                borderStyle: "solid",
+                borderColor: "#FFFFFF",
+              }}
             >
               <ChevronLeft className="h-5 w-5 text-white" />
             </div>
@@ -173,7 +177,7 @@ const Services = ({ data }: ServicesProps) => {
                 padding: "2.95px",
               }}
             >
-              <div className="flex h-full w-full items-center justify-center rounded-full bg-background">
+              <div className="flex h-full w-full items-center justify-center rounded-full bg-black ">
                 <ChevronRight className="h-5 w-5 text-white" />
               </div>
             </div>

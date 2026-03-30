@@ -2,33 +2,173 @@
   "about-us": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "short_about": {
+      "populate": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "A_Legacy_of_Transformation": {
       "populate": {
-        "yearAndtext": { "populate": "*" }
+        "yearAndtext": {
+          "populate": {
+            "background_image": {
+              "populate": "*"
+            },
+            "swipe_element": {
+              "populate": {
+                "icon": {
+                  "populate": "*"
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "short_about": { "populate": "*" },
-    "empowering_text": { "populate": "*" }
+    "empowering_text": {
+      "populate": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "progress": {
+      "populate": {
+        "title_subtile_image": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ai-centric-product-engineering": {
+    "hero_section": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "title_subtile": {
+      "populate": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Result_section": {
+      "populate": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "number_growth": {
+      "populate": "*"
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "blog": {
+    "Image": {
+      "populate": "*"
+    }
   },
   "business-information": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "Pillar": {
       "populate": {
         "pillar_element": {
           "populate": {
-            "image": { "populate": "*" },
+            "image": {
+              "populate": "*"
+            },
             "title_subtile": {
               "populate": {
-                "swipe_element": { "populate": "*" }
+                "background_image": {
+                  "populate": "*"
+                },
+                "swipe_element": {
+                  "populate": {
+                    "icon": {
+                      "populate": "*"
+                    }
+                  }
+                }
               }
             }
           }
@@ -37,29 +177,66 @@
     },
     "Guides": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "contact-us": {
+    "location": {
+      "populate": {
+        "location_element": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
       }
     }
   },
   "data-analytics-cloud-ai": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "progress": {
       "populate": {
         "title_subtile_image": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
@@ -68,37 +245,62 @@
       "populate": {
         "card": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
     },
     "Result_section": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "digital-infra-op": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "progress": {
       "populate": {
         "title_subtile_image": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
@@ -107,42 +309,178 @@
       "populate": {
         "card": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
     },
     "Result_section": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
+      }
+    },
+    "impact_count": {
+      "populate": {
+        "numbers": {
+          "populate": "*"
+        }
+      }
+    },
+    "co_person": {
+      "populate": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "Core_Offerings_components": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "core_value_component": {
+      "populate": {
+        "icons": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    },
+    "banner": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "Technical_Competencies_component": {
+      "populate": {
+        "title_subtile": {
+          "populate": {
+            "background_image": {
+              "populate": "*"
+            },
+            "swipe_element": {
+              "populate": {
+                "icon": {
+                  "populate": "*"
+                }
+              }
+            }
+          }
+        },
+        "side_image": {
+          "populate": "*"
+        },
+        "button": {
+          "populate": "*"
+        }
+      }
+    },
+    "location": {
+      "populate": {
+        "location_element": {
+          "populate": {
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
+          }
+        }
       }
     }
   },
   "innovation": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "title_subtile": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "progress": {
       "populate": {
         "title_subtile_image": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
@@ -151,10 +489,21 @@
       "populate": {
         "pillar_element": {
           "populate": {
-            "image": { "populate": "*" },
+            "image": {
+              "populate": "*"
+            },
             "title_subtile": {
               "populate": {
-                "swipe_element": { "populate": "*" }
+                "background_image": {
+                  "populate": "*"
+                },
+                "swipe_element": {
+                  "populate": {
+                    "icon": {
+                      "populate": "*"
+                    }
+                  }
+                }
               }
             }
           }
@@ -163,37 +512,69 @@
     },
     "info": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "operative-management": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "title_subtile": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "Pillar": {
       "populate": {
         "pillar_element": {
           "populate": {
-            "image": { "populate": "*" },
+            "image": {
+              "populate": "*"
+            },
             "title_subtile": {
               "populate": {
-                "swipe_element": { "populate": "*" }
+                "background_image": {
+                  "populate": "*"
+                },
+                "swipe_element": {
+                  "populate": {
+                    "icon": {
+                      "populate": "*"
+                    }
+                  }
+                }
               }
             }
           }
@@ -204,75 +585,144 @@
       "populate": {
         "title_subtile_image": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     },
     "info": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "platform-product-engineering": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
-    "progress": {
+    "title_subtile": {
       "populate": {
-        "title_subtile_image": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "icon": {
+              "populate": "*"
+            }
           }
         }
       }
     },
     "Result_section": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
-    "number_growth": { "populate": "*" },
+    "number_growth": {
+      "populate": "*"
+    },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
+      }
+    },
+    "info": {
+      "populate": {
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "strategic-consulting": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "title_subtile": {
       "populate": {
-        "swipe_element": { "populate": "*" }
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
+          "populate": {
+            "icon": {
+              "populate": "*"
+            }
+          }
+        }
       }
     },
     "Pillar": {
       "populate": {
         "pillar_element": {
           "populate": {
-            "image": { "populate": "*" },
+            "image": {
+              "populate": "*"
+            },
             "title_subtile": {
               "populate": {
-                "swipe_element": { "populate": "*" }
+                "background_image": {
+                  "populate": "*"
+                },
+                "swipe_element": {
+                  "populate": {
+                    "icon": {
+                      "populate": "*"
+                    }
+                  }
+                }
               }
             }
           }
@@ -283,37 +733,62 @@
       "populate": {
         "title_subtile": {
           "populate": {
-            "swipe_element": { "populate": "*" }
+            "background_image": {
+              "populate": "*"
+            },
+            "swipe_element": {
+              "populate": {
+                "icon": {
+                  "populate": "*"
+                }
+              }
+            }
           }
         }
       }
     },
     "info": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "total-talent-solution": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "progress": {
       "populate": {
         "title_subtile_image": {
           "populate": {
-            "button": { "populate": "*" },
-            "image": { "populate": "*" }
+            "button": {
+              "populate": "*"
+            },
+            "image": {
+              "populate": "*"
+            }
           }
         }
       }
@@ -322,10 +797,21 @@
       "populate": {
         "pillar_element": {
           "populate": {
-            "image": { "populate": "*" },
+            "image": {
+              "populate": "*"
+            },
             "title_subtile": {
               "populate": {
-                "swipe_element": { "populate": "*" }
+                "background_image": {
+                  "populate": "*"
+                },
+                "swipe_element": {
+                  "populate": {
+                    "icon": {
+                      "populate": "*"
+                    }
+                  }
+                }
               }
             }
           }
@@ -334,38 +820,45 @@
     },
     "info": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
   },
   "workspace-solution": {
     "hero_section": {
       "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "background_image": {
+          "populate": "*"
+        }
       }
     },
     "title_subtile": {
       "populate": {
-        "swipe_element": { "populate": "*" }
-      }
-    },
-    "Pillar": {
-      "populate": {
-        "pillar_element": {
+        "background_image": {
+          "populate": "*"
+        },
+        "swipe_element": {
           "populate": {
-            "image": { "populate": "*" },
-            "title_subtile": {
-              "populate": {
-                "swipe_element": { "populate": "*" }
-              }
+            "icon": {
+              "populate": "*"
             }
           }
         }
@@ -373,64 +866,23 @@
     },
     "info": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
-      }
-    },
-    "banner": {
-      "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
-      }
-    }
-  },
-  "home": {
-    "hero": {
-      "populate": {
-        "button": { "populate": "*" },
-        "background_image": { "populate": "*" }
-      }
-    },
-    "impact_count": {
-      "populate": {
-        "numbers": { "populate": "*" }
-      }
-    },
-    "co_person": {
-      "populate": {
-        "background_image": { "populate": "*" }
-      }
-    },
-    "Core_Offerings_components": {
-      "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
-      }
-    },
-    "core_value_component": {
-      "populate": {
-        "icons": {
-          "populate": {
-            "icon": { "populate": "*" }
-          }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
         }
       }
     },
     "banner": {
       "populate": {
-        "button": { "populate": "*" },
-        "image": { "populate": "*" }
-      }
-    },
-    "Technical_Competencies_component": {
-      "populate": {
-        "title_subtile": { "populate": "*" },
-        "side_image": { "populate": "*" },
-        "button": { "populate": "*" }
+        "button": {
+          "populate": "*"
+        },
+        "image": {
+          "populate": "*"
+        }
       }
     }
-  },
-  "blog": {
-    "Image": { "populate": "*" }
   }
 }

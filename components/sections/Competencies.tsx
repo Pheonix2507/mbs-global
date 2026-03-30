@@ -33,7 +33,7 @@ const Competencies = ({ data }: CompetenciesProps) => {
   return (
     <section
       id="competencies"
-      className="relative flex flex-col min-h-screen items-center justify-center overflow-hidden bg-[#EEF1F4] dark:bg-black"
+      className="relative flex flex-col h-[90vh] items-center justify-center overflow-hidden bg-[#EEF1F4] dark:bg-black"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 w-full min-h-fit">
         <div className="relative w-full h-[400px] md:h-full bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
@@ -44,15 +44,15 @@ const Competencies = ({ data }: CompetenciesProps) => {
             <Image src={sideImage} alt="" fill className="object-contain" />
           </div>
         </div>
-        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-20">
-          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl lg:text-6xl mb-8 md:mb-12">
+        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-12">
+          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-6 lg:text-6xl">
             {title}
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-4">
             {items.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col text-white dark:text-[#1F2123] p-4 md:p-6"
+                className="flex flex-col text-white dark:text-[#1F2123] py-3"
               >
                 <span className="font-zalando font-medium text-xl md:text-2xl">
                   {item.title}
@@ -65,9 +65,9 @@ const Competencies = ({ data }: CompetenciesProps) => {
           </div>
           <Link
             href="/services"
-            className="z-10 max-w-fit mt-8 md:mt-12 border border-white hover:bg-white hover:border-black dark:border-[#1F1F1F] rounded-sm py-3 px-6 ms-4"
+            className="z-10 max-w-fit mt-3 md:mt-12 border text-white hover:text-black dark:text-black border-white dark:border-[#1F1F1F] hover:border-white hover:bg-white dark:hover:bg-black dark:hover:text-white rounded-sm py-3 px-6"
           >
-            <span className="font-zalando font-normal text-white hover:text-black dark:text-[#1F1F1F] text-sm md:text-base">
+            <span className="font-zalando font-normal text-sm md:text-base">
               {buttonText}
             </span>
           </Link>

@@ -45,7 +45,7 @@ export default async function SolutionDetail({
   }
 
   if (!strapiData) {
-    return <main className="min-h-screen pt-20" />;
+    return <main className="min-h-screen" />;
   }
 
   /* ---------------- HERO ---------------- */
@@ -102,7 +102,7 @@ export default async function SolutionDetail({
   const banner = strapiData?.banner;
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
       {/* HERO */}
       {heroData && <SolutionsHero data={heroData} />}
 
@@ -142,8 +142,8 @@ export default async function SolutionDetail({
         <ServiceMetrics
           metrics={metrics.map((m: any) => ({
             score: m.number,
-            description:
-              (m.text ? `${m.text} ` : "") + (m.description || m.title || ""),
+            text: m.text || "",
+            description: m.description || m.title || "",
           }))}
         />
       )}

@@ -31,7 +31,7 @@ const AboutCompany = ({ data }: AboutCompanyProps) => {
       </div>
 
       <div className="relative mx-auto max-w-5xl z-10">
-        <div className="text-[#D699FF] md:text-[#AF33FF] text-4xl md:text-6xl font-normal font-zalando mb-12 md:mb-28">
+        <div className="dark:text-[#D699FF] text-[#AF33FF] text-4xl md:text-6xl font-normal font-zalando mb-12 md:mb-28">
           {title}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

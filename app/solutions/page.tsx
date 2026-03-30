@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function SolutionsPage() {
   return (
-    <main className="min-h-screen pt-20">
+    <main className="min-h-screen">
       <SolutionsHero />
       <SolutionsGrid />
       <SolutionsSplit />

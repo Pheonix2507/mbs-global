@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 max-w-7xl pt-[40px] pb-12 md:py-16">
         {/* ── DESKTOP layout (hidden on mobile) ── */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Column 1: Social + Contact */}
+          {/* Column 4: Social + Contact */}
           <div className="flex flex-col gap-7">
             <div className="flex flex-wrap gap-4 text-zinc-600 dark:text-zinc-400">
               <Image src="/mbs-logo.svg" alt="Logo" width={150} height={35} />
@@ -16,9 +16,9 @@ const Footer = () => {
             <div>
               <Link
                 href="/contact"
-                className="border border-white rounded-sm py-3 px-6"
+                className="border text-white border-white rounded-sm py-3 px-6 hover:bg-white hover:text-black"
               >
-                <span className="font-zalando font-normal text-sm tracking-wide uppercase text-white">
+                <span className="font-zalando font-normal text-sm tracking-wide uppercase">
                   Contact Us
                 </span>
               </Link>
@@ -39,7 +39,8 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          {/* Column 2: Quick Links */}
+
+          {/* Column 1: Quick links */}
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold font-zalando text-zinc-100">
               Quick Links
@@ -68,29 +69,36 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          {/* Column 3: Solutions */}
+
+          {/* Column 2: Solutions */}
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold font-zalando text-zinc-100">
               Solutions
             </h3>
             <div className="flex flex-col gap-3 text-sm text-zinc-400">
               <Link
+                href="/solutions/innovation"
+                className="hover:text-white transition-colors"
+              >
+                AI-Fueled innovation
+              </Link>
+              <Link
                 href="/solutions/workspace-solution"
                 className="hover:text-white transition-colors"
               >
-                Workspace Solutions
+                GCC Strategy & Enablement
+              </Link>
+              <Link
+                href="/solutions/business-information"
+                className="hover:text-white transition-colors"
+              >
+                Cognitive business intelligence
               </Link>
               <Link
                 href="/solutions/total-talent-solutions"
                 className="hover:text-white transition-colors"
               >
-                Total Talent Solutions
-              </Link>
-              <Link
-                href="/solutions/operative-managements"
-                className="hover:text-white transition-colors"
-              >
-                Operations Management
+                Digital Talent orchestration
               </Link>
               <Link
                 href="/solutions/strategic-consulting"
@@ -99,20 +107,15 @@ const Footer = () => {
                 Strategic Consulting
               </Link>
               <Link
-                href="/solutions/innovation"
+                href="/solutions/operative-managements"
                 className="hover:text-white transition-colors"
               >
-                Innovation
-              </Link>
-              <Link
-                href="/solutions/business-information"
-                className="hover:text-white transition-colors"
-              >
-                Business Transformation
+                Operations Management
               </Link>
             </div>
           </div>
-          {/* Column 4: Services */}
+
+          {/* Column 3: Services */}
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold font-zalando text-zinc-100">
               Services
@@ -122,19 +125,25 @@ const Footer = () => {
                 href="/services/platform-product-engineering"
                 className="hover:text-white transition-colors"
               >
-                Platform & product engineering
+                Next-Gen AI Platform Engineering
               </Link>
               <Link
-                href="/services/digital-infra-ops"
+                href="/services/ai-centric-product-engineering"
                 className="hover:text-white transition-colors"
               >
-                Digital infra & Ops
+                AI-centric Product Engineering
               </Link>
               <Link
                 href="/services/data-analytics-cloud-ai"
                 className="hover:text-white transition-colors"
               >
-                Data, Analytics, Cloud & AI
+                Data, analytics, cloud & Ai
+              </Link>
+              <Link
+                href="/services/digital-infra-ops"
+                className="hover:text-white transition-colors"
+              >
+                Autonomous Infra and Ops
               </Link>
             </div>
           </div>
@@ -172,52 +181,27 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
-          <div className="flex flex-col gap-4">
-            <h3 className="font-semibold font-zalando text-white">services</h3>
-            <div className="flex flex-col gap-3 text-sm text-zinc-400">
-              <Link
-                href="/services/platform-product-engineering"
-                className="hover:text-white transition-colors"
-              >
-                platform & product engineering
-              </Link>
-              <Link
-                href="/services/digital-infra-ops"
-                className="hover:text-white transition-colors"
-              >
-                digital infra & Ops
-              </Link>
-              <Link
-                href="/services/data-analytics-cloud-ai"
-                className="hover:text-white transition-colors"
-              >
-                data, analytics, cloud & Ai
-              </Link>
-            </div>
-          </div>
-
           {/* Solutions */}
           <div className="flex flex-col gap-4">
             <h3 className="font-semibold font-zalando text-white">Solutions</h3>
             <div className="flex flex-col gap-3 text-sm text-zinc-400">
               <Link
-                href="/solutions/workspace-solution"
+                href="/solutions/innovation"
                 className="hover:text-white transition-colors"
               >
-                Workspace Solutions
+                AI-Fueled innovation
+              </Link>
+              <Link
+                href="/solutions/business-information"
+                className="hover:text-white transition-colors"
+              >
+                Cognitive business intelligence
               </Link>
               <Link
                 href="/solutions/total-talent-solutions"
                 className="hover:text-white transition-colors"
               >
-                Total Talent Solutions
-              </Link>
-              <Link
-                href="/solutions/operative-managements"
-                className="hover:text-white transition-colors"
-              >
-                Operations Management
+                Digital Talent orchestration
               </Link>
               <Link
                 href="/solutions/strategic-consulting"
@@ -226,69 +210,75 @@ const Footer = () => {
                 Strategic Consulting
               </Link>
               <Link
-                href="/solutions/innovation"
+                href="/solutions/operative-managements"
                 className="hover:text-white transition-colors"
               >
-                Innovation
-              </Link>
-              <Link
-                href="/solutions/business-information"
-                className="hover:text-white transition-colors"
-              >
-                Business Transformation
+                Operations Management
               </Link>
             </div>
           </div>
 
-          {/* Social Icons */}
-          <div className="flex flex-wrap gap-5 text-white">
-            <Link
-              href="#"
-              className="hover:text-blue-600 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6" />
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-blue-400 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-6 h-6" />
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-blue-800 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-6 h-6" />
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-red-600 transition-colors"
-              aria-label="YouTube"
-            >
-              <Youtube className="w-6 h-6" />
-            </Link>
-            <Link
-              href="#"
-              className="hover:text-pink-600 transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-6 h-6" />
-            </Link>
+          {/* Services */}
+          <div className="flex flex-col gap-4">
+            <h3 className="font-semibold font-zalando text-white">Services</h3>
+            <div className="flex flex-col gap-3 text-sm text-zinc-400">
+              <Link
+                href="/services/platform-product-engineering"
+                className="hover:text-white transition-colors"
+              >
+                Next-Gen AI Platform Engineering
+              </Link>
+              <Link
+                href="/services/platform-product-engineering"
+                className="hover:text-white transition-colors"
+              >
+                AI-centric Product Engineering
+              </Link>
+              <Link
+                href="/services/data-analytics-cloud-ai"
+                className="hover:text-white transition-colors"
+              >
+                Data, analytics, cloud & Ai
+              </Link>
+              <Link
+                href="/services/digital-infra-ops"
+                className="hover:text-white transition-colors"
+              >
+                Autonomous Infra and Ops
+              </Link>
+            </div>
           </div>
 
-          {/* Contact Us Button */}
-          <div>
-            <Link
-              href="/contact"
-              className="inline-block border border-white rounded-sm py-3 px-6"
-            >
-              <span className="font-zalando font-normal text-sm tracking-wide uppercase text-white">
-                Contact us
-              </span>
-            </Link>
+          <div className="flex flex-col gap-6">
+            <div className="flex flex-wrap gap-2 text-zinc-600 dark:text-zinc-400">
+              <Image src="/mbs-logo.svg" alt="Logo" width={150} height={35} />
+            </div>
+            <div>
+              <Link
+                href="/contact"
+                className="border border-white rounded-sm py-3 px-6 hover:bg-white hover:text-black"
+              >
+                <span className="font-zalando font-normal text-sm tracking-wide uppercase">
+                  Contact Us
+                </span>
+              </Link>
+            </div>
+            {/* Social Icons */}
+            <div>
+              <Link
+                href="https://www.linkedin.com/company/mbs-global/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block hover:opacity-80 transition-opacity"
+              >
+                <Image
+                  src="/linkedin.svg"
+                  alt="LinkedIn"
+                  width={28}
+                  height={28}
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

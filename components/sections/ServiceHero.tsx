@@ -9,16 +9,21 @@ interface ServiceHeroProps {
   media?: any;
 }
 
-const ServiceHero = ({ title, description, image, media }: ServiceHeroProps) => {
+const ServiceHero = ({
+  title,
+  description,
+  image,
+  media,
+}: ServiceHeroProps) => {
   const mediaUrl = getStrapiMedia(media) || image || "";
   const isVideo = Array.isArray(media)
     ? media[0]?.mime?.startsWith("video/")
     : media?.mime?.startsWith("video/");
 
   return (
-    <section className="relative w-full h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[60vh] min-h-[500px] md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Media */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-black">
         {isVideo ? (
           <video
             src={mediaUrl}
@@ -37,7 +42,7 @@ const ServiceHero = ({ title, description, image, media }: ServiceHeroProps) => 
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/50" />{" "}
+        <div className="absolute inset-0" />{" "}
         {/* Overlay for text readability */}
       </div>
 

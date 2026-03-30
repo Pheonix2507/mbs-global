@@ -30,7 +30,7 @@ export default async function DigitalInfraOpsPage() {
         <ServiceSemicircleLoader
           title={result.title}
           description={result.sub_title}
-          image={getStrapiMedia(result.swipe_element)}
+          image={getStrapiMedia(result.background_image)}
         />
       )}
 
@@ -42,8 +42,8 @@ export default async function DigitalInfraOpsPage() {
         <ServiceMetrics
           metrics={metricsData.map((m: any) => ({
             score: m.number,
-            description:
-              (m.text ? `${m.text} ` : "") + (m.description || m.title || ""),
+            text: m.text || "",
+            description: m.description || m.title || "",
           }))}
         />
       )}

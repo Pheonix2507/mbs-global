@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { StrapiHero } from "@/lib/strapi-types";
 import { getStrapiMedia } from "@/lib/strapi";
+import Link from "next/link";
 
 interface HeroProps {
   data?: StrapiHero & { background_image?: any };
@@ -58,11 +59,13 @@ const Hero = ({ data }: HeroProps) => {
 
       {/* CTA Button */}
       {data?.button?.[0]?.text && (
-        <div className="relative z-10 flex items-center justify-center w-[266.52px] h-[55.26px] md:w-auto md:h-auto gap-[11.36px] rounded-[4.54px] border-[1.14px] border-[#FFFFFF] py-[13.63px] md:py-4 px-[27.26px] md:px-10 opacity-100">
-          <span className="font-zalando font-normal text-white text-sm sm:text-base md:text-lg">
-            {data.button[0].text}
-          </span>
-        </div>
+        <Link href="/contact">
+          <div className="relative z-10 flex items-center justify-center w-[266.52px] h-[55.26px] md:w-auto md:h-auto gap-[11.36px] rounded-[4.54px] border-[1.14px] border-[#FFFFFF] hover:border-white hover:bg-white text-white hover:text-black py-[13.63px] md:py-4 px-[27.26px] md:px-10 opacity-100">
+            <span className="font-zalando font-normal text-sm sm:text-base md:text-lg">
+              {data.button[0].text}
+            </span>
+          </div>
+        </Link>
       )}
     </section>
   );

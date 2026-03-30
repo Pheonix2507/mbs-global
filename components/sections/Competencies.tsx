@@ -33,25 +33,28 @@ const Competencies = ({ data }: CompetenciesProps) => {
   return (
     <section
       id="competencies"
-      className="relative flex flex-col min-h-0 md:min-h-screen items-center justify-center bg-[#EEF1F4] dark:bg-black"
+      className="relative flex flex-col justify-start min-h-screen items-center overflow-hidden bg-[#EEF1F4] dark:bg-black"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 w-full">
-        {/* Image Container - Reordered for mobile (2nd) */}
-        <div className="order-2 md:order-1 relative w-full h-[300px] sm:h-[400px] md:h-auto bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
-          <div className="relative w-full h-full">
+        <div className="relative w-full min-h-[400px] md:min-h-[500px] bg-[#EEF1F4] dark:bg-black flex items-center justify-center overflow-hidden">
+          {/* Radial Blur Effect */}
+          {/* <div className="absolute inset-0 z-0 bg-radial-[at_center] from-white via-[#AF33FF] to-transparent blur-[2px]"></div> */}
+
+          {/* <div className="relative z-10 w-full aspect-[16/9] md:aspect-auto md:h-full">
+            <Image src={sideImage} alt="" fill className="object-contain" />
+          </div> */}
+          <div className="relative w-full h-[400px] sm:h-[480px] md:h-auto md:min-h-[500px] flex items-center justify-center overflow-hidden">
             <Image
               src={sideImage}
               alt=""
               fill
-              className="object-contain"
+              className="object-contain md:object-cover"
               priority
             />
           </div>
         </div>
-
-        {/* Text Container - Reordered for mobile (1st) */}
-        <div className="order-1 md:order-2 flex flex-col bg-[#1F2123] dark:bg-white w-full p-8 sm:p-12 lg:p-16">
-          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-6 lg:text-6xl text-left">
+        <div className="flex flex-col bg-[#1F2123] dark:bg-white w-full p-6 sm:p-12 lg:p-12">
+          <div className="font-zalando font-normal text-[#D699FF] text-3xl md:text-5xl mb-6 lg:text-6xl">
             {title}
           </div>
           <div className="flex flex-col gap-4">

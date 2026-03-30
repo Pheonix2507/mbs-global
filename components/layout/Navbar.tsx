@@ -51,7 +51,7 @@ const navLinks = [
       { name: "Autonomous Infra & Ops", href: "/services/digital-infra-ops" },
     ],
   },
-  { name: "Blogs", href: "/blogs" },
+  { name: "Insights", href: "/blogs" },
 ];
 
 const Navbar = () => {

@@ -66,6 +66,18 @@ const Services = ({ data }: ServicesProps) => {
     }
   };
 
+  const DURATION = 2000;
+
+  useEffect(() => {
+    if (services.length <= 1) return;
+
+    const timer = setInterval(() => {
+      scroll("right");
+    }, DURATION);
+
+    return () => clearInterval(timer);
+  }, [activeIndex, services.length]);
+
   return (
     <section
       id="services"

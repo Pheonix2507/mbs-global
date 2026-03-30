@@ -59,14 +59,14 @@ const Footer = () => {
                 href="/blogs"
                 className="hover:text-white transition-colors"
               >
-                Blogs
+                Insights
               </Link>
-              <Link
+              {/* <Link
                 href="/partners"
                 className="hover:text-white transition-colors"
               >
                 Our Partners
-              </Link>
+              </Link> */}
             </div>
           </div>
 
@@ -170,7 +170,7 @@ const Footer = () => {
                 href="/blogs"
                 className="hover:text-white transition-colors"
               >
-                blogs
+                Insights
               </Link>
               <Link
                 href="/partners"

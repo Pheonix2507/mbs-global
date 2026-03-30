@@ -42,6 +42,18 @@ const Offerings = ({ data }: OfferingsProps) => {
     setCurrentIndex((prev) => (prev - 1 < 0 ? totalItems - 1 : prev - 1));
   };
 
+  const DURATION = 3000; // 3 seconds per slide
+
+  useEffect(() => {
+    if (offerings.length <= itemsPerPage) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, DURATION);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, itemsPerPage, offerings.length]);
+
   return (
     <section
       id="offerings"

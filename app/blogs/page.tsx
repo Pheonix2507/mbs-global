@@ -32,7 +32,7 @@ export default async function BlogsPage() {
   if (!featuredBlog) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center">
-        <h1 className="text-2xl font-semibold">No blogs found.</h1>
+        <h1 className="text-2xl font-semibold">No Insights found.</h1>
       </main>
     );
   }
@@ -42,7 +42,7 @@ export default async function BlogsPage() {
       <div className="container mx-auto mt-32 px-6 pb-24 max-w-7xl">
         <header className="my-8">
           <h1 className="text-4xl font-zalando font-semibold tracking-tight text-zinc-900 dark:text-white sm:text-6xl">
-            Blogs
+            Insights
           </h1>
         </header>
 

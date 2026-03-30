@@ -7,6 +7,7 @@ import SolutionCarousel from "@/components/sections/SolutionCarousel";
 import SolutionsBanner from "@/components/sections/SolutionsBanner";
 import ServiceMetrics from "@/components/sections/ServiceMetrics";
 import { fetchStrapi } from "@/lib/strapi";
+import GiftCity from "@/components/sections/GiftCity";
 
 const SLUG_TO_ENDPOINT: Record<string, string> = {
   "workspace-solution": "/workspace-solution",
@@ -136,7 +137,9 @@ export default async function SolutionDetail({
         normalizeArray(info).map((item: any, i: number) => (
           <SolutionsSplit key={`info-${i}`} data={item} />
         ))}
-
+      {
+        slug === "workspace-solution" && <GiftCity />
+      }
       {/* METRICS */}
       {metrics && (
         <ServiceMetrics

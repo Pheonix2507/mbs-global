@@ -70,7 +70,7 @@ const AboutUs = async () => {
           <div className="relative overflow-hidden pt-12">
             {/* Heading */}
             <div className="text-center mb-12 md:mb-24">
-              <h3 className="font-zalando font-semibold text-[49px] leading-[120%] text-center text-zinc-900 dark:text-white">
+              <h3 className="font-zalando font-semibold text-3xl md:text-[49px] leading-tight text-center text-zinc-900 dark:text-white px-4">
                 {aboutData?.A_Legacy_of_Transformation?.title}
               </h3>
             </div>

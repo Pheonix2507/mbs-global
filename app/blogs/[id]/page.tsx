@@ -33,7 +33,7 @@ export default async function BlogDetailPage({
     id: blogData.documentId || blogData.id.toString(),
     title: title,
     description: contentText.substring(0, 200) || "",
-    mainImage: getStrapiMedia(media) || "/mechanism.jpg",
+    mainImage: getStrapiMedia(media) || "",
     sections: [
       {
         id: "main-content",

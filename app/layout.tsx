@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Work_Sans, Zalando_Sans_Expanded } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -18,10 +18,79 @@ const zalandoSans = Zalando_Sans_Expanded({
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#D699FF",
+};
+
 export const metadata: Metadata = {
-  title: "MBS Freelance | Premium Digital Experiences",
+  metadataBase: new URL("https://m-b-solutions.com"),
+  title: {
+    default: "MBS Global - Build Distributed Teams Faster",
+    template: "%s | MBS Global",
+  },
   description:
-    "Transforming businesses through modern web design and high-performance development.",
+    "MBS Global empowers enterprises to build high-performing distributed teams, streamline operations, and drive business transformation worldwide.",
+  keywords: [
+    "Distributed Teams",
+    "Workforce Transformation",
+    "Enterprise Solutions",
+    "Global Talent Acquisition",
+    "Business Strategy Consulting",
+    "Remote Team Building",
+    "MBS Global",
+    "Staff Augmentation",
+    "Digital Transformation",
+  ],
+  applicationName: "MBS Global",
+  authors: [{ name: "MBS Global Team" }],
+  publisher: "MBS Global",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/en-US",
+      "en-IN": "/en-IN",
+    },
+  },
+  openGraph: {
+    title: "MBS Global - Build Distributed Teams Faster",
+    description:
+      "MBS Global empowers enterprises to build high-performing distributed teams, streamline operations, and drive business transformation worldwide.",
+    url: "https://m-b-solutions.com",
+    siteName: "MBS Global",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MBS Global logo with professionals collaborating in a modern workspace and a digital global map connecting enterprise talent.",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MBS Global - Build Distributed Teams Faster",
+    description:
+      "MBS Global empowers enterprises to build high-performing distributed teams, streamline operations, and drive business transformation worldwide.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -32,7 +101,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth overflow-x-hidden" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="scroll-smooth overflow-x-hidden"
+      suppressHydrationWarning
+    >
       <body
         className={`${workSans.variable} ${zalandoSans.variable} antialiased transition-colors duration-300 overflow-x-hidden`}
       >

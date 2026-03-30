@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://m-b-solutions.com
+
+# Sitemaps
+Sitemap: https://m-b-solutions.com/sitemap.xml

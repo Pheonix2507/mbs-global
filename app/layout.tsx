@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://m-b-solutions.com"),
+  metadataBase: new URL("https://mbsglobal.io"),
   title: {
     default: "MBS Global - Build Distributed Teams Faster",
     template: "%s | MBS Global",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "MBS Global - Build Distributed Teams Faster",
     description:
       "MBS Global empowers enterprises to build high-performing distributed teams, streamline operations, and drive business transformation worldwide.",
-    url: "https://m-b-solutions.com",
+    url: "https://mbsglobal.io",
     siteName: "MBS Global",
     images: [
       {

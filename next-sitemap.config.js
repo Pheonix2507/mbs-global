@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://m-b-solutions.com",
+  siteUrl: "https://mbsglobal.io",
   generateRobotsTxt: true,
   exclude: ["/api/*"],
 };

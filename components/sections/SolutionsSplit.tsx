@@ -29,7 +29,7 @@ const SolutionsSplit = ({ data }: SolutionsSplitProps) => {
               src={image}
               alt={title}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="object-cover duration-700"
             />
             <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
           </div>

@@ -18,7 +18,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
     : data?.background_image?.mime?.startsWith("video/");
 
   return (
-    <section className="relative h-[90vh] min-h-[500px] md:min-h-screen w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[90vh] min-h-[500px] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
       <div className="absolute inset-0 z-0">
         {isVideo ? (
           <video
@@ -38,7 +38,7 @@ const SolutionsHero = ({ data }: SolutionsHeroProps) => {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-black/50 h-full"></div>
+        <div className="absolute inset-0 h-full"></div>
       </div>
 
       <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto">

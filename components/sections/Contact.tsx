@@ -46,7 +46,7 @@ const Contact = ({ data }: ContactProps) => {
         <div className="text-4xl md:text-6xl font-normal font-zalando mb-8 text-white">
           {title}
         </div>
-        <Link href="/contact" className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center block hover:bg-white hover:text-black transition-colors duration-300">
+        <Link href="/contact" className="relative z-10 max-w-fit mx-auto border border-white rounded-sm py-3 px-6 text-center text-white block hover:bg-white hover:text-black transition-colors duration-300">
           <span className="font-zalando font-normal">
             {buttonText}
           </span>

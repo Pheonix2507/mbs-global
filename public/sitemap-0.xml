@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://m-b-solutions.com/about-us</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/blogs</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/contact</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/services/ai-centric-product-engineering</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/services/data-analytics-cloud-ai</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/services/digital-infra-ops</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/services/platform-product-engineering</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://m-b-solutions.com/solutions</loc><lastmod>2026-03-30T18:15:09.617Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/about-us</loc><lastmod>2026-04-01T16:52:12.676Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/blogs</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/contact</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/services/ai-centric-product-engineering</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/services/data-analytics-cloud-ai</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/services/digital-infra-ops</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/services/platform-product-engineering</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://mbsglobal.io/solutions</loc><lastmod>2026-04-01T16:52:12.677Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

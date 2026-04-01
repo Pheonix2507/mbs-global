@@ -286,22 +286,26 @@ const Footer = () => {
       {/* Bottom Band - White on mobile as per design */}
       <div className="w-full bg-white dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 py-8 border-t border-zinc-100 dark:border-zinc-800">
         <div className="container mx-auto px-6 max-w-7xl">
-          <p className="text-xs md:text-sm leading-relaxed text-center sm:text-left">
-            © 2025 MBS Global •{" "}
-            <Link
-              href="/privacy-policy"
-              className="underline hover:text-black dark:hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </Link>{" "}
-            •{" "}
-            <Link
-              href="/terms-conditions"
-              className="underline hover:text-black dark:hover:text-white transition-colors"
-            >
-              Terms & Conditions
-            </Link>
-          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3 sm:gap-6">
+            <span className="text-xs md:text-sm leading-relaxed text-center sm:text-left">
+              © 2025 MBS Global
+            </span>
+            <div className="flex items-center gap-4 text-sm md:text-base">
+              <Link
+                href="/privacy-policy"
+                className="underline hover:text-black dark:hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-xs md:text-sm text-zinc-400">•</span>
+              <Link
+                href="/terms-conditions"
+                className="underline hover:text-black dark:hover:text-white transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

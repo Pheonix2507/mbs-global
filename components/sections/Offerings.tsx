@@ -18,10 +18,14 @@ interface OfferingsProps {
 }
 
 const Offerings = ({ data }: OfferingsProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
   const offerings = data || [];
   const totalItems = offerings.length;
+  const [itemsPerPage, setItemsPerPage] = useState(3);
+  
+  // Buffers for infinite scroll
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isMoving, setIsMoving] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,27 +36,68 @@ const Offerings = ({ data }: OfferingsProps) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Initialize index to itemsPerPage for buffer
+  useEffect(() => {
+    if (totalItems > 0) {
+      setCurrentIndex(itemsPerPage);
+    }
+  }, [itemsPerPage, totalItems]);
+
   if (!offerings || offerings.length === 0) return null;
 
+  // Duplicate items for seamless loop
+  const displayItems = [
+    ...offerings.slice(-itemsPerPage),
+    ...offerings,
+    ...offerings.slice(0, itemsPerPage),
+  ];
+
+  const handleTransitionEnd = () => {
+    setIsMoving(false);
+    if (currentIndex >= totalItems + itemsPerPage) {
+      setIsTransitioning(false);
+      setCurrentIndex(itemsPerPage);
+    } else if (currentIndex <= 0) {
+      setIsTransitioning(false);
+      setCurrentIndex(totalItems);
+    }
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      // Small delay to allow the jump to happen without animation
+      const raf = requestAnimationFrame(() => {
+        setIsTransitioning(true);
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [isTransitioning]);
+
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1 >= totalItems ? 0 : prev + 1));
+    if (isMoving || !isTransitioning) return;
+    setIsMoving(true);
+    setCurrentIndex((prev) => prev + 1);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 < 0 ? totalItems - 1 : prev - 1));
+    if (isMoving || !isTransitioning) return;
+    setIsMoving(true);
+    setCurrentIndex((prev) => prev - 1);
   };
 
-  const DURATION = 3000; // 3 seconds per slide
+  const DURATION = 3000;
 
   useEffect(() => {
     if (offerings.length <= itemsPerPage) return;
-
     const timer = setInterval(() => {
       nextSlide();
     }, DURATION);
-
     return () => clearInterval(timer);
-  }, [currentIndex, itemsPerPage, offerings.length]);
+  }, [currentIndex, itemsPerPage, offerings.length, isTransitioning, isMoving]);
+
+  // Logical index for dot indicators
+  const logicalIndex =
+    (((currentIndex - itemsPerPage) % totalItems) + totalItems) % totalItems;
 
   return (
     <section
@@ -68,14 +113,15 @@ const Offerings = ({ data }: OfferingsProps) => {
 
         <div className="relative overflow-hidden">
           <div
-            className="flex transition-transform duration-700 ease-in-out"
+            className={`flex ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
             style={{
               transform: `translateX(-${(currentIndex * 100) / itemsPerPage}%)`,
             }}
+            onTransitionEnd={handleTransitionEnd}
           >
-            {offerings.map((item) => (
+            {displayItems.map((item, index) => (
               <div
-                key={item.id}
+                key={`${item.id}-${index}`}
                 className="shrink-0 px-4 flex"
                 style={{ width: `${100 / itemsPerPage}%` }}
               >
@@ -103,34 +149,21 @@ const Offerings = ({ data }: OfferingsProps) => {
           </div>
         </div>
 
-        <div className="mt-16 flex items-center justify-center md:justify-between">
-          <div className="hidden md:flex gap-2">
-            {Array.from({ length: Math.ceil(totalItems / itemsPerPage) }).map(
-              (_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentIndex(i * itemsPerPage)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    Math.floor(currentIndex / itemsPerPage) === i
-                      ? "w-8 bg-zinc-900 dark:bg-white"
-                      : "w-2 bg-zinc-200 dark:bg-zinc-800"
-                  }`}
-                />
-              ),
-            )}
-          </div>
+        <div className="mt-16 flex items-end justify-end md:justify-end">
           <div className="flex gap-4 md:gap-4 w-full justify-end md:w-auto">
             <button
               onClick={prevSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label=""
+              disabled={isMoving}
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900"
+              className="group flex h-[64px] w-[64px] items-center justify-center rounded-full border-2 border-white md:border-zinc-200 bg-transparent md:bg-white transition-all hover:bg-white/10 md:hover:bg-zinc-900 text-white md:text-zinc-900 md:hover:text-white dark:md:border-zinc-800 dark:md:bg-zinc-900 dark:md:text-white dark:md:hover:bg-white dark:md:hover:text-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label=""
+              disabled={isMoving}
             >
               <ChevronRight className="h-6 w-6" />
             </button>

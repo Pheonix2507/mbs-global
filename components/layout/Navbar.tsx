@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import Image from "next/image";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const navLinks = [
   { name: "About", href: "/about-us" },
@@ -57,9 +57,21 @@ const navLinks = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <>
+    <div ref={navRef}>
       {/* ── Navbar — desktop unchanged, mobile gets hamburger ── */}
       <nav className="fixed top-0 left-0 right-0 z-50">
         <div className="flex w-full items-center justify-between px-6 md:px-12 lg:px-30 py-3 backdrop-blur-xl bg-[#1F2123] text-white">
@@ -67,6 +79,7 @@ const Navbar = () => {
           <Link
             href="/"
             className="font-zalando shrink-0 text-xl font-bold tracking-tighter hover:opacity-80 transition-opacity"
+            onClick={() => setOpenDropdown(null)}
           >
             <Image
               src="/mbs-logo.svg"
@@ -82,13 +95,26 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <div key={link.name} className="relative group p-2">
                 {link.subLinks ? (
-                  <div className="text-base font-semibold flex items-center gap-1 hover:text-[#AF33FF] transition-colors cursor-pointer">
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenDropdown(openDropdown === link.name ? null : link.name);
+                    }}
+                    className={`text-base font-semibold flex items-center gap-1 transition-colors cursor-pointer ${
+                      openDropdown === link.name ? "text-[#AF33FF]" : "hover:text-[#AF33FF]"
+                    }`}
+                  >
                     {link.name}
-                    <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform duration-300 ${
+                        openDropdown === link.name ? "rotate-180" : "group-hover:rotate-180"
+                      }`}
+                    />
                   </div>
                 ) : (
                   <Link
                     href={link.href}
+                    onClick={() => setOpenDropdown(null)}
                     className="text-base font-semibold flex items-center gap-1 hover:text-[#AF33FF] transition-colors"
                   >
                     {link.name}
@@ -97,12 +123,19 @@ const Navbar = () => {
 
                 {/* Dropdown Menu — UNCHANGED */}
                 {link.subLinks && (
-                  <div className="absolute left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 ease-out z-50">
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ease-out z-50 ${
+                      openDropdown === link.name
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto"
+                    }`}
+                  >
                     <div className="bg-black/90 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-xl w-64 overflow-hidden flex flex-col p-2">
                       {link.subLinks.map((subLink) => (
                         <Link
                           key={subLink.name}
                           href={subLink.href}
+                          onClick={() => setOpenDropdown(null)}
                           className="px-4 py-3 text-sm font-medium text-zinc-300 hover:text-[#AF33FF] hover:bg-zinc-800/50 rounded-xl transition-all"
                         >
                           {subLink.name}
@@ -139,7 +172,7 @@ const Navbar = () => {
 
       {/* ── Mobile drawer — only visible on mobile ── */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -193,7 +226,10 @@ const Navbar = () => {
                       <Link
                         key={subLink.name}
                         href={subLink.href}
-                        onClick={() => setMobileOpen(false)}
+                        onClick={() => {
+                          setMobileOpen(false);
+                          setOpenDropdown(null);
+                        }}
                         className="px-3 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-[#AF33FF] rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all"
                       >
                         {subLink.name}
@@ -214,7 +250,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
